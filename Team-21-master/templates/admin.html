@@ -1,0 +1,38 @@
+{% extends 'base_admin.html' %} {% block css_content %}
+<script>
+    function pleaseWait() {
+        $('<div>').appendTo('body').addClass('alert alert-info').attr('id', 'tempAlart').html('Updating, please wait...').show();
+    }
+</script>
+{% endblock %} {% block main_content %}
+
+<!-- content -->
+<div class="container">
+    <div class="content">
+        <h3>Welcome to use AGUP publications management system!</h3>
+        <br>
+        <h4>Important Tips:</h4>
+        <ul>
+            <li>Any operation in the management system is irreversible, be caution before implementing any modifications.</li>
+            <li>The initial status of the management system is blank which means there is no researcher in the researcher list.</li>
+            <li>You can use the <b>update</b> button to synchronise the data with the DBLP database. The update function will check every BibTex files and update all data in our system. It will take a few minutes.</li>
+            <li>Now there is only one admin account. If you want to apply a new account, please contact us via<br>
+                <a href="mailto:secretary@cs.adelaide.edu.au" target="_top">Email</a>
+                <br> Telephone: +61 8 8313 5586<br> Facsimile: +61 8 8313 4366
+            </li>
+        </ul>
+        <div class="button">
+            <form class="update" action="/update">
+                <button class="btn btn-lg btn-primary btn-block" id="login-btn" type="submit" value='submit' onclick="pleaseWait()">Update
+                </button>
+            </form>
+        </div>
+        {% if error == '0' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Update success').show().delay(1500).fadeOut();
+        </script>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

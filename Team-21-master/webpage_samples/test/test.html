@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" type="text/css" href="Myweb.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="test.css">
+
+    <title>FrankNeumann</title>
+</head>
+
+<body>
+    <style type="text/css">
+        body {
+            font-family: "微软雅黑";
+        }
+        
+        .list .page {
+            float: left;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            margin-right: 5px;
+            list-style: none;
+        }
+        
+        .current {
+            color: #fff;
+            background: #337ab7;
+        }
+    </style>
+    <div id="paginator" class="paginator">
+        <ul class="list">
+            <li class="page">首页</li>
+            <li class="page">上一页</li>
+            <li class="page">1</li>
+            <li class="page">2</li>
+            <li class="page">3</li>
+            <li class="page">4</li>
+            <li class="page">5</li>
+            <li class="page">6</li>
+            <li class="page">下一页</li>
+            <li class="page">末页</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $('.list').on('click', '.page', function() {
+            $(this).addClass("current").siblings().removeClass("current");
+        });
+    </script>
+
+    ———————————————— 版权声明：本文为CSDN博主「程小秋」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 原文链接：https://blog.csdn.net/golden_wheat/article/details/76921235
+</body>
+
+
+
+</html>

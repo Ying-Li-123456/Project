@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" type="text/css" href="Myweb.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Myweb.css">
+    <title>FrankNeumann</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                        <span class="sr-only">navi</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                        <a href="https://ecms.adelaide.edu.au/computer-science/" class="navbar-brand nav-title" target="_blank" title="University of Adelaide">
+                        University of Adelaide Optimisation and Logistics
+                    </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="Home.html">Home</a></li>
+                            <li class="active"><a href="Researchers.html">Researchers</a></li>
+                            <li class="active"><a href="Publications.html">Publications</a></li>
+                            <li class="active"><a href="Projects.html">Projects</a></li>
+                            <li class="active"><a href="Join.html">Join us</a></li>
+                            <li class="active"><a href="Login.html">Login</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </nav>
+            <h3>Log</h3>
+
+            <div class="row" style="padding-top: 60px;">
+                <div class="col-md-2">
+                    <ul class="list">
+                        <li class="page" id="get-content-1"><a href="#">Parser Log</a></li>
+                        <li class="page" id="get-content-2"><a href="#">Bib Change Log</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <pre id="content1">
+                    Please click one of the options on the left.
+                    The parser_log is the log of parsing process of most recent update.
+                    The bib_change_log is the log of all historical changes in local fields
+                </pre>
+                </div>
+            </div>
+
+
+
+            <footer class="footer navbar-fixed-bottom">
+                <div class="footerContent">Copyright © 2021 MCI Team21</div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $("#get-content-1").click(function() {
+                $.get("./parser_log.txt", {}, function(res) {
+                    // console.log("鍥炶皟鍑芥暟1", res);
+                    $("#content1").text(res)
+                }, "html");
+            })
+            $("#get-content-2").click(function() {
+                $.get("./bib_change_log.txt", {}, function(res) {
+                    // console.log("鍥炶皟鍑芥暟2", res);
+                    $("#content1").text(res)
+                }, "html");
+            })
+        });
+        $('.list').on('click', '.page', function() {
+            $(this).addClass("current").siblings().removeClass("current");
+        });
+    </script>
+</body>
+
+</html>

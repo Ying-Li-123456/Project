@@ -1,0 +1,102 @@
+{% extends 'base_admin.html' %}
+
+{% block css_content %} 
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(event){
+                console.log("Start");
+                event.preventDefault();
+                console.log("continue");
+                $.confirm({
+                    title: 'Please confirm your action.',
+                    content: 'Do you want to delete the researcher?',
+                    type: 'blue',
+                    icon: 'glyphicon glyphicon-question-sign',
+                    backgroundDismiss: true,    
+                    buttons: {
+                        confirm: function(){
+                            event.currentTarget.submit();
+                        },
+                        cancel: function(){
+                            $('<div>').appendTo('body').addClass('alert alert-info').html('The submission is cancled.').show().delay(1500).fadeOut();
+                        }
+                    }
+                });
+
+                console.log("Done");
+            });
+        });
+    </script>
+    <style type="text/css">
+        .jc-bs3-container {background-color: transparent !important;}
+    </style>
+{% endblock %}
+
+{% block main_content %}
+
+
+
+<!-- content -->
+
+
+<div class="content">
+    <form method='post' class="form-signin" id="form1">
+        <h3>Enter the PID to delete a researcher</h3><br>
+        <div class="researcherList">
+            <h4>Existing researcher list:</h4>
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <h5>Name</h5>
+                    </td>
+                    <td>
+                        <h5>PID</h5>
+                    </td>
+                    <td>
+                        <h5>Date in</h5>
+                    </td>
+                    <td>
+                        <h5>Date out</h5>
+                    </td>
+                </tr>
+                {% for researcher in researchers %}
+                <tr>
+                    <td>{{ researcher.name }}</td>
+                    <td>{{ researcher.pid }}</td>
+                    <td>{{ researcher.dayin }}</td>
+                    <td>{{ researcher.dayout }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="modifyResearcher">
+            <h4>Remove researcher:</h4>
+            <lable>PID:</lable>
+            <input type="text" id="pid" class="form-control" name="pid" placeholder="Please enter pid" required>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" id="login-btn" type="submit" value='submit'>submit</button>
+        <div class="tip">
+            <h4> Instruction: </h4>
+            <ul>
+                <li>You can copy the PID from the above list.</li>
+                <li>The deletion is inrreverable. You have to add the researcher back using add researcher function if you delete someone by mistake.</li>
+                <li>Please leave <b>no</b> whitespaces in the PID field.</li>
+            </ul>
+        </div>
+        {% if error == '0' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('The researcher has been deleted!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %} {% if error=='1' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Failed, check and enter the pid again!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %}
+    </form>
+
+</div>
+
+{% endblock %}

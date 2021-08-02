@@ -1,0 +1,17 @@
+.idea
+.DS_Store
+a.out
+FileIndex.txt
+__pycache__
+afterload
+nvimgdb.log
+*.dSYM
+*.code-workspace
+.ccls-cache/
+goto/
+templates/conferences/
+templates/single_person/
+templates/years/
+server/test/*.txt
+*.pyc
+bib_files/

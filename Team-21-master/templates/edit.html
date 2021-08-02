@@ -1,0 +1,68 @@
+{% extends 'base_admin.html' %} {% block css_content %}
+<script>
+    function pleaseWaitEdit() {
+        if ($("form input#url").val() != '') {
+            if ($("form input#nodename").val() != '') {
+                if ($("form input#value").val() != '') {
+                    $('<div>').appendTo('body').addClass('alert alert-info').attr('id', 'tempAlart').html('Processing, please wait...').show();
+                }
+            }
+        }
+    }
+</script>
+{% endblock %} {% block main_content %}
+
+<!-- content -->
+<div class="content">
+
+    <form method='post' class="form-signin" id="form1">
+
+        <h3>Customise the BibTex fields</h3><br> {% if bib_text %}
+
+        <pre id="content1">{{ bib_text }}</pre> {% endif %}
+
+        <div class="modifyResearcher">
+            <lable>BibTex url:</lable>
+            <input type="text" id="url" class="form-control" placeholder="Please enter bibtex url" name="url" required value={{ url }}>
+
+            <lable>Field name:</lable>
+            <input type="text" id="nodename" class="form-control" name="nodename" placeholder="Please enter field name" required>
+
+            <lable>Field value:</lable>
+            <input type="text" id="value" class="form-control" name="value" placeholder="Please enter field value" required>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" id="login-btn" type="submit" value='submit' onclick="pleaseWaitEdit()">submit</button>
+        <div class="tip">
+            <h4> Instruction: </h4>
+            <ul>
+                <li>The system cannot verify the correctness of the node.</li>
+                <li>If conflict occurs, all new changes will <b>replace</b> the original content.</li>
+                <li>All new fileds will be appended to each publication entry.</li>
+                <li>If you want to delete a field, enter "DELETE" in 'Field value'.</li>
+                <li>If you want to hide an entry, enter "HIDE" in 'Field name' and any value(except "DELETE") in 'Field value'.</li>
+                <li>If you want to change an entry from the hidden status to the show status, enter "HIDE" in 'Field name' and "DELETE" in 'Field value'.</li>
+                <li>All changes will be made <b>globally</b>.<br></li>
+                Please be <b>careful</b>!
+            </ul>
+        </div>
+        {% if error=='0' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Edit success!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %} {% if error=='1' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Failed, no bib found!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %} {% if error=='2' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Failed, field name incorrect!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %}
+    </form>
+</div>
+
+{% endblock %}

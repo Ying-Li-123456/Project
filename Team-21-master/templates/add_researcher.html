@@ -1,0 +1,100 @@
+{% extends 'base_admin.html' %} {% block css_content %}
+<script>
+    function pleaseWaitAdd() {
+
+        // var correct = 0;
+        // if($("form input").each(function(){ var inside = $(this).val(); if(inside != '') {++correct; console.log($(this).val());}}) && correct == 2)
+        if ($("form input#fullname").val() != '') {
+            if ($("form input#pid").val() != '') {
+                if ($("form input#dayin").val() != '') {
+                    // console.log($("form").val());
+                    $('<div>').appendTo('body').addClass('alert alert-info').attr('id', 'tempAlart').html('Updating, please wait...').show();
+                }
+            }
+        }
+    }
+</script>
+{% endblock %} {% block main_content %}
+
+<!-- content -->
+<div class="content">
+    <form method='post' class="form-signin" id="form1">
+        <h3>Add researcher to the researcher list</h3><br>
+        <div class="researcherList">
+            <h4>Existing researcher list:</h4>
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <h5>Name</h5>
+                    </td>
+                    <td>
+                        <h5>PID</h5>
+                    </td>
+                    <td>
+                        <h5>Employment start date</h5>
+                    </td>
+                    <td>
+                        <h5>Employment end date</h5>
+                    </td>
+                </tr>
+                {% for researcher in researchers %}
+                <tr>
+                    <td>{{ researcher.name }}</td>
+                    <td>{{ researcher.pid }}</td>
+                    <td>{{ researcher.dayin }}</td>
+                    <td>{{ researcher.dayout }}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="modifyResearcher">
+            <h4>Add researcher:</h4>
+            <lable>Full Name:</lable>
+            <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Please enter full name" required>
+            <lable>PID:</lable>
+            <input type="text" id="pid" class="form-control" name="pid" placeholder="Please enter pid" required>
+            <lable>Employment start date:</lable>
+            <input type="text" id="dayin" class="form-control" name="dayin" placeholder="{{ today }}" required>
+            <lable>Employment end date:</lable>
+            <input type="text" id="dayout" class="form-control" name="dayout" placeholder="2099-12-12">
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" id="login-btn" type="submit" value='submit' onclick="pleaseWaitAdd()">submit</button>
+        <div class="tip">
+            <h4> Instruction: </h4>
+            <ul>
+                <li><b>Name</b> and unique <b>PID</b> are required fields.</li>
+                <li><b>PID</b> is the persistent URL of researchers, it can be found in the 'share bibliography' section.</li>
+                <li><b>PID</b> is the vitally important information in our managemt system, its correctness will directly affect the outcome.</li>
+                <li><b>Name</b> is the identifier in our parsing system, it will be recognised as the offcial name of the researcher.</li>
+                <li>There should be no any other symbols in the <b>name</b> field except whitespace.</li>
+                <li>The format of <b>Employment start date</b> is YYYY-MM-DD. This is a required field.</li>
+                <li><b>Employment end date</b> is not a required field and the assumed date is '2099-12-12'.</li>
+            </ul>
+        </div>
+        {% if name != null %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('The researcher {{ name }} has been added!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %} {% if error=='1' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Failed, the researcher is already in list!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %} {% if error=='2' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Failed, pid is not correct!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %} {% if error=='3' %}
+        <script>
+            $('div#tempAlart').fadeOut();
+            $('<div>').appendTo('body').addClass('alert alert-info').html('Failed, name formatting error, please recheck!').show().delay(1500).fadeOut();
+        </script>
+        {% endif %}
+
+    </form>
+</div>
+{% endblock %}

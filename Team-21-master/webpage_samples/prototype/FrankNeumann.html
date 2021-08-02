@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" type="text/css" href="Myweb.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Myweb.css">
+
+    <title>FrankNeumann</title>
+    <script type="text/javascript">
+        $(function() {
+            // search type
+            $(".search-by").click(function() {
+                var data = $(this).attr("data");
+                if (data == "year") {
+                    $("#check-years-content").show();
+                    $("#check-type-content").hide();
+                    $("#dropdownMenu1").text("By Year")
+                } else {
+                    $("#check-type-content").show();
+                    $("#check-years-content").hide();
+                    $("#dropdownMenu1").text("By Type")
+                }
+            });
+
+
+            // year change
+            $("input[name='select_year']").change(
+                function() {
+                    console.log(this.value, $(this).attr("checked"));
+                    if ($(this).is(":checked")) {
+                        console.log('div.' + this.value);
+                        $('div.' + this.value).fadeIn();
+                    } else {
+                        $('div.' + this.value).fadeOut();
+                        console.log('div.' + this.value);
+                    }
+                }
+            );
+            // type change via js
+            $("input[name='select_type']").change(function() {
+                if ($(this).is(":checked")) {
+                    console.log('div.' + this.value);
+                    $('p.' + this.value).fadeIn();
+                } else {
+                    $('p.' + this.value).fadeOut();
+                    console.log('div.' + this.value);
+                }
+            });
+
+            $("#deselect-year-all").click(function() {
+                $(":input[name='select_year']").each(function() {
+                    $(this).attr("checked", false);
+                    $(this).trigger("change");
+                })
+            });
+
+            $("#deselect-type-all").click(function() {
+                $(":input[name='select_type']").each(function() {
+                    $(this).attr("checked", false);
+                    $(this).trigger("change");
+                })
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- move the quick link to the container -->
+        <div class="quick_link">
+            <a href="#top"> <span>&#10514;</span>
+            </a><br />
+            <a href="#20">20-</a><br />
+            <a href="#10">10-20</a><br />
+            <a href="#00">00-10</a><br />
+            <a href="#bottom"><span>&#10515;</span></a><br />
+        </div>
+        <div class="mainHeader">
+            <img src="UoA_logo.png" alt="University of Adelaide" usemap="#mymap" />
+            <map name="mymap">
+        <area href="https://www.adelaide.edu.au/" target="_blank" shape="default" alt="University of Adelaide" />
+      </map>
+            <h2 id="campusHeader">
+                <a href="https://ecms.adelaide.edu.au/computer-science/" target="_blank" rel="noopener noreferrer">School of
+          Computer Science</a>
+            </h2>
+            <h1 id="header">University of Adelaide Optimisation and Logistics</h1>
+        </div>
+        <!-- navigation bar -->
+        <div class="navigation">
+            <ul class="list">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Researchers.html">Researchers</a></li>
+                <li><a href="Publications.html">Publications</a></li>
+                <li><a href="Projects.html">Projects</a></li>
+                <li><a href="Join.html">Join us</a></li>
+                <li><a href="Search.html">Search</a></li>
+            </ul>
+        </div>
+
+        <!-- search type -->
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Search Type
+        <span class="caret"></span>
+      </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a class="search-by" href="javascript:;" id="search-by-year" data="year">By Year</a></li>
+                <li><a class="search-by" href="javascript:;" id="search-by-type" data="type">By Type</a></li>
+            </ul>
+        </div>
+
+        <!-- content -->
+        <div class="content">
+            <h3>Publications of Prof Frank Neumann</h3>
+            <p>The publications of <a href="FrankNeumannHomepage.html">Prof Frank Neumann</a> are listed as following. Other lists are as following:</p>
+            <ul>
+                <li>
+                    years:
+                    <a href="2021.html">2021, </a>
+                    <a href="2020.html">2020, </a>
+                    <a href="2019.html">2019, </a>
+                    <a href="2018.html">2018, </a>
+                    <a href="2017.html">2017, </a>
+                    <a href="2016.html">2016, </a>
+                    <a href="2015.html">2015, </a>
+                    <a href="2014.html">2014, </a>
+                    <a href="2013.html">2013, </a>
+                    <a href="2012.html">2012, </a>
+                    <a href="2011.html">2011, </a>
+                    <a href="2010.html">2010, </a>
+                    <a href="2009.html">2009, </a>
+                    <a href="2008.html">2008, </a>
+                    <a href="2007.html">2007, </a>
+                    <a href="2006.html">2006, </a>
+                    <a href="2005.html">2005, </a>
+                    <a href="2004.html">2004, </a>
+                </li>
+                <li>
+                    researchers:
+                    <a href="FrankNeumann.html">Prof Frank Neumann, </a>
+                    <a href="MarkusWagner.html">Dr. Markus Wagner, </a>
+                </li>
+                <li>
+                    conferences:
+                    <a href>IAAI, </a>
+                    <a href>ECAI, </a>
+                    <a href>GECCO, </a>
+                    <a href>PPSN, </a>
+                    <a href>AAAI, </a>
+                    <a href>EMO, </a>
+                </li>
+            </ul>
+        </div>
+        <div class="check_years" id="check-years-content" style="display:none;">
+            <input type="checkbox" name="select_year" value="2021" checked="checked">2021<br>
+            <input type="checkbox" name="select_year" value="2020" checked="checked">2020<br>
+            <input type="checkbox" name="select_year" value="2019" checked="checked">2019<br>
+            <input type="checkbox" name="select_year" value="2018" checked="checked">2018<br>
+            <input type="checkbox" name="select_year" value="2017" checked="checked">2017<br>
+            <input type="checkbox" name="select_year" value="2016" checked="checked">2016<br>
+            <input type="checkbox" name="select_year" value="2015" checked="checked">2015<br>
+            <input type="checkbox" name="select_year" value="2014" checked="checked">2014<br>
+            <input type="checkbox" name="select_year" value="2013" checked="checked">2013<br>
+            <input type="checkbox" name="select_year" value="2012" checked="checked">2012<br>
+            <input type="checkbox" name="select_year" value="2011" checked="checked">2011<br>
+            <input type="checkbox" name="select_year" value="2010" checked="checked">2010<br>
+            <input type="checkbox" name="select_year" value="2009" checked="checked">2009<br>
+            <input type="checkbox" name="select_year" value="2008" checked="checked">2008<br>
+            <input type="checkbox" name="select_year" value="2007" checked="checked">2007<br>
+            <input type="checkbox" name="select_year" value="2006" checked="checked">2006<br>
+            <input type="checkbox" name="select_year" value="2005" checked="checked">2005<br>
+            <input type="checkbox" name="select_year" value="2004" checked="checked">2004<br>
+            <!-- <button id="select-year-all">select all</button> -->
+            <button id="deselect-year-all">deselect all</button>
+        </div>
+        <div id="check-type-content" style="display:none;">
+            <div class="checkbox">
+                <label>
+          <input type="checkbox" value="article" name="select_type" checked="checked"> Article
+        </label>
+                <label>
+          <input type="checkbox" value="book" name="select_type" checked="checked"> Book
+        </label>
+                <label>
+          <input type="checkbox" value="incollection" name="select_type" checked="checked"> Incollection
+        </label>
+                <label>
+          <input type="checkbox" value="proceedings" name="select_type" checked="checked"> Proceedings
+        </label>
+                <label>
+          <input type="checkbox" value="inproceedings" name="select_type" checked="checked"> Inproceedings
+        </label>
+                <label>
+          <input type="checkbox" value="phdthesis" name="select_type" checked="checked"> Phdthesis
+        </label>
+                <button id="deselect-type-all">deselect all</button>
+            </div>
+        </div>
+        <div class="publications">
+            <div class="2021">
+                <br>
+                <!-- 
+          Because the webpage is too long, so we need a hyperlink to go to the end and back to top 
+        -->
+                <!-- <a href="#bottom">Go to the end</a> -->
+
+                <h2 id="20">2021</h2><br>
+                <p class="article 2021">
+                    Yue Xie; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2102.05303/">Heuristic Strategies for Solving Complex Interacting Stockpile
+            BlendingProblem with Chance Constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2102-05303.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2021">
+                    Yue Xie; Aneta Neumann; Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://arxiv.org/abs/2102.05778/">Runtime Analysis of {RLS} and the {(1+1)} {EA} for the
+            Chance-constrainedKnapsack Problem with Correlated Uniform Weights.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2102-05778.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2021">
+                    Anh Viet Do; Mingyu Guo; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2102.11469/">Analysis of Evolutionary Diversity Optimisation for Permutation
+            Problems.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2102-11469.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2020">
+                <h2 id="10">2020</h2><br>
+                <p class="article 2020">
+                    Feng Shi; Martin Schirneck; Tobias Friedrich; Timo K{\"{o}}tzing; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s00453-020-00739-x/">Correction to: Reoptimization Time Analysis of
+            Evolutionary Algorithmson Linear Functions Under Dynamic Uniform Constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/ShiSFKN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Behrooz Ghasemishabankareh; Xiaodong Li; Melih Ozlen; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.asoc.2019.105951/">Probabilistic tree-based representation for solving
+            minimum cost integerflow problems with nonlinear non-convex cost functions.<br></a>
+                    <a href="https://dblp.org/rec/journals/asc/Ghasemishabankareh20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Aneta Neumann; Bradley Alexander; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1162/evco\_a\_00270/">Evolutionary Image Transition and Painting Using Random
+            Walks.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/NeumannAN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Tat{-}Jun Chin; Zhipeng Cai; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s11263-019-01207-y/">Robust Fitting in Computer Vision: Easy or
+            Hard?.<br></a>
+                    <a href="https://dblp.org/rec/journals/ijcv/ChinCN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Tobias Friedrich; Timo K{\"{o}}tzing; J. A. Gregor Lagodzinski; Frank Neumann; Martin Schirneck; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2018.04.051/">Analysis of the (1{\unicode{8239}}+{\unicode{8239}}1)
+            {EA} on subclassesof linear functions under uniform and linear constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/FriedrichKLNS20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Mojgan Pourhassan; Vahid Roostapour; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2019.03.003/">Runtime analysis of {RLS} and
+            (1{\unicode{8239}}+{\unicode{8239}}1){EA} for the dynamic weighted vertex cover problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/PourhassanRN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Edgar Covantes Osuna; Wanru Gao; Frank Neumann; Dirk Sudholt; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2018.06.009/">Design and analysis of diversity-based parent selection
+            schemes forspeeding up evolutionary multi-objective optimisation.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/OsunaGNS20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Benjamin Doerr; Carola Doerr; Aneta Neumann; Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://aaai.org/ojs/index.php/AAAI/article/view/5504/">Optimization of Chance-Constrained Submodular
+            FunctionsThe Thirty-Fourth {AAAI} Conference on Artificial Intelligence, {AAAI}2020, The Thirty-Second
+            Innovative Applications of Artificial IntelligenceConference, {IAAI} 2020, The Tenth {AAAI} Symposium on
+            EducationalAdvances in Artificial Intelligence, {EAAI} 2020, New York, NY, USA,.<br></a>
+                    <a href="https://dblp.org/rec/conf/aaai/DoerrD0NS20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Maryam Hasani{-}Shoreh; Renato Hermoza Aragon{\'{e}}s; Frank Neumann; <br>
+                    <a href="https://doi.org/10.3233/FAIA200103/">Neural Networks in Evolutionary Dynamic Constrained
+            Optimization:Computational Cost and Benefits{ECAI} 2020 - 24th European Conference on Artificial
+            Intelligence,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ecai/Hasani-ShorehA020.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Hirad Assimi; Oscar Harper; Yue Xie; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.3233/FAIA200107/">Evolutionary Bi-Objective Optimization for the Dynamic
+            Chance-ConstrainedKnapsack Problem Based on Tail Bound Objectives{ECAI} 2020 - 24th European Conference on
+            Artificial Intelligence,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ecai/AssimiHXN020.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Vanja Doskoc; Tobias Friedrich; Andreas G{\"{o}}bel; Aneta Neumann; Frank Neumann; Francesco Quinzan; <br>
+                    <a href="https://doi.org/10.3233/FAIA200123/">Non-Monotone Submodular Maximization with Multiple Knapsacks in
+            Staticand Dynamic Settings{ECAI} 2020 - 24th European Conference on Artificial Intelligence,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ecai/Doskoc00N0Q20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Yue Xie; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3377930.3390162/">Specific single- and multi-objective evolutionary
+            algorithms for thechance-constrained knapsack problem{GECCO} '20: Genetic and Evolutionary Computation
+            Conference, Canc{\'{u}}nMexico, July 8-12, 2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/XieN020.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2020">
+                    Vahid Roostapour; Jakob Bossek; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3377930.3390168/">Runtime analysis of evolutionary algorithms with biased
+            mutation forthe multi-objective minimum spanning tree problem{GECCO} '20: Genetic and Evolutionary
+            Computation Conference, Canc{\'{u}}nMexico, July 8-12, 2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/RoostapourB020.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Anh Viet Do; Jakob Bossek; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3377930.3389844/">Evolving diverse sets of tours for the travelling
+            salesperson problem{GECCO} '20: Genetic and Evolutionary Computation Conference, Canc{\'{u}}nMexico, July
+            8-12, 2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/DoBN020.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2020">
+                    Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3377929.3389853/">Evolutionary computation for digital art{GECCO} '20:
+            Genetic and Evolutionary Computation Conference, CompanionVolume, Canc{\'{u}}n, Mexico, July 8-12,
+            2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/0001N20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2020">
+                    Jakob Bossek; Frank Neumann; Pan Peng; Dirk Sudholt; <br>
+                    <a href="https://doi.org/10.1145/3377930.3390174/">More effective randomized search heuristics for graph
+            coloring throughdynamic optimization{GECCO} '20: Genetic and Evolutionary Computation Conference,
+            Canc{\'{u}}nMexico, July 8-12, 2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/Bossek00S20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Jakob Bossek; Katrin Casel; Pascal Kerschke; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3377930.3390243/">The node weight dependent traveling salesperson problem:
+            approximationalgorithms and randomized search heuristics{GECCO} '20: Genetic and Evolutionary Computation
+            Conference, Canc{\'{u}}nMexico, July 8-12, 2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/BossekCK020.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Ragav Sachdeva; Frank Neumann; Markus Wagner; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-63823-8\_27/">The Dynamic Travelling Thief Problem: Benchmarks and
+            Performance ofEvolutionary AlgorithmsNeural Information Processing - 27th International Conference,
+            {ICONIP}2020, Bangkok, Thailand, November 18-22, 2020, Proceedings, Part {V}.<br></a>
+                    <a href="https://dblp.org/rec/conf/iconip/Sachdeva0020.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Jakob Bossek; Carola Doerr; Pascal Kerschke; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-58112-1\_8/">Evolving Sampling Strategies for One-Shot Optimization
+            TasksParallel Problem Solving from Nature - {PPSN} {XVI} - 16th InternationalConference, {PPSN} 2020,
+            Leiden, The Netherlands, September 5-9, 2020,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/BossekDKNN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Jakob Bossek; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-58112-1\_24/">Optimising Tours for the Weighted Traveling
+            Salesperson Problem andthe Traveling Thief Problem: {A} Structural Comparison of SolutionsParallel Problem
+            Solving from Nature - {PPSN} {XVI} - 16th InternationalConference, {PPSN} 2020, Leiden, The Netherlands,
+            September 5-9, 2020,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/BossekNN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2020">
+                    Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-58112-1\_28/">Optimising Monotone Chance-Constrained Submodular
+            Functions UsingEvolutionary Multi-objective AlgorithmsParallel Problem Solving from Nature - {PPSN} {XVI} -
+            16th InternationalConference, {PPSN} 2020, Leiden, The Netherlands, September 5-9, 2020,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/NeumannN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2020">
+                    Anh Viet Do; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-58115-2\_41/">Maximizing Submodular or Monotone Functions Under
+            Partition MatroidConstraints by Multi-objective Evolutionary AlgorithmsParallel Problem Solving from Nature
+            - {PPSN} {XVI} - 16th InternationalConference, {PPSN} 2020, Leiden, The Netherlands, September 5-9,
+            2020,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/DoN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2020">
+                    Maryam Hasani{-}Shoreh; Renato Hermoza Aragon{\'{e}}s; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/SSCI47803.2020.9308154/">Using Neural Networks and Diversifying Differential
+            Evolution forDynamic Optimisation2020 {IEEE} Symposium Series on Computational Intelligence, {SSCI}2020,
+            Canberra, Australia, December 1-4, 2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/ssci/Hasani-ShorehAN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2020">
+                    Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/SSCI47803.2020.9308547/">Human Interactive EEG-Based Evolutionary Image
+            Animation2020 {IEEE} Symposium Series on Computational Intelligence, {SSCI}2020, Canberra, Australia,
+            December 1-4, 2020.<br></a>
+                    <a href="https://dblp.org/rec/conf/ssci/NeumannN20.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2020">
+                    Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://arxiv.org/abs/2001.05120/">Parameterized Complexity Analysis of Randomized Search
+            Heuristics.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2001-05120.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Feng Shi; Frank Neumann; Jianxin Wang; <br>
+                    <a href="https://arxiv.org/abs/2001.08903/">Runtime Performances of Randomized Search Heuristics for the
+            DynamicWeighted Vertex Cover Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2001-08903.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Maryam Hasani{-}Shoreh; Renato Hermoza Aragon{\'{e}}s; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2001.11588/">Neural Networks in Evolutionary Dynamic Constrained
+            Optimization:Computational Cost and Benefits.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2001-11588.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Jakob Bossek; Katrin Casel; Pascal Kerschke; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2002.01070/">The Node Weight Dependent Traveling Salesperson Problem:
+            ApproximationAlgorithms and Randomized Search Heuristics.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2002-01070.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Hirad Assimi; Oscar Harper; Yue Xie; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2002.06766/">Evolutionary Bi-objective Optimization for the Dynamic
+            Chance-ConstrainedKnapsack Problem Based on Tail Bound Objectives.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2002-06766.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Aneta Neumann; Bradley Alexander; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2003.01517/">Evolutionary Image Transition and Painting Using Random
+            Walks.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2003-01517.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Yue Xie; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2004.03205/">Specific Single- and Multi-Objective Evolutionary Algorithms for
+            theChance-Constrained Knapsack Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2004-03205.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Anh Viet Do; Jakob Bossek; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2004.09188/">Evolving Diverse Sets of Tours for the Travelling Salesperson
+            Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2004-09188.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Vahid Roostapour; Jakob Bossek; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2004.10424/">Runtime Analysis of Evolutionary Algorithms with Biased Mutation
+            forthe Multi-Objective Minimum Spanning Tree Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2004-10424.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Ragav Sachdeva; Frank Neumann; Markus Wagner; <br>
+                    <a href="https://arxiv.org/abs/2004.12045/">The Dynamic Travelling Thief Problem: Benchmarks and Performance
+            ofEvolutionary Algorithms.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2004-12045.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Vahid Roostapour; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2004.12574/">Evolutionary Multi-Objective Optimization for the Dynamic
+            KnapsackProblem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2004-12574.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Jakob Bossek; Frank Neumann; Pan Peng; Dirk Sudholt; <br>
+                    <a href="https://arxiv.org/abs/2005.13825/">More Effective Randomized Search Heuristics for Graph Coloring
+            ThroughDynamic Optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2005-13825.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Jakob Bossek; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2006.03260/">Optimising Tours for the Weighted Traveling Salesperson Problem
+            andthe Traveling Thief Problem: {A} Structural Comparison of Solutions.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2006-03260.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2006.11444/">Optimising Monotone Chance-Constrained Submodular Functions
+            UsingEvolutionary Multi-Objective Algorithms.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2006-11444.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Anh Viet Do; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2006.12773/">Maximizing Submodular or Monotone Functions under Partition
+            MatroidConstraints by Multi-objective Evolutionary Algorithms.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2006-12773.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Benjamin Doerr; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2006.16709/">A Survey on Recent Progress in the Theory of Evolutionary
+            Algorithmsfor Discrete Optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2006-16709.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Maryam Hasani{-}Shoreh; Renato Hermoza Aragon{\'{e}}s; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2008.04002/">Using Neural Networks and Diversifying Differential Evolution
+            forDynamic Optimisation.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2008-04002.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Derek Weber; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2010.08180/">Who's in the Gang? Revealing Coordinating Communities in Social
+            Media.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2010-08180.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Frank Neumann; Mojgan Pourhassan; Carsten Witt; <br>
+                    <a href="https://arxiv.org/abs/2010.10885/">Improved Runtime Results for Simple Randomised Search Heuristics
+            onLinear Functions with a Uniform Constraint.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2010-10885.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Jakob Bossek; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2010.10913/">Evolutionary Diversity Optimization and the Minimum Spanning
+            TreeProblem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2010-10913.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Aneta Neumann; Jakob Bossek; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2010.11486/">Computing Diverse Sets of Solutions for Monotone Submodular
+            OptimisationProblems.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2010-11486.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2020">
+                    Anh Viet Do; Frank Neumann; <br>
+                    <a href="https://arxiv.org/abs/2012.08738/">Pareto Optimization for Subset Selection with Dynamic Partition
+            MatroidConstraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-2012-08738.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2019">
+                <h2>2019</h2><br>
+                <p class="article 2019">
+                    Aneta Neumann; Frank Neumann; Tobias Friedrich; <br>
+                    <a href="http://ajiips.com.au/papers/V16.1/v16n1\_14-22.pdf/">Quasi-random Image Transition and
+            Animation.<br></a>
+                    <a href="https://dblp.org/rec/journals/ajiips/NeumannNF19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Feng Shi; Martin Schirneck; Tobias Friedrich; Timo K{\"{o}}tzing; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s00453-018-0451-4/">Reoptimization Time Analysis of Evolutionary Algorithms
+            on LinearFunctions Under Dynamic Uniform Constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/ShiSFKN19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Holger H. Hoos; Frank Neumann; Heike Trautmann; <br>
+                    <a href="https://doi.org/10.1162/evco\_e\_00246/">Foreword.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/HoosNT19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2019">
+                    Pascal Kerschke; Holger H. Hoos; Frank Neumann; Heike Trautmann; <br>
+                    <a href="https://doi.org/10.1162/evco\_a\_00242/">Automated Algorithm Selection: Survey and
+            Perspectives.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/KerschkeHNT19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Mojgan Pourhassan; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1162/evco\_a\_00233/">Theoretical Analysis of Local Search and Simple Evolutionary
+            Algorithmsfor the Generalized Travelling Salesperson Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/PourhassanN19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Mojgan Pourhassan; Feng Shi; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1162/evco\_a\_00255/">Parameterized Analysis of Multiobjective Evolutionary
+            Algorithms andthe Weighted Vertex Cover Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/PourhassanSN19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Tobias Friedrich; Andreas G{\"{o}}bel; Frank Neumann; Francesco Quinzan; Ralf Rothenberger; <br>
+                    <a href="https://doi.org/10.1609/aaai.v33i01.33012272/">Greedy Maximization of Functions with Bounded
+            Curvature under PartitionMatroid ConstraintsThe Thirty-Third {AAAI} Conference on Artificial Intelligence,
+            {AAAI}2019, The Thirty-First Innovative Applications of Artificial IntelligenceConference, {IAAI} 2019, The
+            Ninth {AAAI} Symposium on EducationalAdvances in Artificial Intelligence, {EAAI} 2019, Honolulu,
+            Hawaii,.<br></a>
+                    <a href="https://dblp.org/rec/conf/aaai/000100QR19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1609/aaai.v33i01.33012346/">Evolving Solutions to Community-Structured
+            Satisfiability FormulasThe Thirty-Third {AAAI} Conference on Artificial Intelligence, {AAAI}2019, The
+            Thirty-First Innovative Applications of Artificial IntelligenceConference, {IAAI} 2019, The Ninth {AAAI}
+            Symposium on EducationalAdvances in Artificial Intelligence, {EAAI} 2019, Honolulu, Hawaii,.<br></a>
+                    <a href="https://dblp.org/rec/conf/aaai/0001S19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Vahid Roostapour; Aneta Neumann; Frank Neumann; Tobias Friedrich; <br>
+                    <a href="https://doi.org/10.1609/aaai.v33i01.33012354/">Pareto Optimization for Subset Selection with Dynamic
+            Cost ConstraintsThe Thirty-Third {AAAI} Conference on Artificial Intelligence, {AAAI}2019, The Thirty-First
+            Innovative Applications of Artificial IntelligenceConference, {IAAI} 2019, The Ninth {AAAI} Symposium on
+            EducationalAdvances in Artificial Intelligence, {EAAI} 2019, Honolulu, Hawaii,.<br></a>
+                    <a href="https://dblp.org/rec/conf/aaai/RoostapourN0019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Wanru Gao; Mojgan Pourhassan; Vahid Roostapour; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-12598-1\_40/">Runtime Analysis of Evolutionary Multi-objective
+            Algorithms Optimisingthe Degree and Diameter of Spanning TreesEvolutionary Multi-Criterion Optimization -
+            10th International Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/emo/GaoPRN19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Jakob Bossek; Pascal Kerschke; Aneta Neumann; Markus Wagner; Frank Neumann; Heike Trautmann; <br>
+                    <a href="https://doi.org/10.1145/3299904.3340307/">Evolving diverse {TSP} instances by means of novel and
+            creative mutationoperatorsProceedings of the 15th {ACM/SIGEVO} Conference on Foundations ofGenetic
+            Algorithms, {FOGA} 2019, Potsdam, Germany, August 27-29, 2019.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/BossekKN00T19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Vahid Roostapour; Mojgan Pourhassan; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3299904.3340313/">Analysis of baseline evolutionary algorithms for the
+            packing whiletravelling problemProceedings of the 15th {ACM/SIGEVO} Conference on Foundations ofGenetic
+            Algorithms, {FOGA} 2019, Potsdam, Germany, August 27-29, 2019.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/RoostapourP019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Feng Shi; Frank Neumann; Jianxin Wang; <br>
+                    <a href="https://doi.org/10.1145/3299904.3340314/">Runtime analysis of evolutionary algorithms for the depth
+            restricted(1, 2)-minimum spanning tree problemProceedings of the 15th {ACM/SIGEVO} Conference on Foundations
+            ofGenetic Algorithms, {FOGA} 2019, Potsdam, Germany, August 27-29, 2019.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/00030W19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1145/3299904.3340315/">Runtime analysis of the {(1} + 1) evolutionary algorithm
+            for the chance-constrainedknapsack problemProceedings of the 15th {ACM/SIGEVO} Conference on Foundations
+            ofGenetic Algorithms, {FOGA} 2019, Potsdam, Germany, August 27-29, 2019.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/0001S19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Benjamin Doerr; Carola Doerr; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3321707.3321731/">Fast re-optimization via structural diversityProceedings of
+            the Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/DoerrD019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Yue Xie; Oscar Harper; Hirad Assimi; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3321707.3321869/">Evolutionary algorithms for the chance-constrained knapsack
+            problemProceedings of the Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/XieHAN019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Jakob Bossek; Christian Grimme; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3321707.3321818/">On the benefits of biased edge-exchange mutation for the
+            multi-criteriaspanning tree problemProceedings of the Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/BossekG019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Aneta Neumann; Wanru Gao; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3321707.3321796/">Evolutionary diversity optimization using multi-objective
+            indicatorsProceedings of the Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannG0019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3319619.3323375/">Evolutionary computation for digital artProceedings of the
+            Genetic and Evolutionary Computation ConferenceCompanion, {GECCO} 2019, Prague, Czech Republic, July 13-17,
+            2019.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/Neumann019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Jakob Bossek; Frank Neumann; Pan Peng; Dirk Sudholt; <br>
+                    <a href="https://doi.org/10.1145/3321707.3321792/">Runtime analysis of randomized search heuristics for
+            dynamic graphcoloringProceedings of the Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/Bossek0PS19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2019">
+                    Frank Neumann; Mojgan Pourhassan; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1145/3321707.3321722/">Improved runtime results for simple randomised search
+            heuristics onlinear functions with a uniform constraintProceedings of the Genetic and Evolutionary
+            Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/0001PW19.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2019">
+                    Maryam Hasani{-}Shoreh; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-36708-4\_53/">On the Use of Diversity Mechanisms in Dynamic
+            Constrained ContinuousOptimizationNeural Information Processing - 26th International Conference,
+            {ICONIP}2019, Sydney, NSW, Australia, December 12-15, 2019, Proceedings, Part{I}.<br></a>
+                    <a href="https://dblp.org/rec/conf/iconip/Hasani-Shoreh019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="incollection 2019">
+                    Mohammad Reza Bonyadi; Zbigniew Michalewicz; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-01641-8\_2/">Evolutionary Computation for Multicomponent Problems:
+            Opportunitiesand Future DirectionsOptimization in Industry, Present Practices and Future Scopes.<br></a>
+                    <a href="https://dblp.org/rec/books/sp/19/BonyadiM0019.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Benjamin Doerr; Carola Doerr; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1902.00304/">Fast Re-Optimization via Structural Diversity.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1902-00304.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    {\'{A}}lvaro Parra Bustos; Tat{-}Jun Chin; Frank Neumann; Tobias Friedrich; Maximilian Katzmann; <br>
+                    <a href="http://arxiv.org/abs/1902.01534/">A Practical Maximum Clique Algorithm for Matching with Pairwise
+            Constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1902-01534.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Vahid Roostapour; Mojgan Pourhassan; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1902.04692/">Analysis of Baseline Evolutionary Algorithms for the Packing
+            WhileTravelling Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1902-04692.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Yue Xie; Oscar Harper; Hirad Assimi; Aneta Neumann; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1902.04767/">Evolutionary Algorithms for the Chance-Constrained Knapsack
+            Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1902-04767.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Mojgan Pourhassan; Vahid Roostapour; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1903.02195/">Runtime Analysis of {RLS} and {(1+1)} {EA} for the Dynamic
+            WeightedVertex Cover Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1903-02195.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Maryam Hasani{-}Shoreh; Maria Yaneli Ameca{-}Alducin; Wilson Blaikie; Frank Neumann; Marc Schoenauer; <br>
+                    <a href="http://arxiv.org/abs/1905.04099/">On the Behaviour of Differential Evolution for Problems with
+            DynamicLinear Constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1905-04099.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Maryam Hasani{-}Shoreh; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1910.06062/">On the Use of Diversity Mechanisms in Dynamic Constrained
+            ContinuousOptimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1910-06062.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Vanja Doskoc; Tobias Friedrich; Andreas G{\"{o}}bel; Frank Neumann; Aneta Neumann; Francesco Quinzan; <br>
+                    <a href="http://arxiv.org/abs/1911.06791/">Non-Monotone Submodular Maximization with Multiple Knapsacks in
+            Staticand Dynamic Settings.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1911-06791.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Benjamin Doerr; Carola Doerr; Aneta Neumann; Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="http://arxiv.org/abs/1911.11451/">Optimization of Chance-Constrained Submodular Functions.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1911-11451.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2019">
+                    Jakob Bossek; Pascal Kerschke; Aneta Neumann; Frank Neumann; Carola Doerr; <br>
+                    <a href="http://arxiv.org/abs/1912.08956/">One-Shot Decision-Making with and without Surrogates.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1912-08956.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2018">
+                <h2>2018</h2><br>
+                <p class="inproceedings 2018">
+                    Frank Neumann; Sergey Polyakovskiy; Martin Skutella; Leen Stougie; Junhua Wu; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-19759-9\_5/">A Fully Polynomial Time Approximation Scheme for
+            Packing While TravelingAlgorithmic Aspects of Cloud Computing - 4th International Symposium,.<br></a>
+                    <a href="https://dblp.org/rec/conf/algocloud/NeumannPSSW18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2018">
+                    Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2018.8477973/">On the Use of Colour-Based Segmentation in Evolutionary
+            Image Composition2018 {IEEE} Congress on Evolutionary Computation, {CEC} 2018, Riode Janeiro, Brazil, July
+            8-13, 2018.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/0001N18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2018">
+                    Maria Yaneli Ameca{-}Alducin; Maryam Hasani{-}Shoreh; Wilson Blaikie; Frank Neumann; Efr{\'{e}}n Mezura{-}Montes; <br>
+                    <a href="https://doi.org/10.1109/CEC.2018.8477750/">A Comparison of Constraint Handling Techniques for Dynamic
+            ConstrainedOptimization Problems2018 {IEEE} Congress on Evolutionary Computation, {CEC} 2018, Riode Janeiro,
+            Brazil, July 8-13, 2018.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/Ameca-AlducinHB18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2018">
+                    Tat{-}Jun Chin; Zhipeng Cai; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-030-01258-8\_43/">Robust Fitting in Computer Vision: Easy or
+            Hard?Computer Vision - {ECCV} 2018 - 15th European Conference, Munich,.<br></a>
+                    <a href="https://dblp.org/rec/conf/eccv/ChinCN18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2018">
+                    Maria Yaneli Ameca{-}Alducin; Maryam Hasani{-}Shoreh; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-77538-8\_55/">On the Use of Repair Methods in Differential
+            Evolution for DynamicConstrained OptimizationApplications of Evolutionary Computation - 21st International
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/evoW/Ameca-AlducinHN18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2018">
+                    Wanru Gao; Tobias Friedrich; Frank Neumann; Christian Hercher; <br>
+                    <a href="https://doi.org/10.1145/3205455.3205542/">Randomized greedy algorithms for covering
+            problemsProceedings of the Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/Gao0NH18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2018">
+                    Junhua Wu; Sergey Polyakovskiy; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3205455.3205488/">Evolutionary computation plus dynamic programming for the
+            bi-objectivetravelling thief problemProceedings of the Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/WuP0N18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2018">
+                    Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3205651.3207861/">Evolutionary computation for digital artProceedings of the
+            Genetic and Evolutionary Computation ConferenceCompanion, {GECCO} 2018, Kyoto, Japan, July 15-19,
+            2018.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannN18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2018">
+                    Aneta Neumann; Wanru Gao; Carola Doerr; Frank Neumann; Markus Wagner; <br>
+                    <a href="https://doi.org/10.1145/3205455.3205532/">Discrepancy-based evolutionary diversity
+            optimizationProceedings of the Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannGDN018.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2018">
+                    Feng Shi; Frank Neumann; Jianxin Wang; <br>
+                    <a href="https://doi.org/10.1145/3205455.3205580/">Runtime analysis of randomized search heuristics for the
+            dynamic weightedvertex cover problemProceedings of the Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/ShiNW18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2018">
+                    Behrooz Ghasemishabankareh; Melih Ozlen; Frank Neumann; Xiaodong Li; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-99253-2\_6/">A Probabilistic Tree-Based Representation for
+            Non-convex Minimum CostFlow ProblemsParallel Problem Solving from Nature - {PPSN} {XV} - 15th
+            InternationalConference, Coimbra, Portugal, September 8-12, 2018, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/Ghasemishabankareh18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2018">
+                    Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-99259-4\_12/">Runtime Analysis of Evolutionary Algorithms for the
+            Knapsack Problemwith Favorably Correlated WeightsParallel Problem Solving from Nature - {PPSN} {XV} - 15th
+            InternationalConference, Coimbra, Portugal, September 8-12, 2018, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/0001S18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2018">
+                    Vahid Roostapour; Aneta Neumann; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-99253-2\_13/">On the Performance of Baseline Evolutionary
+            Algorithms on the DynamicKnapsack ProblemParallel Problem Solving from Nature - {PPSN} {XV} - 15th
+            InternationalConference, Coimbra, Portugal, September 8-12, 2018, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/Roostapour0N18.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Junhua Wu; Sergey Polyakovskiy; Markus Wagner; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1802.02434/">Evolutionary Computation plus Dynamic Programming for the
+            Bi-ObjectiveTravelling Thief Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1802-02434.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Aneta Neumann; Wanru Gao; Carola Doerr; Frank Neumann; Markus Wagner; <br>
+                    <a href="http://arxiv.org/abs/1802.05448/">Discrepancy-based Evolutionary Diversity Optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1802-05448.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Maria Yaneli Ameca{-}Alducin; Maryam Hasani{-}Shoreh; Wilson Blaikie; Frank Neumann; Efr{\'{e}}n Mezura{-}Montes; <br>
+                    <a href="http://arxiv.org/abs/1802.05825/">A Comparison of Constraint Handling Techniques for Dynamic
+            ConstrainedOptimization Problems.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1802-05825.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Tat{-}Jun Chin; Zhipeng Cai; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1802.06464/">Robust Fitting in Computer Vision: Easy or Hard?.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1802-06464.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Edgar Covantes Osuna; Wanru Gao; Frank Neumann; Dirk Sudholt; <br>
+                    <a href="http://arxiv.org/abs/1805.01221/">Design and Analysis of Diversity-Based Parent Selection Schemes
+            forSpeeding Up Evolutionary Multi-objective Optimisation.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1805-01221.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Vahid Roostapour; Mojgan Pourhassan; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1806.08547/">Analysis of Evolutionary Algorithms in Dynamic and Stochastic
+            Environments.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1806-08547.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Tobias Friedrich; Andreas G{\"{o}}bel; Frank Neumann; Francesco Quinzan; Ralf Rothenberger; <br>
+                    <a href="http://arxiv.org/abs/1811.05351/">Greedy Maximization of Functions with Bounded Curvature under
+            PartitionMatroid Constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1811-05351.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Aneta Neumann; Wanru Gao; Markus Wagner; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1811.06804/">Evolutionary Diversity Optimization Using Multi-Objective
+            Indicators.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1811-06804.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Vahid Roostapour; Aneta Neumann; Frank Neumann; Tobias Friedrich; <br>
+                    <a href="http://arxiv.org/abs/1811.07806/">Pareto Optimization for Subset Selection with Dynamic Cost
+            Constraints.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1811-07806.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2018">
+                    Pascal Kerschke; Holger H. Hoos; Frank Neumann; Heike Trautmann; <br>
+                    <a href="http://arxiv.org/abs/1811.11597/">Automated Algorithm Selection: Survey and Perspectives.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1811-11597.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2017">
+                <h2>2017</h2><br>
+                <p class="article 2017">
+                    Benjamin Doerr; Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1007/s00453-016-0190-3/">Time Complexity Analysis of Evolutionary Algorithms on
+            Random Satisfiablek-CNF Formulas.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/DoerrNS17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2017">
+                    Samadhi Nallaperuma; Frank Neumann; Dirk Sudholt; <br>
+                    <a href="https://doi.org/10.1162/evco\_a\_00199/">Expected Fitness Gains of Randomized Search Heuristics for
+            the TravelingSalesperson Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/NallaperumaNS17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2017">
+                    Sergey Polyakovskiy; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.ejor.2016.09.035/">The Packing While Traveling Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/eor/PolyakovskiyN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2017">
+                    Mohammad Reza Bonyadi; Zbigniew Michalewicz; Samadhi Nallaperuma; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/TCIAIG.2016.2565661/">Ahura: {A} Heuristic-Based Racer for the Open Racing
+            Car Simulator.<br></a>
+                    <a href="https://dblp.org/rec/journals/tciaig/BonyadiMNN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2017">
+                    Tobias Friedrich; Frank Neumann; <br>
+                    <a href="http://aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14809/">What's Hot in Evolutionary
+            ComputationProceedings of the Thirty-First {AAAI} Conference on Artificial Intelligence,.<br></a>
+                    <a href="https://dblp.org/rec/conf/aaai/0001N17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2017">
+                    Wanru Gao; Tobias Friedrich; Timo K{\"{o}}tzing; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-63004-5\_11/">Scaling up Local Search for Minimum Vertex Cover in
+            Large Graphs byParallel Kernelization{AI} 2017: Advances in Artificial Intelligence - 30th AustralasianJoint
+            Conference, Melbourne, VIC, Australia, August 19-20, 2017, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ausai/Gao0KN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2017">
+                    Aneta Neumann; Bradley Alexander; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-55750-2\_16/">Evolutionary Image Transition Using Random
+            WalksComputational Intelligence in Music, Sound, Art and Design - 6th InternationalConference, EvoMUSART
+            2017, Amsterdam, The Netherlands, April 19-21,.<br></a>
+                    <a href="https://dblp.org/rec/conf/evoW/NeumannAN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2017">
+                    Mojgan Pourhassan; Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3040718.3040726/">On the Use of the Dual Formulation for Minimum Weighted
+            Vertex Coverin Evolutionary AlgorithmsProceedings of the 14th {ACM/SIGEVO} Conference on Foundations
+            ofGenetic Algorithms, {FOGA} 2017, Copenhagen, Denmark, January 12-15,.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/Pourhassan0N17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2017">
+                    Tobias Friedrich; Timo K{\"{o}}tzing; Gregor Lagodzinski; Frank Neumann; Martin Schirneck; <br>
+                    <a href="https://doi.org/10.1145/3040718.3040728/">Analysis of the {(1+1)} {EA} on Subclasses of Linear
+            Functions underUniform and Linear ConstraintsProceedings of the 14th {ACM/SIGEVO} Conference on Foundations
+            ofGenetic Algorithms, {FOGA} 2017, Copenhagen, Denmark, January 12-15,.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/0001KLNS17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2017">
+                    Edgar Covantes Osuna; Wanru Gao; Frank Neumann; Dirk Sudholt; <br>
+                    <a href="https://doi.org/10.1145/3071178.3080294/">Speeding up evolutionary multi-objective optimisation
+            through diversity-basedparent selectionProceedings of the Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/OsunaGNS17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2017">
+                    Aneta Neumann; Zygmunt L. Szpak; Wojciech Chojnacki; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3071178.3071260/">Evolutionary image composition using feature covariance
+            matricesProceedings of the Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannSCN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2017">
+                    Feng Shi; Martin Schirneck; Tobias Friedrich; Timo K{\"{o}}tzing; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/3071178.3071270/">Reoptimization times of evolutionary algorithms on linear
+            functionsunder dynamic uniform constraintsProceedings of the Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/ShiS0KN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2017">
+                    Junhua Wu; Markus Wagner; Sergey Polyakovskiy; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-68759-9\_10/">Exact Approaches for the Travelling Thief
+            ProblemSimulated Evolution and Learning - 11th International Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/seal/Wu0PN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2017">
+                    Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/SSCI.2017.8285451/">Parameterized analysis of bio-inspired computing2017
+            {IEEE} Symposium Series on Computational Intelligence, {SSCI}2017, Honolulu, HI, USA, November 27 - Dec. 1,
+            2017.<br></a>
+                    <a href="https://dblp.org/rec/conf/ssci/Neumann17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2017">
+                    Mojgan Pourhassan; Vahid Roostapour; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/SSCI.2017.8285391/">Improved runtime analysis of {RLS} and {(1+1)} {EA} for
+            the dynamicvertex cover problem2017 {IEEE} Symposium Series on Computational Intelligence, {SSCI}2017,
+            Honolulu, HI, USA, November 27 - Dec. 1, 2017.<br></a>
+                    <a href="https://dblp.org/rec/conf/ssci/PourhassanRN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2017">
+                    Frank Neumann; Sergey Polyakovskiy; Martin Skutella; Leen Stougie; Junhua Wu; <br>
+                    <a href="http://arxiv.org/abs/1702.05217/">A Fully Polynomial Time Approximation Scheme for Packing While
+            Traveling.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/NeumannPSSW17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2017">
+                    Aneta Neumann; Zygmunt L. Szpak; Wojciech Chojnacki; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1703.03773/">Evolutionary Image Composition Using Feature Covariance
+            Matrices.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/NeumannSCN17.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2017">
+                    Junhua Wu; Markus Wagner; Sergey Polyakovskiy; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1708.00331/">Exact Approaches for the Travelling Thief Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1708-00331.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2017">
+                    Aneta Neumann; Frank Neumann; Tobias Friedrich; <br>
+                    <a href="http://arxiv.org/abs/1710.07421/">Quasi-random Agents for Image Transition and Animation.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1710-07421.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2016">
+                <h2>2016</h2><br>
+                <p class="article 2016">
+                    Dogan Corus; Per Kristian Lehre; Frank Neumann; Mojgan Pourhassan; <br>
+                    <a href="https://doi.org/10.1162/EVCO\_a\_00147/">A Parameterised Complexity Analysis of Bi-level Optimisation
+            withEvolutionary Algorithms.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/CorusLNP16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2016">
+                    Sergey Polyakovskiy; Rudolf Berghammer; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.ejor.2015.08.052/">Solving hard control problems in voting systems via
+            integer programming.<br></a>
+                    <a href="https://dblp.org/rec/journals/eor/PolyakovskiyBN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2016">
+                    Frank Neumann; Shayan Poursoltan; <br>
+                    <a href="https://doi.org/10.1109/CEC.2016.7743962/">Feature-based algorithm selection for constrained
+            continuous optimisation{IEEE} Congress on Evolutionary Computation, {CEC} 2016, Vancouver,.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/NeumannP16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2016">
+                    Tat{-}Jun Chin; Yang Heng Kee; Anders P. Eriksson; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CVPR.2016.631/">Guaranteed Outlier Removal with Mixed Integer Linear
+            Programs2016 {IEEE} Conference on Computer Vision and Pattern Recognition,.<br></a>
+                    <a href="https://dblp.org/rec/conf/cvpr/ChinKEN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2016">
+                    Junhua Wu; Sergey Polyakovskiy; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2908812.2908862/">On the Impact of the Renting Rate for the Unconstrained
+            NonlinearKnapsack ProblemProceedings of the 2016 on Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/WuPN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2016">
+                    Benjamin Doerr; Wanru Gao; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2908812.2908827/">Runtime Analysis of Evolutionary Diversity Maximization for
+            OneMinMaxProceedings of the 2016 on Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/DoerrGN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2016">
+                    Tobias Friedrich; Timo K{\"{o}}tzing; Martin S. Krejca; Samadhi Nallaperuma; Frank Neumann; Martin Schirneck;
+                    <br>
+                    <a href="https://doi.org/10.1145/2908812.2908884/">Fast Building Block Assembly by Majority Vote
+            CrossoverProceedings of the 2016 on Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/FriedrichKKNNS16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2016">
+                    Junhua Wu; Slava Shekh; Nataliia Y. Sergiienko; Benjamin S. Cazzolato; Boyin Ding; Frank Neumann; Markus Wagner; <br>
+                    <a href="https://doi.org/10.1145/2908812.2908844/">Fast and Effective Optimisation of Arrays of Submerged Wave
+            EnergyConvertersProceedings of the 2016 on Genetic and Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/WuSSCDN016.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2016">
+                    Aneta Neumann; Bradley Alexander; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-46675-0\_29/">The Evolutionary Process of Image Transition in
+            Conjunction with Boxand Strip MutationNeural Information Processing - 23rd International Conference,
+            {ICONIP}2016, Kyoto, Japan, October 16-21, 2016, Proceedings, Part {III}.<br></a>
+                    <a href="https://dblp.org/rec/conf/iconip/NeumannAN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2016">
+                    Mojgan Pourhassan; Feng Shi; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-45823-6\_68/">Parameterized Analysis of Multi-objective
+            Evolutionary Algorithmsand the Weighted Vertex Cover ProblemParallel Problem Solving from Nature - {PPSN}
+            {XIV} - 14th InternationalConference, Edinburgh, UK, September 17-21, 2016, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/PourhassanSN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2016">
+                    Wanru Gao; Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-45823-6\_69/">Fixed-Parameter Single Objective Search Heuristics
+            for Minimum VertexCoverParallel Problem Solving from Nature - {PPSN} {XIV} - 14th InternationalConference,
+            Edinburgh, UK, September 17-21, 2016, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/GaoFN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2016">
+                    Wanru Gao; Samadhi Nallaperuma; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-45823-6\_81/">Feature-Based Diversity Optimization for Problem
+            Instance ClassificationParallel Problem Solving from Nature - {PPSN} {XIV} - 14th InternationalConference,
+            Edinburgh, UK, September 17-21, 2016, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/GaoNN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="proceedings 2016">
+                    Tobias Friedrich; Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1145/2908812/">Proceedings of the 2016 on Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/2016.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="proceedings 2016">
+                    Tobias Friedrich; Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1145/2908961/">Genetic and Evolutionary Computation Conference, {GECCO} 2016,
+            Denver,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/2016c.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2016">
+                    Shayan Poursoltan; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1602.02862/">A Feature-Based Prediction Model of Algorithm Selection for
+            ConstrainedContinuous Optimisation.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/PoursoltanN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2016">
+                    Mojgan Pourhassan; Feng Shi; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1604.01495/">Parameterized Analysis of Multi-objective Evolutionary
+            Algorithmsand the Weighted Vertex Cover Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/PourhassanSN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2016">
+                    Aneta Neumann; Bradley Alexander; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1604.06187/">Evolutionary Image Transition Based on Theoretical Insights of
+            RandomProcesses.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/NeumannAN16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2016">
+                    Mohammad Reza Bonyadi; Zbigniew Michalewicz; Frank Neumann; Markus Wagner; <br>
+                    <a href="http://arxiv.org/abs/1606.06818/">Evolutionary computation for multicomponent problems:
+            opportunitiesand future directions.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/BonyadiMN016.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2016">
+                    Aneta Neumann; Bradley Alexander; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1608.01783/">The Evolutionary Process of Image Transition in Conjunction with
+            Boxand Strip Mutation.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/NeumannAN16a.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2016">
+                    Holger H. Hoos; Frank Neumann; Heike Trautmann; <br>
+                    <a href="https://doi.org/10.4230/DagRep.6.10.33/">Automated Algorithm Selection and Configuration (Dagstuhl
+            Seminar16412).<br></a>
+                    <a href="https://dblp.org/rec/journals/dagstuhl-reports/HoosNT16.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2015">
+                <h2>2015</h2><br>
+                <p class="article 2015">
+                    Tobias Friedrich; Frank Neumann; Christian Thyssen; <br>
+                    <a href="https://doi.org/10.1162/EVCO\_a\_00126/">Multiplicative Approximations, Optimal Hypervolume
+            Distributions,.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/FriedrichNT15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1162/EVCO\_a\_00159/">Maximizing Submodular Functions under Matroid Constraints by
+            EvolutionaryAlgorithms.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/FriedrichN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Markus Wagner; Frank Neumann; Tommaso Urli; <br>
+                    <a href="https://doi.org/10.1162/EVCO\_a\_00149/">On the Performance of Different Genetic Programming
+            Approaches forthe {SORTING} Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/0007NU15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2015">
+                    Markus Wagner; Karl Bringmann; Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.ejor.2014.11.032/">Efficient optimization of many objectives by
+            approximation-guidedevolution.<br></a>
+                    <a href="https://dblp.org/rec/journals/eor/0007BFN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Samadhi Nallaperuma; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.3389/frobt.2015.00018/">Analyzing the Effects of Instance Features and Algorithm
+            Parametersfor Max-Min Ant System and the Traveling Salesperson Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/firai/Nallaperuma0N15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Anh Quang Nguyen; Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2014.06.023/">Population size matters: Rigorous runtime results for
+            maximizing thehypervolume indicator.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/NguyenSN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2015">
+                    Sergey Polyakovskiy; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-18008-3\_23/">Packing While Traveling: Mixed Integer Programming
+            for a Class ofNonlinear Knapsack ProblemsIntegration of {AI} and {OR} Techniques in Constraint Programming-
+            12th International Conference, {CPAIOR} 2015, Barcelona, Spain,.<br></a>
+                    <a href="https://dblp.org/rec/conf/cpaior/PolyakovskiyN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2015">
+                    Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1145/2739482.2756562/">Parameterized Complexity Analysis of Evolutionary
+            AlgorithmsGenetic and Evolutionary Computation Conference, {GECCO} 2015, Madrid,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannS15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2015">
+                    Mojgan Pourhassan; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2739480.2754656/">On the Impact of Local Search Operators and Variable
+            NeighbourhoodSearch for the Generalized Travelling Salesperson ProblemProceedings of the Genetic and
+            Evolutionary Computation Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/PourhassanN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2015">
+                    Mojgan Pourhassan; Wanru Gao; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2739480.2754700/">Maintaining 2-Approximations for the Dynamic Vertex Cover
+            ProblemUsing Evolutionary AlgorithmsProceedings of the Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/PourhassanGN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2015">
+                    Wanru Gao; Mojgan Pourhassan; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2739482.2764668/">Runtime Analysis of Evolutionary Diversity Optimization and
+            the VertexCover ProblemGenetic and Evolutionary Computation Conference, {GECCO} 2015, Madrid,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/GaoPN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2015">
+                    Benjamin Doerr; Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1145/2739480.2754659/">Improved Runtime Bounds for the {(1+1)} {EA} on Random
+            3-CNF FormulasBased on Fitness-Distance CorrelationProceedings of the Genetic and Evolutionary Computation
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/DoerrNS15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2015">
+                    Shayan Poursoltan; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-26555-1\_38/">A Feature-Based Comparison of Evolutionary Computing
+            Techniques forConstrained Continuous OptimisationNeural Information Processing - 22nd International
+            Conference, {ICONIP}2015, Istanbul, Turkey, November 9-12, 2015, Proceedings, Part {III}.<br></a>
+                    <a href="https://dblp.org/rec/conf/iconip/PoursoltanN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2015">
+                    Shayan Poursoltan; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-26555-1\_39/">A Feature-Based Analysis on the Impact of Set of
+            Constraints for {\textbackslash}varepsilon-Constrained Differential EvolutionNeural Information Processing -
+            22nd International Conference, {ICONIP}2015, Istanbul, Turkey, November 9-12, 2015, Proceedings, Part
+            {III}.<br></a>
+                    <a href="https://dblp.org/rec/conf/iconip/PoursoltanN15a.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2015">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="http://ijcai.org/Abstract/15/526/">On the Runtime of Randomized Local Search and Simple
+            EvolutionaryAlgorithms for Dynamic Makespan SchedulingProceedings of the Twenty-Fourth International Joint
+            Conference onArtificial Intelligence, {IJCAI} 2015, Buenos Aires, Argentina, July25-31, 2015.<br></a>
+                    <a href="https://dblp.org/rec/conf/ijcai/NeumannW15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="http://arxiv.org/abs/1504.06363/">On the Runtime of Randomized Local Search and Simple
+            EvolutionaryAlgorithms for Dynamic Makespan Scheduling.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/NeumannW15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Laurent Hoeltgen; Markus Mainberger; Sebastian Hoffmann; Joachim Weickert; Ching Hoo Tang; Simon Setzer; Daniel Johannsen; Frank Neumann; Benjamin Doerr; <br>
+                    <a href="http://arxiv.org/abs/1506.04566/">Optimising Spatial and Tonal Data for PDE-based Inpainting.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/HoeltgenMHWTSJN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Shayan Poursoltan; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1506.06848/">A Feature-Based Analysis on the Impact of Set of Constraints for
+            e-ConstrainedDifferential Evolution.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/PoursoltanN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Shayan Poursoltan; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1509.06842/">A Feature-Based Comparison of Evolutionary Computing Techniques
+            forConstrained Continuous Optimisation.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/PoursoltanN15a.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Wanru Gao; Samadhi Nallaperuma; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1510.08568/">Feature-Based Diversity Optimization for Problem Instance
+            Classification.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/GaoNN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2015">
+                    Sergey Polyakovskiy; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1512.08831/">The Packing While Traveling Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/PolyakovskiyN15.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2014">
+                <h2>2014</h2><br>
+                <p class="article 2014">
+                    Andrew M. Sutton; Frank Neumann; Samadhi Nallaperuma; <br>
+                    <a href="https://doi.org/10.1162/EVCO\_a\_00119/">Parameterized Runtime Analyses of Evolutionary Algorithms
+            for thePlanar Euclidean Traveling Salesperson Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/SuttonNN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2014">
+                    Timo K{\"{o}}tzing; Andrew M. Sutton; Frank Neumann; Una{-}May O'Reilly; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2013.06.014/">The Max problem revisited: The importance of mutation in
+            genetic programming.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/KotzingSNO14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2014">
+                    Frank Neumann; Benjamin Doerr; Per Kristian Lehre; Pauline C. Haddow; <br>
+                    <a href="https://doi.org/10.1109/TEVC.2014.2350673/">Editorial for the Special Issue on Theoretical
+            Foundations of EvolutionaryComputation.<br></a>
+                    <a href="https://dblp.org/rec/journals/tec/NeumannDLH14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2014.6900310/">Single- and multi-objective genetic programming: New
+            runtime resultsfor sortingProceedings of the {IEEE} Congress on Evolutionary Computation, {CEC}2014,
+            Beijing, China, July 6-11, 2014.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/0007N14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2014">
+                    Shayan Poursoltan; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2014.6900572/">A Feature-based analysis on the impact of linear
+            constraints for {\(\epsilon\)}-constraineddifferential evolutionProceedings of the {IEEE} Congress on
+            Evolutionary Computation, {CEC}2014, Beijing, China, July 6-11, 2014.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/PoursoltanN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Samadhi Nallaperuma; Frank Neumann; Mohammad Reza Bonyadi; Zbigniew Michalewicz; <br>
+                    <a href="https://doi.org/10.1145/2576768.2598298/">{EVOR:} an online evolutionary algorithm for car racing
+            gamesGenetic and Evolutionary Computation Conference, {GECCO} '14, Vancouver,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NallaperumaNBM14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Sergey Polyakovskiy; Mohammad Reza Bonyadi; Markus Wagner; Zbigniew Michalewicz; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2576768.2598249/">A comprehensive benchmark set and heuristics for the
+            traveling thiefproblemGenetic and Evolutionary Computation Conference, {GECCO} '14, Vancouver,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/PolyakovskiyB0MN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Frank Neumann; Andrew M. Sutton; <br>
+                    <a href="https://doi.org/10.1145/2598394.2605351/">Parameterized complexity analysis of evolutionary
+            algorithmsGenetic and Evolutionary Computation Conference, {GECCO} '14, Vancouver,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannS14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Wanru Gao; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2576768.2598251/">Runtime analysis for maximizing population diversity in
+            single-objectiveoptimizationGenetic and Evolutionary Computation Conference, {GECCO} '14,
+            Vancouver,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/GaoN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2014">
+                    Samadhi Nallaperuma; Frank Neumann; Dirk Sudholt; <br>
+                    <a href="https://doi.org/10.1145/2576768.2598302/">A fixed budget analysis of randomized search heuristics for
+            the travelingsalesperson problemGenetic and Evolutionary Computation Conference, {GECCO} '14,
+            Vancouver,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NallaperumaNS14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Samadhi Nallaperuma; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-10762-2\_10/">Parameter Prediction Based on Features of Evolved
+            Instances for AntColony Optimization and the Traveling Salesperson ProblemParallel Problem Solving from
+            Nature - {PPSN} {XIII} - 13th InternationalConference, Ljubljana, Slovenia, September 13-17, 2014.
+            Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/Nallaperuma0N14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-10762-2\_91/">Maximizing Submodular Functions under Matroid
+            Constraints by Multi-objectiveEvolutionary AlgorithmsParallel Problem Solving from Nature - {PPSN} {XIII} -
+            13th InternationalConference, Ljubljana, Slovenia, September 13-17, 2014. Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/FriedrichN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2014">
+                    Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-10762-2\_93/">Runtime Analysis of Evolutionary Algorithms on
+            Randomly ConstructedHigh-Density Satisfiable 3-CNF FormulasParallel Problem Solving from Nature - {PPSN}
+            {XIII} - 13th InternationalConference, Ljubljana, Slovenia, September 13-17, 2014. Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/SuttonN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2014">
+                    Anh Quang Nguyen; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-13563-2\_22/">User Preferences for Approximation-Guided
+            Multi-objective EvolutionSimulated Evolution and Learning - 10th International Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/seal/Nguyen0N14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2014">
+                    Frank Neumann; Anh Quang Nguyen; <br>
+                    <a href="https://doi.org/10.1007/978-3-319-13563-2\_36/">On the Impact of Utility Functions in Interactive
+            Evolutionary Multi-objectiveOptimizationSimulated Evolution and Learning - 10th International
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/seal/NeumannN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2014">
+                    Dogan Corus; Per Kristian Lehre; Frank Neumann; Mojgan Pourhassan; <br>
+                    <a href="http://arxiv.org/abs/1401.1905/">A Parameterized Complexity Analysis of Bi-level Optimisation
+            withEvolutionary Algorithms.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/CorusLNP14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2014">
+                    Sergey Polyakovskiy; Rudolf Berghammer; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1408.5987/">Solving Hard Control Problems in Voting Systems via Integer
+            Programming.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/PolyakovskiyBN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2014">
+                    Sergey Polyakovskiy; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1411.5768/">Packing While Traveling: Mixed Integer Programming for a Class
+            ofNonlinear Knapsack Problems.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/PolyakovskiyN14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2014">
+                    Hong Mei; Frank Neumann; Xin Yao; Leandro L. Minku; <br>
+                    <a href="https://shonan.nii.ac.jp/seminars/053//">Computational Intelligence for Software Engineering {(NII}
+            ShonanMeeting 2014-13).<br></a>
+                    <a href="https://dblp.org/rec/journals/shonan-reports/MeiNYM14.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2013">
+                <h2>2013</h2><br>
+                <p class="article 2013">
+                    Stefan Kratsch; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s00453-012-9660-4/">Fixed-Parameter Evolutionary Algorithms and the Vertex
+            Cover Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/KratschN13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2013">
+                    Olaf Mersmann; Bernd Bischl; Heike Trautmann; Markus Wagner; Jakob Bossek; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s10472-013-9341-2/">A novel feature-based approach to characterize algorithm
+            performancefor the traveling salesperson problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/amai/MersmannBT0BN13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2013">
+                    Tobias Friedrich; Trent Kroeger; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s13042-012-0083-y/">Weighted preferences in evolutionary multi-objective
+            optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/mlc/FriedrichKN13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2013">
+                    Benjamin Doerr; Daniel Johannsen; Timo K{\"{o}}tzing; Frank Neumann; Madeleine Theile; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2012.10.059/">More effective crossover operators for the all-pairs
+            shortest pathproblem.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/DoerrJKNT13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2013">
+                    Samadhi Nallaperuma; Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2013.6557809/">Fixed-parameter evolutionary algorithms for the Euclidean
+            TravelingSalesperson problemProceedings of the {IEEE} Congress on Evolutionary Computation, {CEC}2013,
+            Cancun, Mexico, June 20-23, 2013.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/NallaperumaSN13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2013">
+                    Samadhi Nallaperuma; Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2013.6557810/">Parameterized complexity analysis and more effective
+            constructionmethods for {ACO} algorithms and the euclidean traveling salespersonproblemProceedings of the
+            {IEEE} Congress on Evolutionary Computation, {CEC}2013, Cancun, Mexico, June 20-23, 2013.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/NallaperumaSN13a.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2013">
+                    Samadhi Nallaperuma; Markus Wagner; Frank Neumann; Bernd Bischl; Olaf Mersmann; Heike Trautmann; <br>
+                    <a href="https://doi.org/10.1145/2460239.2460253/">A feature-based comparison of local search and the
+            christofides algorithmfor the travelling salesperson problemFoundations of Genetic Algorithms XII, {FOGA}
+            '13, Adelaide, SA, Australia,.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/Nallaperuma0NBMT13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2013">
+                    Samadhi Nallaperuma; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2464576.2464581/">Ant colony optimisation and the traveling salesperson
+            problem: hardness,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/Nallaperuma0N13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2013">
+                    Dogan Corus; Per Kristian Lehre; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2463372.2463442/">The generalized minimum spanning tree problem: a
+            parameterized complexityanalysis of bi-level optimisationGenetic and Evolutionary Computation Conference,
+            {GECCO} '13, Amsterdam,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/CorusLN13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2013">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1145/2464576.2466738/">Bioinspired computation in combinatorial optimization:
+            algorithmsand their computational complexityGenetic and Evolutionary Computation Conference, {GECCO} '13,
+            Amsterdam,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannW13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2013">
+                    Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2463372.2463448/">A fast approximation-guided evolutionary multi-objective
+            algorithmGenetic and Evolutionary Computation Conference, {GECCO} '13, Amsterdam,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/0007N13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2013">
+                    Raymond Tran; Junhua Wu; Christopher Denison; Thomas Ackling; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2463372.2463541/">Fast and effective multi-objective optimisation of wind
+            turbine placementGenetic and Evolutionary Computation Conference, {GECCO} '13, Amsterdam,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/TranWDA0N13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2013">
+                    Anh Quang Nguyen; Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2463372.2463564/">Population size matters: rigorous runtime results for
+            maximizing thehypervolume indicatorGenetic and Evolutionary Computation Conference, {GECCO} '13,
+            Amsterdam,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NguyenSN13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="proceedings 2013">
+                    Frank Neumann; Kenneth A. De Jong; <br>
+                    <a href="http://dl.acm.org/citation.cfm?id=2460239/">Foundations of Genetic Algorithms XII, {FOGA} '13,
+            Adelaide, SA, Australia,.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/2013.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2013">
+                    Benjamin Doerr; Anton V. Eremeev; Frank Neumann; Madeleine Theile; Christian Thyssen; <br>
+                    <a href="http://arxiv.org/abs/1301.4096/">Evolutionary Algorithms and Dynamic Programming.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1301-4096.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2013">
+                    Tobias Friedrich; Frank Neumann; Christian Thyssen; <br>
+                    <a href="http://arxiv.org/abs/1309.3816/">Multiplicative Approximations, Optimal Hypervolume
+            Distributions,.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/FriedrichNT13.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2012">
+                <h2>2012</h2><br>
+                <p class="article 2012">
+                    Timo K{\"{o}}tzing; Frank Neumann; Heiko R{\"{o}}glin; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/s11721-011-0059-7/">Theoretical analysis of two {ACO} approaches for the
+            traveling salesmanproblem.<br></a>
+                    <a href="https://dblp.org/rec/journals/swarm/KotzingNRW12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2012">
+                    Per Kristian Lehre; Frank Neumann; Jonathan E. Rowe; Xin Yao; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2012.02.014/">Editorial to the special issue on "Theoretical
+            Foundations of EvolutionaryComputation".<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/LehreNRY12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2012">
+                    Rudolf Berghammer; Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2012.05.036/">Convergence of set-based multi-objective optimization,
+            indicatorsand deteriorative cycles.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/BerghammerFN12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2012">
+                    Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI12/paper/view/4805/">A Parameterized Runtime Analysis of
+            Evolutionary Algorithms for theEuclidean Traveling Salesperson ProblemProceedings of the Twenty-Sixth {AAAI}
+            Conference on Artificial Intelligence,.<br></a>
+                    <a href="https://dblp.org/rec/conf/aaai/SuttonN12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2012">
+                    Kalyan Veeramachaneni; Markus Wagner; Una{-}May O'Reilly; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2012.6253002/">Optimizing energy output and layout costs for large wind
+            farms usingparticle swarm optimizationProceedings of the {IEEE} Congress on Evolutionary Computation,
+            {CEC}2012, Brisbane, Australia, June 10-15, 2012.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/VeeramachaneniWON12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2012">
+                    Joseph Yuen; Sophia Gao; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2012.6256468/">An adaptive data structure for evolutionary
+            multi-objective algorithmswith unbounded archivesProceedings of the {IEEE} Congress on Evolutionary
+            Computation, {CEC}2012, Brisbane, Australia, June 10-15, 2012.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/YuenGWN12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2012">
+                    Andrew M. Sutton; Jareth Day; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2330163.2330225/">A parameterized runtime analysis of evolutionary algorithms
+            for {MAX-2-SAT}Genetic and Evolutionary Computation Conference, {GECCO} '12, Philadelphia,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/SuttonDN12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2012">
+                    Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2330163.2330274/">Computational complexity analysis of multi-objective
+            genetic programmingGenetic and Evolutionary Computation Conference, {GECCO} '12, Philadelphia,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/Neumann12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2012">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1145/2330784.2330928/">Bioinspired computation in combinatorial optimization:
+            algorithmsand their computational complexityGenetic and Evolutionary Computation Conference, {GECCO} '12,
+            Philadelphia,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannW12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2012">
+                    Timo K{\"{o}}tzing; Andrew M. Sutton; Frank Neumann; Una{-}May O'Reilly; <br>
+                    <a href="https://doi.org/10.1145/2330163.2330348/">The max problem revisited: the importance of mutation in
+            genetic programmingGenetic and Evolutionary Computation Conference, {GECCO} '12, Philadelphia,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/KotzingSNO12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2012">
+                    Olaf Mersmann; Bernd Bischl; Jakob Bossek; Heike Trautmann; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-34413-8\_9/">Local Search and the Traveling Salesman Problem: {A}
+            Feature-BasedCharacterization of Problem HardnessLearning and Intelligent Optimization - 6th International
+            Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/lion/MersmannBBT0N12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2012">
+                    Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-32937-1\_6/">A Parameterized Runtime Analysis of Simple
+            Evolutionary Algorithmsfor Makespan SchedulingParallel Problem Solving from Nature - {PPSN} {XII} - 12th
+            InternationalConference, Taormina, Italy, September 1-5, 2012, Proceedings, Part{I}.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/SuttonN12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2012">
+                    Tommaso Urli; Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-32937-1\_11/">Experimental Supplements to the Computational
+            Complexity Analysisof Genetic Programming for Problems Modelling Isolated Program SemanticsParallel Problem
+            Solving from Nature - {PPSN} {XII} - 12th InternationalConference, Taormina, Italy, September 1-5, 2012,
+            Proceedings, Part{I}.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/UrliWN12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2012">
+                    Markus Wagner; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-32937-1\_14/">Parsimony Pressure versus Multi-objective
+            Optimization for VariableLength RepresentationsParallel Problem Solving from Nature - {PPSN} {XII} - 12th
+            InternationalConference, Taormina, Italy, September 1-5, 2012, Proceedings, Part{I}.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/WagnerN12.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2012">
+                    Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1203.4881/">Computational Complexity Analysis of Multi-Objective Genetic
+            Programming.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1203-4881.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2012">
+                    Markus Wagner; Jareth Day; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1204.4560/">A Fast and Effective Local Search Algorithm for Optimizing the
+            Placementof Wind Turbines.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1204-4560.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2012">
+                    Benjamin Doerr; Daniel Johannsen; Timo K{\"{o}}tzing; Frank Neumann; Madeleine Theile; <br>
+                    <a href="http://arxiv.org/abs/1207.0369/">More Effective Crossover Operators for the All-Pairs Shortest
+            PathProblem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1207-0369.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2012">
+                    Andrew M. Sutton; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1207.0578/">A Parameterized Runtime Analysis of Evolutionary Algorithms for
+            theEuclidean Traveling Salesperson Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1207-0578.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2012">
+                    Olaf Mersmann; Bernd Bischl; Heike Trautmann; Markus Wagner; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1208.2318/">A Novel Feature-Based Approach to Characterize Algorithm
+            Performancefor the Traveling Salesman Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1208-2318.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2011">
+                <h2>2011</h2><br>
+                <p class="article 2011">
+                    Frank Neumann; Joachim Reichel; Martin Skutella; <br>
+                    <a href="https://doi.org/10.1007/s00453-009-9370-8/">Computing Minimum Cuts by Randomized Search
+            Heuristics.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/NeumannRS11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2011">
+                    Tobias Friedrich; Christian Horoba; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2010.09.023/">Illustration of fairness in evolutionary multi-objective
+            optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/FriedrichHN11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2011">
+                    Benjamin Doerr; Frank Neumann; Dirk Sudholt; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2010.12.030/">Runtime analysis of the 1-ANT ant colony
+            optimizer.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/DoerrNSW11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2011">
+                    Benjamin Doerr; Anton V. Eremeev; Frank Neumann; Madeleine Theile; Christian Thyssen; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2011.07.024/">Evolutionary algorithms and dynamic programming.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/DoerrENTT11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Tobias Friedrich; Trent Kroeger; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-25832-9\_30/">Weighted Preferences in Evolutionary Multi-objective
+            Optimization{AI} 2011: Advances in Artificial Intelligence - 24th AustralasianJoint Conference, Perth,
+            Australia, December 5-8, 2011. Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ausai/FriedrichKN11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Greg Durrett; Frank Neumann; Una{-}May O'Reilly; <br>
+                    <a href="https://doi.org/10.1145/1967654.1967661/">Computational complexity analysis of simple genetic
+            programming ontwo problems modeling isolated program semanticsFoundations of Genetic Algorithms, 11th
+            International Workshop, {FOGA}2011, Schwarzenberg, Austria, January 5-8, 2011, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/DurrettNO11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Timo K{\"{o}}tzing; Frank Neumann; Dirk Sudholt; Markus Wagner; <br>
+                    <a href="https://doi.org/10.1145/1967654.1967673/">Simple max-min ant systems and the optimization of linear
+            pseudo-booleanfunctionsFoundations of Genetic Algorithms, 11th International Workshop, {FOGA}2011,
+            Schwarzenberg, Austria, January 5-8, 2011, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/KotzingNSW11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Thomas Jansen; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2001858.2002127/">Computational complexity and evolutionary computation13th
+            Annual Genetic and Evolutionary Computation Conference, {GECCO}2011, Companion Material Proceedings, Dublin,
+            Ireland, July 12-16,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/JansenN11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2011">
+                    Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/2001858.2002133/">Foundations of evolutionary multi-objective
+            optimization13th Annual Genetic and Evolutionary Computation Conference, {GECCO}2011, Companion Material
+            Proceedings, Dublin, Ireland, July 12-16,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/FriedrichN11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Frank Neumann; Pietro S. Oliveto; G{\"{u}}nter Rudolph; Dirk Sudholt; <br>
+                    <a href="https://doi.org/10.1145/2001576.2001790/">On the effectiveness of crossover for migration in parallel
+            evolutionaryalgorithms13th Annual Genetic and Evolutionary Computation Conference, {GECCO}2011, Proceedings,
+            Dublin, Ireland, July 12-16, 2011.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannORS11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Timo K{\"{o}}tzing; Frank Neumann; Reto Sp{\"{o}}hel; <br>
+                    <a href="https://doi.org/10.1145/2001576.2001857/">{PAC} learning and genetic programming13th Annual Genetic
+            and Evolutionary Computation Conference, {GECCO}2011, Proceedings, Dublin, Ireland, July 12-16,
+            2011.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/KotzingNS11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Karl Bringmann; Tobias Friedrich; Frank Neumann; Markus Wagner; <br>
+                    <a href="https://doi.org/10.5591/978-1-57735-516-8/IJCAI11-204/">Approximation-Guided Evolutionary
+            Multi-Objective Optimization{IJCAI} 2011, Proceedings of the 22nd International Joint Conferenceon
+            Artificial Intelligence, Barcelona, Catalonia, Spain, July 16-22,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ijcai/BringmannFNW11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2011">
+                    Markus Mainberger; Sebastian Hoffmann; Joachim Weickert; Ching Hoo Tang; Daniel Johannsen; Frank Neumann; Benjamin Doerr; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-24785-9\_3/">Optimising Spatial and Tonal Data for Homogeneous
+            Diffusion InpaintingScale Space and Variational Methods in Computer Vision - Third InternationalConference,
+            {SSVM} 2011, Ein-Gedi, Israel, May 29 - June 2, 2011,.<br></a>
+                    <a href="https://dblp.org/rec/conf/scalespace/MainbergerHWTJND11.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2011">
+                    Markus Wagner; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1103.5797/">Computational Complexity Results for Genetic Programming and the
+            SortingProblem.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1103-5797.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2011">
+                    Markus Wagner; Jareth Day; Claire Diora Jordan; Trent Kroeger; Frank Neumann; <br>
+                    <a href="http://arxiv.org/abs/1104.0775/">Evolving Pacing Strategies for Team Pursuit Track Cycling.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1104-0775.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2011">
+                    Katya Vladislavleva; Tobias Friedrich; Frank Neumann; Markus Wagner; <br>
+                    <a href="http://arxiv.org/abs/1109.1922/">Predicting the Energy Output of Wind Farms Based on Weather
+            Data:Important Variables and their Correlation.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1109-1922.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2010">
+                <h2 id="00">2010</h2><br>
+                <p class="book 2010">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-16544-3/">Bioinspired Computation in Combinatorial
+            Optimization.<br></a>
+                    <a href="https://dblp.org/rec/books/daglib/0025643.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2010">
+                    Benjamin Doerr; Frank Neumann; Ingo Wegener; <br>
+                    <a href="https://doi.org/10.1007/s00453-009-9373-5/">Editorial.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/DoerrNW10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2010">
+                    Benjamin Doerr; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s00453-009-9372-6/">In Memoriam: Ingo Wegener.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/DoerrN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2010">
+                    Thomas Jansen; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1162/EVCO\_e\_00019/">Editorial for the Special Issue on Theoretical Aspects of
+            EvolutionaryMulti-Objective Optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/JansenN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2010">
+                    Tobias Friedrich; Jun He; Nils Hebbinghaus; Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1162/EVCO\_a\_00003/">Approximating Covering Problems by Randomized Search
+            Heuristics UsingMulti-Objective Models.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/FriedrichHHNW10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2010">
+                    Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/s11047-008-9106-8/">When to use bit-wise neutrality.<br></a>
+                    <a href="https://dblp.org/rec/journals/nc/FriedrichN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2010">
+                    Tobias Friedrich; Nils Hebbinghaus; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2009.06.020/">Plateaus can be harder in multi-objective
+            optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/FriedrichHN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2010">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2010.02.012/">Ant Colony Optimization and the minimum spanning tree
+            problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/NeumannW10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Timo K{\"{o}}tzing; Frank Neumann; Heiko R{\"{o}}glin; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-15461-4\_28/">Theoretical Properties of Two {ACO} Approaches for
+            the Traveling SalesmanProblemSwarm Intelligence - 7th International Conference, {ANTS} 2010,
+            Brussels,.<br></a>
+                    <a href="https://dblp.org/rec/conf/antsw/KotzingNRW10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Frank Neumann; Dirk Sudholt; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1145/1830483.1830493/">A few ants are enough: {ACO} with iteration-best
+            updateGenetic and Evolutionary Computation Conference, {GECCO} 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannSW10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Rudolf Berghammer; Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1830483.1830574/">Set-based multi-objective optimization, indicators, and
+            deteriorativecyclesGenetic and Evolutionary Computation Conference, {GECCO} 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/BerghammerFN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Timo K{\"{o}}tzing; Per Kristian Lehre; Frank Neumann; Pietro S. Oliveto; <br>
+                    <a href="https://doi.org/10.1145/1830483.1830741/">Ant colony optimization and the minimum cut problemGenetic
+            and Evolutionary Computation Conference, {GECCO} 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/KotzingLNO10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1830761.1830908/">Foundations of evolutionary multi-objective
+            optimizationGenetic and Evolutionary Computation Conference, {GECCO} 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/FriedrichN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Thomas Jansen; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1830761.1830914/">Computational complexity and evolutionary
+            computationGenetic and Evolutionary Computation Conference, {GECCO} 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/JansenN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2010">
+                    S{\"{u}}ntje B{\"{o}}ttcher; Benjamin Doerr; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-15844-5\_1/">Optimal Fixed and Adaptive Mutation Rates for the
+            LeadingOnes ProblemParallel Problem Solving from Nature - {PPSN} XI, 11th InternationalConference,
+            Krak{\'{o}}w, Poland, September 11-15, 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/BottcherDN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Benjamin Doerr; Daniel Johannsen; Timo K{\"{o}}tzing; Frank Neumann; Madeleine Theile; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-15844-5\_19/">More Effective Crossover Operators for the All-Pairs
+            Shortest PathProblemParallel Problem Solving from Nature - {PPSN} XI, 11th InternationalConference,
+            Krak{\'{o}}w, Poland, September 11-15, 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/DoerrJKNT10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Stefan Kratsch; Per Kristian Lehre; Frank Neumann; Pietro Simone Oliveto; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-15844-5\_21/">Fixed Parameter Evolutionary Algorithms and Maximum
+            Leaf SpanningTrees: {A} Matter of MutationParallel Problem Solving from Nature - {PPSN} XI, 11th
+            InternationalConference, Krak{\'{o}}w, Poland, September 11-15, 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/KratschLNO10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2010">
+                    Frank Neumann; Madeleine Theile; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-15844-5\_67/">How Crossover Speeds Up Evolutionary Algorithms for
+            the Multi-criteriaAll-Pairs-Shortest-Path ProblemParallel Problem Solving from Nature - {PPSN} XI, 11th
+            InternationalConference, Krak{\'{o}}w, Poland, September 11-15, 2010, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/NeumannT10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2010">
+                    Adam Ghandar; Zbigniew Michalewicz; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-17298-4\_26/">Evolving Fuzzy Rules: Evaluation of a New
+            ApproachSimulated Evolution and Learning - 8th International Conference, {SEAL}2010, Kanpur, India, December
+            1-4, 2010. Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/seal/GhandarMN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="incollection 2010">
+                    Christian Horoba; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-11218-8\_2/">Approximating Pareto-Optimal Sets Using Diversity
+            Strategies in EvolutionaryMulti-Objective OptimizationAdvances in Multi-Objective Nature Inspired
+            Computing.<br></a>
+                    <a href="https://dblp.org/rec/series/sci/HorobaN10.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2010">
+                    Greg Durrett; Frank Neumann; Una{-}May O'Reilly; <br>
+                    <a href="http://arxiv.org/abs/1007.4636/">Computational Complexity Analysis of Simple Genetic Programming
+            OnTwo Problems Modeling Isolated Program Semantics.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1007-4636.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2010">
+                    Timo K{\"{o}}tzing; Frank Neumann; Dirk Sudholt; Markus Wagner; <br>
+                    <a href="http://arxiv.org/abs/1007.4707/">Simple Max-Min Ant Systems and the Optimization of Linear
+            Pseudo-BooleanFunctions.<br></a>
+                    <a href="https://dblp.org/rec/journals/corr/abs-1007-4707.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2009">
+                <h2>2009</h2><br>
+                <p class="article 2009">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/s00453-007-9134-2/">Runtime Analysis of a Simple Ant Colony Optimization
+            Algorithm.<br></a>
+                    <a href="https://dblp.org/rec/journals/algorithmica/NeumannW09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2009">
+                    Tobias Friedrich; Jun He; Nils Hebbinghaus; Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1162/evco.2009.17.1.3/">Analyses of Simple Hybrid Algorithms for the Vertex Cover
+            Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/FriedrichHHNW09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2009">
+                    Frank Neumann; Dirk Sudholt; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/s11721-008-0023-3/">Analysis of different {MMAS} {ACO} algorithms on unimodal
+            functionsand plateaus.<br></a>
+                    <a href="https://dblp.org/rec/journals/swarm/NeumannSW09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2009">
+                    Tobias Friedrich; Nils Hebbinghaus; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2008.08.021/">Comparison of simple diversity mechanisms on plateau
+            functions.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/FriedrichHN09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2009">
+                    Dimo Brockhoff; Tobias Friedrich; Nils Hebbinghaus; Christian Klein; Frank Neumann; Eckart Zitzler; <br>
+                    <a href="https://doi.org/10.1109/TEVC.2008.2009064/">On the Effects of Adding Objectives to Plateau
+            Functions.<br></a>
+                    <a href="https://dblp.org/rec/journals/tec/BrockhoffFHKNZ09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2009">
+                    Pietro S. Oliveto; Per Kristian Lehre; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2009.4983114/">Theoretical analysis of rank-based mutation - combining
+            explorationand exploitationProceedings of the {IEEE} Congress on Evolutionary Computation, {CEC}2009,
+            Trondheim, Norway, 18-21 May, 2009.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/OlivetoLN09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2009">
+                    Surender Baswana; Somenath Biswas; Benjamin Doerr; Tobias Friedrich; Piyush P. Kurur; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1527125.1527134/">Computing single source shortest paths using
+            single-objective fitnessFoundations of Genetic Algorithms, 10th {ACM} {SIGEVO} InternationalWorkshop, {FOGA}
+            2009, Orlando, Forida, USA, January 9-11, 2009, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/BaswanaBDFKN09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2009">
+                    Christian Horoba; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1527125.1527137/">Additive approximations of pareto-optimal sets by
+            evolutionary multi-objectivealgorithmsFoundations of Genetic Algorithms, 10th {ACM} {SIGEVO}
+            InternationalWorkshop, {FOGA} 2009, Orlando, Forida, USA, January 9-11, 2009, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/foga/HorobaN09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2009">
+                    Stefan Kratsch; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1569901.1569943/">Fixed-parameter evolutionary algorithms and the vertex
+            cover problemGenetic and Evolutionary Computation Conference, {GECCO} 2009, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/KratschN09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2009">
+                    Tobias Friedrich; Christian Horoba; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1569901.1569981/">Multiplicative approximations and the hypervolume
+            indicatorGenetic and Evolutionary Computation Conference, {GECCO} 2009, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/FriedrichHN09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2009">
+                    Benjamin Doerr; Anton V. Eremeev; Christian Horoba; Frank Neumann; Madeleine Theile; <br>
+                    <a href="https://doi.org/10.1145/1569901.1570008/">Evolutionary algorithms and dynamic programmingGenetic and
+            Evolutionary Computation Conference, {GECCO} 2009, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/DoerrEHNT09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2009">
+                    Frank Neumann; Pietro S. Oliveto; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1145/1569901.1570016/">Theoretical analysis of fitness-proportional selection:
+            landscapesand efficiencyGenetic and Evolutionary Computation Conference, {GECCO} 2009, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannOW09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2009">
+                    Thomas Jansen; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1570256.1570416/">Computational complexity and evolutionary
+            computationGenetic and Evolutionary Computation Conference, {GECCO} 2009, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/JansenN09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="incollection 2009">
+                    Frank Neumann; Dirk Sudholt; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/978-3-642-04225-6\_6/">Computational Complexity of Ant Colony Optimization
+            and Its Hybridizationwith Local SearchInnovations in Swarm Intelligence.<br></a>
+                    <a href="https://dblp.org/rec/series/sci/NeumannSW09.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2008">
+                <h2>2008</h2><br>
+                <p class="article 2008">
+                    Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.cor.2006.12.009/">Expected runtimes of evolutionary algorithms for the
+            Eulerian cycleproblem.<br></a>
+                    <a href="https://dblp.org/rec/journals/cor/Neumann08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2008">
+                    Florian Diedrich; Britta Kehden; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-78913-0\_8/">Multi-objective Problems in Terms of Relational
+            AlgebraRelations and Kleene Algebra in Computer Science, 10th InternationalConference on Relational Methods
+            in Computer Science, and 5th InternationalConference on Applications of Kleene Algebra, RelMiCS/AKA 2008,
+            Frauenw{\"{o}}rth,.<br></a>
+                    <a href="https://dblp.org/rec/conf/RelMiCS/DiedrichKN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2008">
+                    Frank Neumann; Dirk Sudholt; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-87527-7\_12/">Rigorous Analyses for the Combination of Ant Colony
+            Optimization andLocal SearchAnt Colony Optimization and Swarm Intelligence, 6th InternationalConference,
+            {ANTS} 2008, Brussels, Belgium, September 22-24, 2008.Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/antsw/NeumannSW08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2008">
+                    Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2008.4630918/">When to use bit-wise neutralityProceedings of the {IEEE}
+            Congress on Evolutionary Computation, {CEC}2008, June 1-6, 2008, Hong Kong, China.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/FriedrichN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2008">
+                    Florian Diedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2008.4631317/">Using fast matrix multiplication in bio-inspired
+            computation for complexoptimization problemsProceedings of the {IEEE} Congress on Evolutionary Computation,
+            {CEC}2008, June 1-6, 2008, Hong Kong, China.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/DiedrichN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2008">
+                    Christian Horoba; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1389095.1389224/">Benefits and drawbacks for the use of epsilon-dominance in
+            evolutionarymulti-objective optimizationGenetic and Evolutionary Computation Conference, {GECCO} 2008,
+            Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/HorobaN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2008">
+                    Frank Neumann; Joachim Reichel; Martin Skutella; <br>
+                    <a href="https://doi.org/10.1145/1389095.1389250/">Computing minimum cuts by randomized search
+            heuristicsGenetic and Evolutionary Computation Conference, {GECCO} 2008, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannRS08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2008">
+                    Edda Happ; Daniel Johannsen; Christian Klein; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1389095.1389277/">Rigorous analyses of fitness-proportional selection for
+            optimizinglinear functionsGenetic and Evolutionary Computation Conference, {GECCO} 2008,
+            Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/HappJKN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2008">
+                    Thomas Jansen; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1388969.1389062/">Computational complexity and evolutionary
+            computationGenetic and Evolutionary Computation Conference, {GECCO} 2008, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/JansenN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2008">
+                    Frank Neumann; Joachim Reichel; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-87700-4\_8/">Approximating Minimum Multicuts by Evolutionary
+            Multi-objective AlgorithmsParallel Problem Solving from Nature - {PPSN} X, 10th InternationalConference
+            Dortmund, Germany, September 13-17, 2008, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/NeumannR08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2008">
+                    Dimo Brockhoff; Tobias Friedrich; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-87700-4\_65/">Analyzing Hypervolume Indicator Based
+            AlgorithmsParallel Problem Solving from Nature - {PPSN} X, 10th InternationalConference Dortmund, Germany,
+            September 13-17, 2008, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/BrockhoffFN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2008">
+                    Tobias Friedrich; Christian Horoba; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-87700-4\_67/">Runtime Analyses for Using Fairness in Evolutionary
+            Multi-ObjectiveOptimizationParallel Problem Solving from Nature - {PPSN} X, 10th InternationalConference
+            Dortmund, Germany, September 13-17, 2008, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/FriedrichHN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2008">
+                    Jens Kroeske; Adam Ghandar; Zbigniew Michalewicz; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-87700-4\_104/">Learning Fuzzy Rules with Evolutionary Algorithms -
+            An Analytic ApproachParallel Problem Solving from Nature - {PPSN} X, 10th InternationalConference Dortmund,
+            Germany, September 13-17, 2008, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/KroeskeGMN08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="incollection 2008">
+                    Frank Neumann; Ingo Wegener; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-72964-8\_6/">Can Single-Objective Optimization Profit from
+            Multiobjective Optimization?Multiobjective Problem Solving from Nature.<br></a>
+                    <a href="https://dblp.org/rec/books/sp/08/0001W08.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+            </div>
+
+            <div class="2007">
+                <h2>2007</h2><br>
+                <p class="article 2007">
+                    Benjamin Doerr; Nils Hebbinghaus; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1162/evco.2007.15.4.401/">Speeding Up Evolutionary Algorithms through Asymmetric
+            Mutation Operators.<br></a>
+                    <a href="https://dblp.org/rec/journals/ec/DoerrHN07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2007">
+                    Frank Neumann; <br>
+                    <a href="https://doi.org/10.1016/j.ejor.2006.08.005/">Expected runtimes of a simple evolutionary algorithm for
+            the multi-objectiveminimum spanning tree problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/eor/Neumann07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2007">
+                    Frank Neumann; Ingo Wegener; <br>
+                    <a href="https://doi.org/10.1016/j.tcs.2006.11.002/">Randomized local search, evolutionary algorithms, and the
+            minimumspanning tree problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/tcs/NeumannW07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2007">
+                    Benjamin Doerr; Michael Gnewuch; Nils Hebbinghaus; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2007.4424797/">A rigorous view on neutralityProceedings of the {IEEE}
+            Congress on Evolutionary Computation, {CEC}2007, 25-28 September 2007, Singapore.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/DoerrGHN07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2007">
+                    Tobias Friedrich; Jun He; Nils Hebbinghaus; Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1109/CEC.2007.4424800/">On improving approximate solutions by evolutionary
+            algorithmsProceedings of the {IEEE} Congress on Evolutionary Computation, {CEC}2007, 25-28 September 2007,
+            Singapore.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/FriedrichHHNW07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2007">
+                    Tobias Friedrich; Nils Hebbinghaus; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2007.4424801/">Plateaus can be harder in multi-objective
+            optimizationProceedings of the {IEEE} Congress on Evolutionary Computation, {CEC}2007, 25-28 September 2007,
+            Singapore.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/FriedrichHN07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2007">
+                    Benjamin Doerr; Frank Neumann; Dirk Sudholt; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1145/1276958.1276964/">On the runtime analysis of the 1-ANT {ACO} algorithmGenetic
+            and Evolutionary Computation Conference, {GECCO} 2007, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/DoerrNSW07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2007">
+                    Dimo Brockhoff; Tobias Friedrich; Nils Hebbinghaus; Christian Klein; Frank Neumann; Eckart Zitzler; <br>
+                    <a href="https://doi.org/10.1145/1276958.1277114/">Do additional objectives make a problem harder?Genetic and
+            Evolutionary Computation Conference, {GECCO} 2007, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/BrockhoffFHKNZ07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2007">
+                    Tobias Friedrich; Nils Hebbinghaus; Frank Neumann; Jun He; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1145/1276958.1277118/">Approximating covering problems by randomized search
+            heuristics usingmulti-objective modelsGenetic and Evolutionary Computation Conference, {GECCO} 2007,
+            Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/FriedrichHNHW07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2007">
+                    Tobias Friedrich; Nils Hebbinghaus; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1276958.1277194/">Rigorous analyses of simple diversity mechanismsGenetic and
+            Evolutionary Computation Conference, {GECCO} 2007, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/FriedrichHN07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2007">
+                    Thomas Jansen; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1145/1274000.1274112/">Computational complexity and evolutionary
+            computationGenetic and Evolutionary Computation Conference, {GECCO} 2007, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/JansenN07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2007">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-92695-5\_12/">Ant Colony Optimization and the Minimum Spanning Tree
+            ProblemLearning and Intelligent Optimization, Second International Conference,.<br></a>
+                    <a href="https://dblp.org/rec/conf/lion/NeumannW07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2007">
+                    Frank Neumann; Dirk Sudholt; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-74446-7\_5/">Comparing Variants of {MMAS} {ACO} Algorithms on
+            Pseudo-Boolean FunctionsEngineering Stochastic Local Search Algorithms. Designing, Implementingand Analyzing
+            Effective Heuristics, International Workshop, {SLS}2007, Brussels, Belgium, September 6-8, 2007,
+            Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/sls/NeumannSW07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="article 2007">
+                    Tobias Friedrich; Jun He; Nils Hebbinghaus; Frank Neumann; Carsten Witt; <br>
+                    <a href="http://eccc.hpi-web.de/eccc-reports/2007/TR07-027/index.html/">Approximating Covering Problems by
+            Randomized Search Heuristics UsingMulti-Objective Models.<br></a>
+                    <a href="https://dblp.org/rec/journals/eccc/FriedrichHHNW07.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2006">
+                <h2>2006</h2><br>
+                <p class="article 2006">
+                    Frank Neumann; Ingo Wegener; <br>
+                    <a href="https://doi.org/10.1007/s11047-006-9004-x/">Minimum spanning trees made easier via multi-objective
+            optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/nc/NeumannW06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2006">
+                    Britta Kehden; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/11730095\_13/">A Relation-Algebraic View on Evolutionary Algorithms for Some
+            GraphProblemsEvolutionary Computation in Combinatorial Optimization, 6th EuropeanConference, EvoCOP 2006,
+            Budapest, Hungary, April 10-12, 2006, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/evoW/KehdenN06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2006">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="https://doi.org/10.1007/11940128\_62/">Runtime Analysis of a Simple Ant Colony Optimization
+            AlgorithmAlgorithms and Computation, 17th International Symposium, {ISAAC}2006, Kolkata, India, December
+            18-20, 2006, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/isaac/NeumannW06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2006">
+                    Frank Neumann; Marco Laumanns; <br>
+                    <a href="https://doi.org/10.1007/11682462\_68/">Speeding up Approximation Algorithms for NP-Hard Spanning
+            Forest Problemsby Multi-objective Optimization{LATIN} 2006: Theoretical Informatics, 7th Latin American
+            Symposium,.<br></a>
+                    <a href="https://dblp.org/rec/conf/latin/NeumannL06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2006">
+                    Benjamin Doerr; Nils Hebbinghaus; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/11844297\_99/">Speeding Up Evolutionary Algorithms Through Restricted
+            Mutation OperatorsParallel Problem Solving from Nature - {PPSN} IX, 9th InternationalConference, Reykjavik,
+            Iceland, September 9-13, 2006, Procedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/DoerrHN06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2006">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="http://drops.dagstuhl.de/opus/volltexte/2006/592/">Runtime Analysis of a Simple Ant Colony
+            Optimization AlgorithmTheory of Evolutionary Algorithms, 05.02. - 10.02.2006.<br></a>
+                    <a href="https://dblp.org/rec/conf/dagstuhl/NeumannW06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2006">
+                    Nils Hebbinghaus; Benjamin Doerr; Frank Neumann; <br>
+                    <a href="http://eccc.hpi-web.de/eccc-reports/2006/TR06-083/index.html/">Speeding up Evolutionary Algorithms by
+            Restricted Mutation Operators.<br></a>
+                    <a href="https://dblp.org/rec/journals/eccc/HebbinghausDN06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2006">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="http://eccc.hpi-web.de/eccc-reports/2006/TR06-084/index.html/">Runtime Analysis of a Simple Ant
+            Colony Optimization Algorithm.<br></a>
+                    <a href="https://dblp.org/rec/journals/eccc/NeumannW06.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2006">
+                    Frank Neumann; Carsten Witt; <br>
+                    <a href="http://eccc.hpi-web.de/eccc-reports/2006/TR06-143/index.html/">Ant Colony Optimization and the
+            Minimum Spanning Tree Problem.<br></a>
+                    <a href="https://dblp.org/rec/journals/eccc/NeumannW06a.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2005">
+                <h2>2005</h2><br>
+                <p class="phdthesis 2005">
+                    Frank Neumann; <br>
+                    <a href="http://eldiss.uni-kiel.de/macau/receive/dissertation\_diss\_00001808/">Combinatorial optimization and
+            the analysis of randomized search heuristics.<br></a>
+                    <a href="https://dblp.org/rec/phd/de/Neumann2006a.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2005">
+                    Britta Kehden; Frank Neumann; Rudolf Berghammer; <br>
+                    <a href="https://doi.org/10.1007/11734673\_13/">Relational Implementation of Simple Parallel Evolutionary
+            AlgorithmsRelational Methods in Computer Science, 8th International Seminaron Relational Methods in Computer
+            Science, 3rd International Workshopon Applications of Kleene Algebra, and Workshop of {COST} Action
+            274:TARSKI, St. Catharines, ON, Canada, February 22-26, 2005, SelectedRevised Papers.<br></a>
+                    <a href="https://dblp.org/rec/conf/RelMiCS/KehdenNB05.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2005">
+                    Rudolf Berghammer; Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/11555964\_4/">RelView - An OBDD-Based Computer Algebra System for
+            RelationsComputer Algebra in Scientific Computing, 8th International Workshop,.<br></a>
+                    <a href="https://dblp.org/rec/conf/casc/BerghammerN05.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2005">
+                    Frank Neumann; Ingo Wegener; <br>
+                    <a href="https://doi.org/10.1145/1068009.1068139/">Minimum spanning trees made easier via multi-objective
+            optimizationGenetic and Evolutionary Computation Conference, {GECCO} 2005, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannW05.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="article 2005">
+                    Frank Neumann; Marco Laumanns; <br>
+                    <a href="http://eccc.hpi-web.de/eccc-reports/2005/TR05-029/index.html/">Speeding Up Approximation Algorithms
+            for NP-hard Spanning Forest Problemsby Multi-objective Optimization.<br></a>
+                    <a href="https://dblp.org/rec/journals/eccc/ECCC-TR05-029.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+            </div>
+
+            <div class="2004">
+                <h2>2004</h2><br>
+                <p class="inproceedings 2004">
+                    Frank Neumann; <br>
+                    <a href="https://doi.org/10.1109/CEC.2004.1330957/">Expected runtimes of evolutionary algorithms for the
+            Eulerian cycleproblemProceedings of the {IEEE} Congress on Evolutionary Computation, {CEC}2004, 19-23 June
+            2004, Portland, OR, {USA}.<br></a>
+                    <a href="https://dblp.org/rec/conf/cec/Neumann04.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+                <p class="inproceedings 2004">
+                    Frank Neumann; Ingo Wegener; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-24854-5\_73/">Randomized Local Search, Evolutionary Algorithms, and
+            the MinimumSpanning Tree ProblemGenetic and Evolutionary Computation - {GECCO} 2004, Genetic and
+            EvolutionaryComputation Conference, Seattle, WA, USA, June 26-30, 2004, Proceedings,.<br></a>
+                    <a href="https://dblp.org/rec/conf/gecco/NeumannW04.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org<br>
+                </p>
+                <p class="inproceedings 2004">
+                    Frank Neumann; <br>
+                    <a href="https://doi.org/10.1007/978-3-540-30217-9\_9/">Expected Runtimes of a Simple Evolutionary Algorithm
+            for the Multi-objectiveMinimum Spanning Tree ProblemParallel Problem Solving from Nature - {PPSN} VIII, 8th
+            InternationalConference, Birmingham, UK, September 18-22, 2004, Proceedings.<br></a>
+                    <a href="https://dblp.org/rec/conf/ppsn/Neumann04.bib/">Bibliography</a>: dblp computer science bibliography, https://dblp.org
+                    <br>
+                </p>
+            </div>
+            <!-- <a id="bottom" href="#top">back to top</a> -->
+        </div>
+        <footer class="footer">
+            <div class="footerContent">Copyright © 2021 MCI Team21</div>
+        </footer>
+</body>
+
+
+
+</html>

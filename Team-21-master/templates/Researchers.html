@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block main_content %}
+<!--researchers page information-->
+<div class="content">
+    <h2>Researchers</h2>
+    <h5>This page lists <a href="Researchers.html">all academic staff</a> in Optimisation and Logistics group.</h5>
+    <table class="table table-hover">
+
+        <tr>
+            <td class="researcher image">
+                <img src={{ url_for( 'static', filename="images/UoA_logo.png" ) }} width="160" height="180" alt="Frank Neumann"></img>
+            </td>
+            <td class="information">
+                <h4><a href="FrankNeumann.html">Frank Neumann</a></h4>
+                <h5>Group Leader</h5>
+                <p>Office: 455</p>
+                <p>Email: <a href="mailto:frank.neumann@adelaide.edu.au" target="_top">frank.neumann@adelaide.edu.au</a></p>
+                <p>Tel:
+                    <br> For internal Univeristy callers: 34477<br> For external callers in Australia: (08)83134477<br> For internaltional callsers: +61883134477
+                </p>
+                <p>Links:
+                    <a href="FrankNeumannHomepage.html"> Homepage,</a>
+                    <a href="FrankNeumann.html">Publications</a>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">
+                <img src={{ url_for( 'static', filename="images/UoA_logo.png" ) }} width="160" height="180" alt="Markus Wagner"></img>
+                </map>
+            </td>
+            <td class="information">
+                <h4><a href="MarkusWagner.html">Markus Wagner</a></h4>
+                <h5>Associate Professor</h5>
+                <p>Office: 445</p>
+                <p>Email: <a href="mailto:markus.wagner@adelaide.edu.au" target="_top">markus.wagner@adelaide.edu.au</a></p>
+                <p>Tel:
+                    <br> For internal Univeristy callers: 35405<br> For external callers in Australia: (08)83135405<br> For internaltional callsers: +61883135405
+                </p>
+                <p>Links:
+                    <a href="https://researchers.adelaide.edu.au/profile/markus.wagner" target="_blank"> Homepage,</a>
+                    <a href="MarkusWagner.html">Publications</a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

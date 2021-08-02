@@ -1,0 +1,57 @@
+<html>
+    <head lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .black_overlay{
+                display: none;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 100%;
+                background-color: #c8c8c8;
+                z-index:1001;
+                -moz-opacity: 0.8;
+                opacity:.80;
+                filter: alpha(opacity=78);
+            }
+            .pop_win {
+                display: none;
+                position: absolute;
+                top: 22%;
+                left:32%;
+                width: 36%;
+                height: 56%;
+                padding: 10px;
+                border: 2px solid rebeccapurple;
+                background-color: white;
+                z-index:9999;
+                overflow: auto;
+            }
+        </style>
+        <script type="text/javascript">
+            function popWin(UID){
+                document.getElementById('light').style.display='block';
+                document.getElementById('fade').style.display='block'
+            }
+    
+            function closeWin() {
+                document.getElementById('light').style.display = 'none';
+                document.getElementById('fade').style.display = 'none'
+            }
+        </script>
+    </head>
+    <body>
+        <p>网页：单击按钮弹出悬浮窗+页面遮罩</p>
+        <button id="loginputNewEntry" type="submit" value='inputNewEntry' onclick = 'popWin();'>Input new enrty</button>
+    
+        <div id="light" class="pop_win">
+            <a href = "javascript:void(0)" onclick = "closeWin();" style="float: right;">[x]</a>
+
+            <iframe href="login.html" style="height:100%; width:100%; transform: scale(0.8,0.8); border-style: none;"></iframe>
+
+        </div>
+        <div id="fade" class="black_overlay"></div>
+    </body>
+</html>

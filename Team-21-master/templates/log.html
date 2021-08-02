@@ -1,0 +1,40 @@
+{% extends 'base_admin.html' %} {% block main_content %}
+<div class="content">
+    <!-- <h3>Log</h3> -->
+
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-2">
+            <ul class="list">
+                <li class="page" id="get-content-1"><a href="#">Parser Log</a></li>
+                <li class="page" id="get-content-2"><a href="#">Bib Change Log</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <pre id="content1">
+        Please click one of the options on the left.
+        The parser_log is the log of parsing process of most recent update.
+        The bib_change_log is the log of all historical changes in local fields
+                        </pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $("#get-content-1").click(function() {
+            $.get("/admin/parser_log.txt", {}, function(res) {
+                $("#content1").text(res)
+            }, "html");
+        })
+        $("#get-content-2").click(function() {
+            $.get("/admin/bib_change_log.txt", {}, function(res) {
+                $("#content1").text(res)
+            }, "html");
+        })
+    });
+
+    $('.col-md-2').on('click', '.page', function() {
+        $(this).addClass("current").siblings().removeClass("current");
+    });
+</script>
+{% endblock %}
