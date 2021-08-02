@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maptek Staff Management Utility</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base target="_top" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <?!= include("chart-css"); ?>
+  </head>
+  <body>
+    <!--Hidden div for showing staff details-->
+    <div id="staffDetails" style="display: none">
+      <span id="staffDepartment"></span><br />
+      <span id="staffName"></span><br />
+      <span id="staffTitle"></span><br />
+      <span id="staffSupervisor"></span><br />
+      <span id="staffOffice"></span><br />
+      <span id="staffEmail"></span><br />
+      <span id="staffPhone"></span><br />
+    </div>
+
+    <!-- Content start -->
+    <div class="container">
+      <div class="mainHeader">
+        <!-- Display the image of the company logo -->
+        <img
+          src="https://www.maptek.com/images/core/Maptek_Logo_OpenGraph_360x200.png"
+          alt="Maptek"
+          usemap="#mymap"
+        />
+
+        <!-- Link the company logo to company website -->
+
+        <map name="mymap">
+          <area
+            href="https://www.maptek.com/"
+            target="_blank"
+            shape="default"
+            alt="Maptek"
+          />
+        </map>
+
+        <h1 id="header" class="demo_class">Maptek Staff Management Utility</h1>
+      </div>
+        
+       <!-- navigation  -->
+       <div class = "nav">
+        <ul>
+          <li><a href="<?=url?>"> Organizational Chart</a></li>
+          <li><a href="<?=url?>?v=search"> Search Staff Information </a></li>
+          <li><a href="<?=url?>?v=report">Generate Report</a></li>
+          <div class = "dropDown">
+            <div class = "dropDownBtn">User Manual
+              <i class="fa fa-caret-down"></i>
+            </div>
+            <div class="dropDownMenu">
+              <a href="<?=url?>?v=manualChart">Organization Chart</a>
+              <a href="<?=url?>?v=manualSearch">Search Staff Information</a>
+              <a href="<?=url?>?v=manualReport">Generate Report</a>
+              <a href="<?=url?>?v=manual">Set Up</a>
+            </div>
+          </div>
+        </ul>  
+       </div>
+
+      <!--Added by Eric: For zoom in and zoom out-->
+      <div class="row justify-content-center">
+        <button id="zoom_in" class="chart-btn">Zoom in</button>
+        <button id="zoom_out" class="chart-btn">Zoom out</button>
+      </div>
+
+      <!--chart would be placed in div#chart-->
+      <div id="mainContent">
+        <div id="chart"></div>
+      </div>
+      <!--<ul>    -->
+      <!--Demo for output the first row of data from spreadsheet-->
+      <!--<-?!= listHtml; ?->
+    </ul>   -->
+
+      <div id="mainContent2">
+        <div id="title" class="login-title">
+          <button id="infoClose1">X</button>
+          <span id="staffNameTitle"></span>
+          <!--   <button id="infoClose1" class="close-login"></button> -->
+        </div>
+        <div id="chart2"></div>
+        <div id="information2">
+          <div id="moreInfor">
+            <!-- <span id="staffName2"></span><br />
+            <span id="staffTitle2"></span><br />
+            <span id="staffSupervisor2"></span><br />
+            <span id="staffOffice2"></span><br />
+            <span id="staffEmail2"></span><br />
+            <span id="staffPhone2"></span><br />
+            <span id="staffId2"></span><br />
+            <span id="svpId2"></span><br />
+            <span id="birthday2"></span><br />
+            <image id = "testImage" ></image> --->
+          </div>
+        </div>
+      </div>
+
+      <div id="mask" class="login-mask"></div>
+    </div>
+    <footer
+      id="copyright"
+      class="demo_class"
+      style="color: #5d5d5d; text-align: center; float: bottom; font-size: 70%"
+    >
+      ©2020 Group SMU6
+    </footer>
+    <!-- Content end -->
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <?!= include("chartGeneration-js"); ?>
+    <?!= include("chart-js"); ?>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMU6-Documentation</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base target="_top" />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+    />
+    <?!= include("manual-css"); ?>
+</head>
+<body>
+
+
+<div class="page-wrapper-set-up w">
+    <div class = "topSet">
+        <div class="mainHeader">
+            <!-- Display the image of the company logo -->
+            <img
+                    src="https://www.maptek.com/images/core/Maptek_Logo_OpenGraph_360x200.png"
+                    alt="Maptek"
+                    usemap="#mymap"
+            />
+
+            <!-- Link the company logo to company website -->
+
+            <map name="mymap">
+                <area
+                        href="https://www.maptek.com/"
+                        target="_blank"
+                        shape="default"
+                        alt="Maptek"
+                />
+            </map>
+
+            <h1 id="header" class="demo_class">User Manual - Generate Report</h1>
+        </div>
+        <!-- navigation -->
+        <div class = "nav">
+            <ul>
+                <li><a href="<?=url?>"> Organizational Chart</a></li>
+                <li><a href="<?=url?>?v=search"> Search Staff Information </a></li>
+                <li><a href="<?=url?>?v=report">Generate Report</a></li>
+                <div class = "dropDown">
+                    <div class = "dropDownBtn">User Manual
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="dropDownMenu">
+                        <a href="<?=url?>?v=manualChart">Organization Chart</a>
+                        <a href="<?=url?>?v=manualSearch">Search Staff Information</a>
+                        <a href="<?=url?>?v=manualReport">Generate Report</a>
+                        <a href="<?=url?>?v=manual">Set Up</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <!-- main -->
+
+    <div class="main w">
+        <!-- sub nav -->
+        <div class="sub-nav fl">
+            <ul>
+                <li><a href="#overview" target = "_self">Overview</a></li>
+                <li>
+                    <a href="#navigation" target = "_self">Navigation </a>
+                </li>
+                <li>
+                    <a href="#customizeReport" target = "_self">Customize report </a>
+                </li>
+                <li>
+                    <a href="#generateReport" target = "_self">Generate the report</a>
+                </li>
+                <li>
+                    <a href="#printOrDownloadReport" target = "_self">Print / Download </a>
+                </li>
+                <li>
+                    <a href="#ExportGoogle" target = "_self">Export Google Doc</a>
+                </li>
+                <li>
+                    <a href="#maintenanceInformation" target = "_self">Maintenance </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- content -->
+        <div class="content fr">
+            <div id="overview" class = "marks">
+                <h3>Overview</h3>
+
+                <p>
+                    The Report page will allow users to generate reports about the
+                    information available in the system.
+                </p>
+            </div>
+            <div id="navigation" class = "marks">
+                <h3>Navigation</h3>
+
+                <p>
+                    Click <strong>Generate Report</strong> button on the top
+                    navigation bar to go to this section.
+                </p>
+
+                <img src="https://drive.google.com/uc?export=download&id=1rrdm5_iv0u515AX3yBtpUYmUEEaLxzSf" alt="" id = "chart1"/><!--./images/report/report1.png-->
+            </div>
+
+            <div id="customizeReport" class = "marks">
+                <h3>Customize report </h3>
+                <p>
+                    The HR report is generated based on the vary department and
+                    location information.
+                </p>
+
+                <p>
+                    It would automatically check all departments and locations at the
+                    beginning.
+                </p>
+
+                <p>
+                    It will also allow users to self-service so that they can choose
+                    from different options by unchecking specify criteria. It will
+                    generate a new report and refresh the report result automatically.
+                </p>
+                <img src="https://drive.google.com/uc?export=download&id=1BmfKxfc1JFrTl2OGeSBYJItonj3GGGUM" alt="" id = "report2"/><!--./images/report/report2.png-->
+            </div>
+
+            <div id="generateReport" class = "marks">
+                <h3>Generate the report</h3>
+                <p>The report will show the following information:</p>
+
+                <ul>
+                    <li>1. The number of staffs per building.</li>
+                    <li>2. The teams and/or division in each building.</li>
+                    <li>3. The number of staffs in each team.</li>
+                    <li>4. Male and female ratio.</li>
+                    <li>5. Names of employees in each building.</li>
+                    <li>6. Years (and months) in the company for all employees.</li>
+                </ul>
+
+                <p>
+                    At least checking one department and one location is required to
+                    get the correct report.
+                </p>
+
+                <p>Sample Report is shown as follows:</p>
+
+                <img src="https://drive.google.com/uc?export=download&id=1TBXQ0ND1gYyI8OmNRnNF_TsUTwlLo83G" alt="" id = "report3"/><!--./images/report/report3.png-->
+
+                <div id="printOrDownloadReport" class = "marks">
+                    <h3>Print / Download report</h3>
+                    <p>
+                        Step 1: Click the
+                        <strong>Print / Download as PDF</strong> button at the bottom of
+                        the report.
+                    </p>
+
+                    <img src="https://drive.google.com/uc?export=download&id=1MzAFyaTMvUdoSnOS4P_B3KfR5DQJw4h_" id="printBtnImg" /><!--./images/report/report4.png-->
+
+                    <p>
+                        Step 2: The web browser will open a new window to allow users to
+                        preview, print or save the web page as PDF.
+                    </p>
+
+                    <img src="https://drive.google.com/uc?export=download&id=10vLk6gpYXx7j96q4dAODkgFzEc-zHeRo" id="printImg" /><!--./images/report/report5.png-->
+                </div>
+
+                <div id="ExportGoogle" class = "marks">
+                    <h3>EXPORT AS GOOGLE DOC</h3>
+                    <p>
+                        Step 1: Click the
+                        <strong>Export as Google Doc</strong> button at the bottom of
+                        the report.
+                    </p>
+
+                    <img src="https://drive.google.com/uc?export=download&id=1e1A4o9TBGbka3rOu6W-mavT7SObywXLX" id="exportBtnImg" /><!--./images/report/exportAsGoogleDoc.png-->
+                    <p>
+                        Top right corner of your screen will have a notification.
+                    </p>
+                    <img src="https://drive.google.com/uc?export=download&id=1GYK03-1CfNsxNHXWfdqIOBBepTFqlVGA" class="exportImg" /><!--./images/report/exportAsGoogleDoc2.png-->
+                    <p>
+                        Step 2: Open the Google Docs of the current logging account, the generated report can be found, which you can edit and modify.
+                    </p>
+
+                    <img src="https://drive.google.com/uc?export=download&id=1Ob1Opnknu1soHnqWva5nTdZOGKy8XAhs" class="exportImg" /><!--./images/report/googleDoc.png-->
+                </div>
+
+                <div id="maintenanceInformation" class = "marks">
+                    <h3>Maintenance information</h3>
+                    The google sheet records the staff’s information in Maptek. To
+                    edit and maintain the google sheet, please refer the
+                    <strong>Spreadsheet Format</strong> section in the
+                    <strong>Set Up</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type = "text/javascript">
+    /**this script is to set the fixed margin top of the div elements
+     * author: Peter
+     * **/
+        //set offset to the document
+    let h = document.getElementsByClassName('topSet')[0].clientHeight;
+    console.log (h);
+    document.getElementsByClassName('main')[0].style.marginTop = h + "px";
+
+    //set offset to each hash jump div
+    let offsetHash = document.head.appendChild(document.createElement("style"));
+    offsetHash.innerHTML = "div.marks::before{ display: block;content: \" \";visibility: hidden;pointer-events:" +
+        " none;height: " + h + "px;margin-top:-" + h + "px;}";
+</script>
+</html>

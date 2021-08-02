@@ -1,0 +1,91 @@
+<script>
+
+/**Request data from back end and draw the chart**/
+/**Author: Zihe Peter Wang
+ * Editor:
+ * */
+  $(function () {
+    // Demo for logging the first row data after clicking to the report using jquery
+    $('#header').on('click', () => {
+      google.script.run
+        .withSuccessHandler((data) => {
+          console.log(data);
+        })
+        .getFirstRowData();
+    });
+
+    //Keep track of mouse position
+    $(document).mousemove(function (event) {
+      mousex = event.pageX + 20;
+      mousey = event.pageY + 20;
+    });
+
+    //Load google chart
+    google.charts.load('current', { packages: ['orgchart'] });
+    google.charts.setOnLoadCallback(getData);
+
+
+    function getData() {
+      //if chartsData runs successfully in gs, then run drawChart(chartsData)
+      google.script.run.withSuccessHandler(drawChart).chartsData();
+    }
+
+    /**************************************************************************************/
+    /**click function to control the zoom in and zoom out of organization chart**/
+    /**Author: Eric Ma
+     * Modified by Peter: Now the scale of zoom out has been limited (scale > 0)
+     * **/
+    function scrollXZoomAdjust(current_scrollX_left, ratio) {
+      var current_scrollX_middle =
+        current_scrollX_left + $('#mainContent').width() / 2;
+      var current_scrollX_right =
+        current_scrollX_left + $('#mainContent').width();
+      var updated_scrollX_middle = current_scrollX_middle * ratio;
+      var updated_scrollX_left =
+        updated_scrollX_middle - $('#mainContent').width() / 2;
+      var max_scrollX =
+        $('#mainContent').get(0).scrollWidth -
+        $('#mainContent').get(0).clientWidth;
+      if (updated_scrollX_left < 0) updated_scrollX_left = 0;
+      // In some circumstances, max_scrollX may be 1px off
+      if (updated_scrollX_left > max_scrollX - 1) {
+        updated_scrollX_left = max_scrollX - 1;
+      }
+      $('#mainContent').scrollLeft(updated_scrollX_left);
+    }
+    $('button#zoom_in').click(function () {
+      let current_scrollX_left = $('#mainContent').scrollLeft();
+      let ratio = (scale + 0.1) / scale;
+      scale += 0.1;
+      $('#mainContent').scrollLeft(0);
+      $('#chart').css('transform', 'scale(' + scale + ')');
+      setTop();
+      scrollXZoomAdjust(current_scrollX_left, ratio);
+    });
+    $('button#zoom_out').click(function () {
+      let current_scrollX_left = $('#mainContent').scrollLeft();
+      let ratio = 1;
+      if (scale - 0.1 > 0){
+          ratio = (scale - 0.1) / scale;
+          scale -= 0.1;
+      }
+
+      $('#mainContent').scrollLeft(0);
+      $('#chart').css('transform', 'scale(' + scale + ')');
+      setTop();
+      scrollXZoomAdjust(current_scrollX_left, ratio);
+    });
+  });
+
+
+  function setTop(){
+      let domChart = document.getElementById('chart');
+      let offsetHeight = domChart.offsetHeight;
+      let containerHeight = document.getElementById('mainContent').offsetHeight;
+      let top = (containerHeight - offsetHeight * scale) / 2;
+      if (top < 0) top = 0;
+      let viewPortHeight = document.documentElement.clientHeight;
+      top = top / viewPortHeight * 100;
+      domChart.style.top = top + 'vh';
+  }
+</script>

@@ -1,0 +1,269 @@
+<style>
+  body {
+    background-color: #eeeeee;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  /********************** main header area ****************************/
+  .mainHeader {
+ min-width: 1200px;
+ }
+  .mainHeader > img {
+    width: 170px;
+    height: 100px;
+    float: left;
+  }
+  .mainHeader > #header {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-left: 110px;
+    margin-top: 20px;
+    color: #4f9d37;
+    font-size: 50px;
+    float: left;
+  }
+  /********************** main header area ****************************/
+  div#chart button {
+    cursor: pointer;
+    outline: none;
+    background-color: #4f9d37;
+    border-radius: 2px;
+    border: none;
+  }
+  
+  
+  .chart-btn{
+        cursor: pointer;
+        outline: none;
+        background-color: #4f9d37;
+        border-radius: 2px;
+        border: none;
+        color:#fff;
+}
+
+#zoom_in{
+ margin-right: 10px;
+}
+
+/************** navigation *****************/
+
+ ul{
+      min-width: 1150px;
+      list-style-type:none;
+      margin-top:10px;
+      padding:0;
+      overflow:hidden;
+  }
+  ul div.dropDown{
+      float:left;
+      width:25%;
+      overflow: hidden;
+  }
+
+  ul div.dropDown div.dropDownBtn{
+      width:100%;
+      font-weight:bold;
+      cursor: context-menu;
+      border: none;
+      outline: none;
+      color:#FFFFFF;
+      background-color:#4f9d37;
+      text-align:center;
+      padding:4px;
+      text-decoration:none;
+      opacity:0.95;
+  }
+
+  div.dropDownMenu {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      width: 287.5px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+
+  div.dropDownMenu a{
+      color: #FFFFFF;
+      font-weight:bold;
+      padding:4px;
+      text-decoration: none;
+      width: 100%;
+      display: block;
+  }
+  div.dropDown:hover div.dropDownBtn
+  {
+      background-color:#4f9d37;
+      opacity:0.75;
+  }
+  div.dropDown:hover div.dropDownMenu {
+      display: block;
+  }
+
+  div.dropDownMenu a:hover{
+      background-color:#4f9d37;
+      opacity:0.75;
+  }
+
+  li{
+      float:left;
+      width:25%;
+  }
+  
+  a:link,a:visited
+  {
+      display:block;
+      width:100%;
+      font-weight:bold;
+      color:#FFFFFF;
+      background-color:#4f9d37;
+      text-align:center;
+      padding:4px;
+      text-decoration:none;
+      opacity:0.95;
+  }
+  
+  a:hover,a:active
+  {
+      background-color:#4f9d37;
+      opacity:0.75;
+  }
+
+.row{
+   min-width: 1150px;
+}
+
+  /*expand button setting*/
+  button.expand {
+    height: 16px;
+    width: 15px;
+    line-height: 0;
+    text-align: center;
+    /*background-color: #f44336;*/
+    position: absolute;
+    bottom: 0;
+    left: 6%;
+  }
+  button.info {
+    height: 16px;
+    width: 20px;
+    line-height: 0;
+    text-align: center;
+    /*background-color: #f44336;*/
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+  }
+
+  div#chart .chartNode {
+    background-color: rgba(204, 204, 204, 1);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(127, 127, 127, 1);
+    border-radius: 10px;
+  }
+  div#chart .chartNode .nodeContent {
+    width: 146px;
+    height: 80px;
+    position: relative;
+  }
+  #mainContent {
+    position: relative;
+    height: 65vh;
+    overflow: auto;
+    min-width: 1150px;
+    /*
+    border:0.05px solid #F00;
+*/
+  }
+  /*Define the size of chart container*/
+  #chart {
+    position: absolute;
+    /*top: 0px;*/
+    left: 0px;
+    width: 100%;
+    height: 800px;
+    transform-origin: top left;
+    /*border:0.05px solid #F00;*/
+  }
+  /* This is for hover div presenting detailed staff information */
+  #staffDetails {
+    position: absolute;
+    border-color: black;
+    background-color: white;
+    padding: 5px;
+    z-index: 99;
+  }
+  table.google-visualization-orgchart-table {
+    /*it is for google chart, to avoid some chart frame issues*/
+    border-collapse: separate;
+  }
+  .login-mask {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  #mainContent2 {
+    display: none;
+    width: 512px;
+    height: 320px;
+    position: fixed;
+    border: #ebebeb solid 1px;
+    left: 50%;
+    top: 50%;
+    background: #f5f5f5;
+    padding-left: 5px;
+    box-shadow: 0px 0px 20px #ddd;
+    border-radius: 5px;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+  .login-title {
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: #e3e3e3 solid 1px;
+    height: 40px;
+    font-size: 18px;
+    position: relative;
+    cursor: move;
+  }
+  #staffNameTitle {
+    color: black;
+  }
+  #infoClose1 {
+    position: absolute;
+    font-size: 12px;
+    border-radius: 5px;
+    /*  transform: translate(-50%, -50%);*/
+    color: #fff;
+    background: #629a46;
+    border: #ebebeb solid 1px;
+    /*width: 70px;*/
+    width: 40px;
+    height: 40px;
+    top: 0;
+    right: 0;
+  }
+  div#information2 {
+    width: 100%;
+    height: 85%;
+    overflow: auto;
+  }
+  div#moreInfor{
+      display: flex;
+      flex-direction: column;
+  }
+  td.google-visualization-orgchart-node {
+    background-color: #4f9d37;
+  }
+
+
+</style>

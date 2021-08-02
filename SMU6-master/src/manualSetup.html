@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMU6-Documentation</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base target="_top" />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+    />
+    <?!= include("manual-css"); ?>
+  </head>
+  <body>
+
+
+    <div class="page-wrapper-set-up w">
+      <div class = "topSet">
+        <div class="mainHeader">
+          <!-- Display the image of the company logo -->
+          <img
+                  src="https://www.maptek.com/images/core/Maptek_Logo_OpenGraph_360x200.png"
+                  alt="Maptek"
+                  usemap="#mymap"
+          />
+
+          <!-- Link the company logo to company website -->
+
+          <map name="mymap">
+            <area
+                    href="https://www.maptek.com/"
+                    target="_blank"
+                    shape="default"
+                    alt="Maptek"
+            />
+          </map>
+
+          <h1 id="header" class="demo_class">User Manual - Set Up</h1>
+        </div>
+        <!-- navigation -->
+        <div class = "nav">
+          <ul>
+            <li><a href="<?=url?>"> Organizational Chart</a></li>
+            <li><a href="<?=url?>?v=search"> Search Staff Information </a></li>
+            <li><a href="<?=url?>?v=report">Generate Report</a></li>
+            <div class = "dropDown">
+              <div class = "dropDownBtn">User Manual
+                <i class="fa fa-caret-down"></i>
+              </div>
+              <div class="dropDownMenu">
+                <a href="<?=url?>?v=manualChart">Organization Chart</a>
+                <a href="<?=url?>?v=manualSearch">Search Staff Information</a>
+                <a href="<?=url?>?v=manualReport">Generate Report</a>
+                <a href="<?=url?>?v=manual">Set Up</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <!-- main -->
+
+      <div class="main w">
+        <!-- sub nav -->
+        <div class="sub-nav fl">
+          <ul>
+            <li><a href="#requirements" target = "_self">Requirements</a></li>
+            <li>
+              <a href="#import" target = "_self">Import files </a>
+            </li>
+            <li><a href="#deploy" target = "_self">Deploy the project </a></li>
+            <li><a href="#update-config" target = "_self">Update configuration</a></li>
+            <li><a href="#spreadsheet-format" target = "_self">Spreadsheet Format</a></li>
+          </ul>
+        </div>
+
+        <!-- content -->
+
+        <div class="content fr">
+          <!-- requirements -->
+          <div class="requirements marks" id="requirements">
+            <h3>Requirements</h3>
+
+            <p>
+              1. Install
+              <a href="https://nodejs.org/en/" target="_blank">Node.js</a>
+            </p>
+            <p>2. Install clasp with Node.js NPM:</p>
+            <p>
+              On your command line tool, run:
+              <strong>sudo npm install @google/clasp -g</strong>
+            </p>
+
+            <p>
+              (Alternatively for mac-user: sudo npm i -g grpc @google/clasp
+              --unsafe-perm)
+            </p>
+          </div>
+
+          <!-- import -->
+
+          <div class="import marks" id="import">
+            <h3>Import files from Git repository to Google Apps Script</h3>
+
+            <p>
+              1. Use your web browser, go to main page of Google Apps Script:
+              <a
+                href="https://www.google.com/script/
+                    "
+                >https://www.google.com/script/
+              </a>
+            </p>
+
+            <p>
+              2. Sign in with the Google company account of the administrative user
+            </p>
+            <p>
+              If your web browser does not recognize any Google user signed in
+              before, click “Start Scripting” on the following page:
+            </p>
+
+            <img src="https://drive.google.com/uc?export=download&id=1CrVSHOzDSbrlploLXtQ_dQue176kw1P1" /><!--./images/setUp/Import-start-scripting.png-->
+
+            <p>
+              3. Enable App Script API at
+              <a href="https://script.google.com/u/1/home/usersettings"
+                >https://script.google.com/u/1/home/usersettings</a
+              >
+            </p>
+            <img src="https://drive.google.com/uc?export=download&id=16am_vy64oOYhV5ghVXTxqAsJCIs7Jjun" /> <!--./images/setUp/enable-script.png-->
+
+            <p>
+              4. Create a new folder for the SMU on the local computer. Navigate
+              to that folder with your command line tool.
+            </p>
+
+            <p>
+              <i
+                >*Note: It should be different from the folder of the git
+                repository</i
+              >
+            </p>
+
+            <p>
+              5. Login to your Google company account with clasp with following
+              command: <strong> sudo clasp login</strong>
+            </p>
+
+            <p>
+              6. Create new Google Apps Script standalone project with clasp on
+              your command line tool using the following command:
+
+              <strong class="extra">
+                sudo clasp create <i>[project_name]</i>
+              </strong>
+            </p>
+
+            <img src="https://drive.google.com/uc?export=download&id=10jU9o8bMw27mSoOEZxJvecC-AJ-QHeI1" id="create-script" /><!--./images/setUp/create-script.png-->
+
+            <p>
+              7. Copy all the files except
+              <strong> .idea, .clasp.json and appsscript.json</strong> from
+              <strong>/src</strong> in the git repository to the folder created
+              in step 4.
+            </p>
+
+            <p>
+              8. Push all the files to the Google Apps Script project created in
+              step 6 using the command: <strong>sudo clasp push</strong>
+            </p>
+            <p>
+              9. Reload or go to the Google Apps Script main page, you should
+              find the project created in step 6 with all the imported files.
+            </p>
+          </div>
+
+          <!-- deploy -->
+
+          <div class="deploy marks" id="deploy">
+            <h3>Deploy the project as web app</h3>
+
+            <p>
+              1. Open the project. Click
+              <strong>Publish > Deploy as web app…</strong>
+            </p>
+
+            <img src="https://drive.google.com/uc?export=download&id=1zC9Sa4NfoI8n2GuBoZgRjfOk_rTTEX5e" id="deploy1" /><!--./images/setUp/deploy1.png-->
+
+            <p>
+              2. At <strong>Execute the app as:</strong> choose
+              <strong>User accessing the web app</strong>
+            </p>
+
+            <img src="https://drive.google.com/uc?export=download&id=19SoMVrpWJqtYXmDguEu1fyCfURLDqSKS" /><!--./images/setUp/deploy2.png-->
+
+            <p>
+              3. At <strong>Who has access to the app:</strong> , choose
+              <strong>Anyone within <i>[company_name]</i> </strong>
+            </p>
+
+            <p>
+              4. Click <strong>Deploy</strong> to deploy the project as web app.
+              You will then receive a web app URL for the SMU.
+            </p>
+
+            <p>
+              5. Copy and paste the web app URL on your web browser and visit
+              the web app. Click <strong>Review permissions</strong>
+            </p>
+            <img src="https://drive.google.com/uc?export=download&id=100xx97PsFz0tBUcITcHLy9JBpxNoocQK" id="deploy3" /><!--./images/setUp/deploy3.png-->
+
+            <p>
+              6. Choose the account of the administrative user. Click
+              <strong>Allow</strong> to allow subsequent access to the web app:
+            </p>
+
+            <img src="https://drive.google.com/uc?export=download&id=19zKFkZP9U97fYdC6jZNy0n6q-KuzRFI1" id="deploy4" /><!--./images/setUp/deploy4.png-->
+          </div>
+
+          <!-- update-config -->
+
+          <div class="update-config marks" id="update-config">
+            <h3>Update configuration variables</h3>
+            <p>
+              1. At <strong>Publish > Deploy as web app…</strong> on the Google
+              Apps Script project. Copy the
+              <strong>Current web app URL</strong> and assign it to the
+              <strong>url_root</strong> variable in
+              <strong>Config.gs</strong>
+            </p>
+
+            <img
+              src="https://drive.google.com/uc?export=download&id=1d0SwPgGDCUJCeXyqcm1lM2NieleIMQzL"
+              class="config-deploy"
+            /><!--./images/setUp/update-config1.png-->
+            <img src="https://drive.google.com/uc?export=download&id=1hX1DKDXbwVsgQm0MkQ4J7lGR0BppHDHz" class="config-sheet" /><!--./images/setUp/update-config2.png-->
+
+            <p>
+              2. Import <strong>demo_spreadsheet.xlsx</strong> in the git
+              repository to the google spreadsheet:
+            </p>
+
+            <img src="https://drive.google.com/uc?export=download&id=18GzWETJCCKzMeM9BhDfbx7fedWt2lX8G" class="config-sheet" /><!--./images/setUp/update-config3.png-->
+
+            <img src="https://drive.google.com/uc?export=download&id=1KqznuxY4ENBcDzQYJ0_pe1P0Q08yI5q9" class="config-sheet" /><!--./images/setUp/update-config4.png-->
+            <img src="https://drive.google.com/uc?export=download&id=1h2mqZevvYmiIcCixITkD8I4nvWq7iVb0" /><!--./images/setUp/update-config5.png-->
+
+            <p>
+              3. Retrieve the spreadsheet id of the imported Google spreadsheet.
+              The spreadsheet id can be retrieved from the url of the imported
+              Google spreadsheet, where the url would be in the form of
+              <strong>https://docs.google.com/spreadsheets/d/[spreadsheetId]/edit#gid=0</strong>
+
+              For example, for the Google spreadsheet with
+              url:
+            </p>
+
+            <p>
+              <strong
+                >https://docs.google.com/spreadsheets/d/1UNHqQxipa0k-2y1XPk8X3qIJ7hnq7NSTeZ14unwHRow/edit#gid=0</strong
+              >
+            </p>
+
+            <p>
+              The spreadsheet id is
+              <strong>1UNHqQxipa0k-2y1XPk8X3qIJ7hnq7NSTeZ14unwHRow</strong> ,
+              which is the part between
+              <strong>https://docs.google.com/spreadsheets/d/</strong> and
+              <strong>/edit#gid=0</strong>
+            </p>
+
+            <p>
+              4. Update the variable <strong>spreadsheetId</strong> in
+              <strong>Config.gs</strong> to be the spreadsheet id retrieved in
+              step 3:
+            </p>
+
+            <img
+              src="https://drive.google.com/uc?export=download&id=1Fj-AEPnnVEWEzto_J8IgnfDuco7Rhld1"
+              class="config-sheet-extra"
+            /><!--./images/setUp/update-config6.png-->
+
+            <p>
+              5. Go to
+              <strong>Resources > Advanced Google services…</strong> Turn on
+              <strong>Drive API</strong> .
+            </p>
+            <img src="https://drive.google.com/uc?export=download&id=1qfOS6CQfvdM2iMKzDp8S62ZI9-1Y8cfq" alt="" /><!--./images/setUp/Picture1.png-->
+            <img id="img-adj" src="https://drive.google.com/uc?export=download&id=1_L9khnVwQvc7DZeDZ3hi7MtAtxKOJM-v" alt="" /><!--./images/setUp/Picture2.png-->
+
+            <p>
+              6. Deploy as web app again. Go to
+              <strong>Publish > Deploy as web app…</strong> At
+              <strong>Project version”</strong> select
+              <strong>New</strong> Then, click <strong>Update</strong>
+            </p>
+
+            <img
+                    src="https://drive.google.com/uc?export=download&id=1F-D61UBfTypZGxH60ZID8cXRVuXq-cBI"
+                    class="config-deploy"
+            /><!--./images/setUp/update-config7.png-->
+
+            <p>
+              7. For now, you should be able to get the demo data displayed on
+              the web app in your company environment. You can then replace the
+              data on the uploaded spreadsheet with the real data and reload the
+              page of web app for it to work.
+            </p>
+
+          </div>
+
+          <!-- Format of spreadsheet -->
+          <div class="spreadsheet-format marks" id="spreadsheet-format">
+            <h3>Format of spreadsheet</h3>
+
+            <p>
+              The following instructions allow you to upload and maintain your
+              own spreadsheet, please strictly follow the format introduced
+              below.
+            </p>
+
+            <h4>Use of each column</h4>
+
+            <table>
+              <thead>
+                <tr>
+                  <td>Col index</td>
+                  <td>Name of column</td>
+                  <td>Meaning</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A</td>
+                  <td>Department</td>
+                  <td>The assigned department where the staff works.</td>
+                </tr>
+                <tr>
+                  <td>B</td>
+                  <td>Name</td>
+                  <td>
+                    The full name of each staff (last name, first name, and
+                    middle name).
+                  </td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>Job Title</td>
+                  <td>
+                    C Job Title The job title of each staff. (This job title can
+                    be detailed to the teams that subordinate to the department)
+                  </td>
+                </tr>
+                <tr>
+                  <td>D</td>
+                  <td>Supervisor</td>
+                  <td>The immediate supervisor of each staff.</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>Office Location</td>
+                  <td>
+                    E Office Location The current office location of each staff.
+                  </td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>Email</td>
+                  <td>The email address of each staff.</td>
+                </tr>
+                <tr>
+                  <td>G</td>
+                  <td>Phone</td>
+                  <td>G Phone The phone number of each staff.</td>
+                </tr>
+                <tr>
+                  <td>H</td>
+                  <td>Colour</td>
+                  <td>
+                    Enter hexadecimal colour code. This colour attribute is for
+                    displaying the different teams or departments with different
+                    colours. eg. #ffffff which presented as white. *Note that
+                    you can leave this column as blank, then the employee’s node
+                    would be displayed as default colour which is grey
+                  </td>
+                </tr>
+                <tr>
+                  <td>I</td>
+                  <td>Staff ID</td>
+                  <td>
+                    The unique ID of each staff. *Note that a unique ID must be
+                    entered in this col
+                  </td>
+                </tr>
+                <tr>
+                  <td>J</td>
+                  <td>SPV ID</td>
+                  <td>
+                    The ID of the staff’s supervisor. *Note that you can leave
+                    this column as blank which means this employee does not have
+                    any supervisor.
+                  </td>
+                </tr>
+                <tr>
+                  <td>K</td>
+                  <td>Image</td>
+                  <td>
+                    The profile photo of each staff. The image shall be
+                    uploaded to the google drive and be shared to the public,
+                    and the imageID should be put in this column. The share link
+                    of the image in your drive should be like https://drive.google.com/file/d/
+                    <i>[ImageID]</i> /view?usp=sharing
+                    <br>
+                    eg. the image ID of the following link is <i>1AjJrSNCMvJT3Po7Ja9OyIpq3BTKHC6ge </i>
+                    <br>
+                    https://drive.google.com/file/d/<i>1AjJrSNCMvJT3Po7Ja9OyIpq3BTKHC6ge</i>/view?usp=sharing
+
+                    *Note that this column can be left as blank, then there
+                    would be no profile photo shown in the employee’s profile
+                  </td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>Birthday</td>
+                  <td>The format of the birthday is DD/MM/YYYY.</td>
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>Gender</td>
+                  <td>Enter male or female.</td>
+                </tr>
+                <tr>
+                  <td>N</td>
+                  <td>Employed Time</td>
+                  <td>
+                    The first day of each staff working in Maptek. *Note that it
+                    must be in a format of YYYY/MM/DD
+                  </td>
+                </tr>
+                <tr>
+                  <td>O</td>
+                  <td>Current Time</td>
+                  <td>
+                    The Current Time updates in real-time. *Note that the value
+                    of this column should always be =TODAY()
+                  </td>
+                </tr>
+                <tr>
+                  <td>P</td>
+                  <td>Employed(Month)</td>
+                  <td>
+                    P Employed(Month) The months in the company for all (or
+                    some) employees. Employed equals Current Time minus Employed
+                    Time. *Note that the formula in this column must be
+                    =DATEDIF(N*row number, O*row number,"M"). For example, in
+                    the second row, the formula is =DATEDIF(N2, O2,"M").
+                  </td>
+                </tr>
+                <tr>
+                  <td>Q</td>
+                  <td>Optional Information</td>
+                  <td>
+                    Starting from this column, you can customize additional
+                    information. All the information of the employee shall be
+                    displayed after you click ‘...’ button in the organization
+                    chart
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              As displayed in the image, information from column A to P must be
+              fixed in the spreadsheet. And you can add additional information
+              in the columns after Employed (Month). All of the staff
+              information will be displayed in the popup window of each staff in
+              the organization chart.
+            </p>
+
+            <img src="https://drive.google.com/uc?export=download&id=1YFBiLNk6gkab8-N-gkuLhLQCXKc7HRf8" alt="" /><!--./images/setUp/spreadsheetFormat.png-->
+
+            <p>
+              We have provided a sample spreadsheet for you, and you should
+              modify that sheet to your version. Please only work on the first
+              worksheet, the rest sheets are used for other purposes.
+            </p>
+
+            <h4>Add or delete staff information</h4>
+            <p>
+              Add a new staff: Enter the staff information according to the
+              table Use of each column
+            </p>
+
+            <p>Remove a staff: Delete the row of the corresponding staff.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script type = "text/javascript">
+    /**this script is to set the fixed margin top of the div elements
+     * author: Peter
+     * **/
+      //set offset to the document
+      let h = document.getElementsByClassName('topSet')[0].clientHeight;
+      console.log (h);
+      document.getElementsByClassName('main')[0].style.marginTop = h + "px";
+
+      //set offset to each hash jump div
+      let offsetHash = document.head.appendChild(document.createElement("style"));
+      offsetHash.innerHTML = "div.marks::before{ display: block;content: \" \";visibility: hidden;pointer-events:" +
+              " none;height: " + h + "px;margin-top:-" + h + "px;}";
+  </script>
+</html>

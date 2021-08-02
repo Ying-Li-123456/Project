@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="981e8545-90fc-4e3a-9993-9a888c53b511" name="Default Changelist" comment="Change open search and generate report in _blank page to _self">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chart-css.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/chart-css.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/report-css.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/report-css.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search-css.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/search-css.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/search.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hfuIjh57iMUK0sLnsATpBUd8ap" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="981e8545-90fc-4e3a-9993-9a888c53b511" name="Default Changelist" comment="" />
+      <created>1600414391958</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600414391958</updated>
+      <workItem from="1600414394347" duration="1918000" />
+      <workItem from="1600560012370" duration="61000" />
+      <workItem from="1600560145576" duration="45000" />
+      <workItem from="1600605003468" duration="1480000" />
+      <workItem from="1600648221934" duration="3969000" />
+      <workItem from="1602385974365" duration="2101000" />
+    </task>
+    <task id="LOCAL-00001" summary="Change open search and generate report in _blank page to _self">
+      <created>1602386751316</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602386751316</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Change open search and generate report in _blank page to _self" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change open search and generate report in _blank page to _self" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1115" height="269" key="GridCell.Tab.0.bottom" timestamp="1600649794166">
+      <screen x="1440" y="109" width="1920" height="1057" />
+    </state>
+    <state width="1115" height="269" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.109.1920.1057@1440.109.1920.1057" timestamp="1600649794166" />
+    <state width="1115" height="269" key="GridCell.Tab.0.center" timestamp="1600649794165">
+      <screen x="1440" y="109" width="1920" height="1057" />
+    </state>
+    <state width="1115" height="269" key="GridCell.Tab.0.center/0.23.1440.877/1440.109.1920.1057@1440.109.1920.1057" timestamp="1600649794165" />
+    <state width="1115" height="269" key="GridCell.Tab.0.left" timestamp="1600649794164">
+      <screen x="1440" y="109" width="1920" height="1057" />
+    </state>
+    <state width="1115" height="269" key="GridCell.Tab.0.left/0.23.1440.877/1440.109.1920.1057@1440.109.1920.1057" timestamp="1600649794164" />
+    <state width="1115" height="269" key="GridCell.Tab.0.right" timestamp="1600649794166">
+      <screen x="1440" y="109" width="1920" height="1057" />
+    </state>
+    <state width="1115" height="269" key="GridCell.Tab.0.right/0.23.1440.877/1440.109.1920.1057@1440.109.1920.1057" timestamp="1600649794166" />
+    <state x="518" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600648235243">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="518" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/1440.109.1920.1057@0.23.1440.877" timestamp="1600648235243" />
+    <state x="151" y="84" width="1289" height="755" key="new project wizard" timestamp="1600560188015">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="151" y="84" width="1289" height="755" key="new project wizard/0.23.1440.877@0.23.1440.877" timestamp="1600560188015" />
+  </component>
+</project>

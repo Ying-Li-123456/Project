@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMU6-Documentation</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base target="_top" />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+    />
+    <?!= include("manual-css"); ?>
+</head>
+<body>
+
+
+<div class="page-wrapper-set-up w">
+    <div class = "topSet">
+        <div class="mainHeader">
+            <!-- Display the image of the company logo -->
+            <img
+                    src="https://www.maptek.com/images/core/Maptek_Logo_OpenGraph_360x200.png"
+                    alt="Maptek"
+                    usemap="#mymap"
+            />
+
+            <!-- Link the company logo to company website -->
+
+            <map name="mymap">
+                <area
+                        href="https://www.maptek.com/"
+                        target="_blank"
+                        shape="default"
+                        alt="Maptek"
+                />
+            </map>
+
+            <h1 id="header" class="demo_class">User Manual - Search Staff Information </h1>
+        </div>
+        <!-- navigation -->
+        <div class = "nav">
+            <ul>
+                <li><a href="<?=url?>"> Organizational Chart</a></li>
+                <li><a href="<?=url?>?v=search"> Search Staff Information </a></li>
+                <li><a href="<?=url?>?v=report">Generate Report</a></li>
+                <div class = "dropDown">
+                    <div class = "dropDownBtn">User Manual
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="dropDownMenu">
+                        <a href="<?=url?>?v=manualChart">Organization Chart</a>
+                        <a href="<?=url?>?v=manualSearch">Search Staff Information</a>
+                        <a href="<?=url?>?v=manualReport">Generate Report</a>
+                        <a href="<?=url?>?v=manual">Set Up</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <!-- main -->
+
+    <div class="main w">
+        <!-- sub nav -->
+        <div class="sub-nav fl">
+            <ul>
+                <li><a href="#overview" target = "_self">Overview</a></li>
+                <li>
+                    <a href="#navigation" target = "_self">Navigation </a>
+                </li>
+                <li>
+                    <a href="#filter-the-condition" target = "_self">Filter The Condition</a>
+                </li>
+                <li>
+                    <a href="#check-result" target = "_self">Check Search Result</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- content -->
+
+        <div class="content fr">
+            <div id="overview" class = "marks">
+                <h3>Overview</h3>
+                <p>
+                    This page will provide a list showing the employee information.
+                    The list will be filtered by the condition above.
+                </p>
+            </div>
+
+            <div id="navigation" class = "marks">
+                <h3>Navigation</h3>
+
+                <p>
+                    Click <strong> Search Staff Information</strong> button on the top
+                    navigation bar to go to this section.
+                </p>
+
+                <img src="https://drive.google.com/uc?export=download&id=1-6NVVtJIMkOmgknIWxVn3QvMeylIBEe6" id = "chart1"/><!--./images/search/search1.png-->
+            </div>
+
+            <div id="filter-the-condition" class = "marks">
+                <h3>Filter The Condition</h3>
+                <p>
+                    Name, location, department, and report to are the conditions which
+                    user can decide. When user change the searching condition. The
+                    result will be shown immediately.
+                </p>
+
+                <p>
+                    The system would ignore the case of the letters, which means user
+                    do not need to fix the case of the first letter of the name.
+                </p>
+
+                <img src="https://drive.google.com/uc?export=download&id=13nd6l6uYlKrPUMJ7FoJuHXTlVyuRAd3j" /><!--./images/search/search2.png-->
+
+                <p>
+                    The system will list all of the departments in the spreadsheet.
+                    User only can choose one of them. Once the condition changes, the
+                    list will refresh.
+                </p>
+
+                <img src="https://drive.google.com/uc?export=download&id=1NPB8WuaXHzrCIKEwZfva84EfV7lIYR7r" /><!--./images/search/search3.png-->
+
+                <p>
+                    The system will list all of the locations in the spreadsheet. User
+                    only can choose one of them. Once the condition changes, the list
+                    will refresh.
+                </p>
+                <img src="https://drive.google.com/uc?export=download&id=1YXWxV7D3hPtkoewJDIxrI-Z-KwwUTXes" /><!--./images/search/search4.png-->
+            </div>
+
+            <div id="check-result" class = "marks">
+                <h3>Check the chart of the searching result</h3>
+
+                <p>
+                    A chart of organization structure can be shown after condition
+                    setting. User can click chart button to see the chart.
+                </p>
+
+                <p>
+                    The condition will be shown in the top. And organization structure
+                    will be shown in a pop-up window.
+                </p>
+
+                <img src="https://drive.google.com/uc?export=download&id=1St7OUHkNhEmOBa_O4cEB6guIkx9kQnM9" id="search5" /><!--./images/search/search5.png-->
+
+                <p>
+                    The initial chart will contain all the employee in the window, so
+                    that the words could be very small. Users can click “zoom in” and
+                    “zoom out” button to fix the size of the words.
+                </p>
+
+                <p>
+                    If the chart cannot be completely shown in the window, there would
+                    be a scroll bar following the window. User can drag it to fix the
+                    content in the window (touchpad is supported).
+                </p>
+
+                <img src="https://drive.google.com/uc?export=download&id=1Z3WBbP7d4zTD0VDxirduDRgKwyy2ZJ9x" alt="" /><!--./images/search/search6.png-->
+
+                <p>
+                    If the mouse move over a block of an employee. A detail
+                    information will be shown as tips information.
+                </p>
+                <p>
+                    Users can click the “X” button on the top-right to close this
+                    window.
+                </p>
+                <img src="https://drive.google.com/uc?export=download&id=15SWVIAV6JBMsw-Vy-kMM6d3Boeq2gm3t" alt="" /><!--./images/search/search7.png-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type = "text/javascript">
+    /**this script is to set the fixed margin top of the div elements
+     * author: Peter
+     * **/
+        //set offset to the document
+    let h = document.getElementsByClassName('topSet')[0].clientHeight;
+    console.log (h);
+    document.getElementsByClassName('main')[0].style.marginTop = h + "px";
+
+    //set offset to each hash jump div
+    let offsetHash = document.head.appendChild(document.createElement("style"));
+    offsetHash.innerHTML = "div.marks::before{ display: block;content: \" \";visibility: hidden;pointer-events:" +
+        " none;height: " + h + "px;margin-top:-" + h + "px;}";
+</script>
+</html>

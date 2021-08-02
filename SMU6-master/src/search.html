@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Maptek Staff Management Utility</title>
+    
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base target="_top" />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+    />
+    <?!= include("search-css"); ?>
+</head>
+<body>
+<!--Hidden div for showing staff details-->
+<div id="staffDetails" style="display: none">
+    <span id="staffDepartment"></span><br />
+    <span id="staffName"></span><br/>
+    <span id="staffTitle"></span><br/>
+    <span id="staffSupervisor"></span><br/>
+    <span id="staffOffice"></span><br/>
+    <span id="staffEmail"></span><br/>
+    <span id="staffPhone"></span><br/>
+</div>
+
+<!-- Content start -->
+<div class="container">
+    <!--<img url="https://www.maptek.com/images/core/Maptek_Logo_OpenGraph_360x200.png" alt="Maptek">-->
+    
+    <div class="mainHeader">
+        <!-- Display the image of the company logo -->
+        <img
+          src="https://www.maptek.com/images/core/Maptek_Logo_OpenGraph_360x200.png"
+          alt="Maptek"
+          usemap="#mymap"
+        />
+
+        <!-- Link the company logo to company website -->
+
+        <map name="mymap">
+          <area
+            href="https://www.maptek.com/"
+            target="_blank"
+            shape="default"
+            alt="Maptek"
+          />
+        </map>
+
+        <h1 id="header" class="demo_class">Maptek Staff Management Utility
+        
+         <!--to close this page;-->
+        <!--
+        <a href="<?=url?>">
+            <button class="serbutton">return</button>
+        </a>
+        -->
+ 
+        </h1>
+      </div>
+      
+    <!-- navigation  -->
+    <div class = "nav">
+        <ul>
+            <li><a href="<?=url?>"> Organizational Chart</a></li>
+            <li><a href="<?=url?>?v=search"> Search Staff Information </a></li>
+            <li><a href="<?=url?>?v=report">Generate Report</a></li>
+            <div class = "dropDown">
+                <div class = "dropDownBtn">User Manual
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                <div class="dropDownMenu">
+                    <a href="<?=url?>?v=manualChart">Organization Chart</a>
+                    <a href="<?=url?>?v=manualSearch">Search Staff Information</a>
+                    <a href="<?=url?>?v=manualReport">Generate Report</a>
+                    <a href="<?=url?>?v=manual">Set Up</a>
+                </div>
+            </div>
+        </ul>
+    </div>
+        
+    <!-- For the options of the searching-->
+    <div class="search-section">
+        <div class="row justify-content-center">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <labal for="search_name">Name:<br/></labal>
+                        <input type="text" class="form-control" id="search_name"/>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <labal for="search_department">Department:<br/></labal>
+                        <select
+                                class="form-control"
+                                id="search_department"
+                                name="Department"
+                        >
+                            <option selected="selected">All</option>
+                            <? for (var i = 0; i < department_list.length; ++i) { ?>
+                            <option><?= department_list[i] ?></option>
+                            <? } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <labal for="search_location">Location:<br/></labal>
+                        <select
+                                class="form-control"
+                                id="search_location"
+                                name="Location"
+                        >
+                            <option selected="selected">All</option>
+                            <? for (var i = 0; i < location_list.length; ++i) { ?>
+                            <option><?= location_list[i] ?></option>
+                            <? } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <labal for="search_job_title">Reports To:<br/></labal>
+                        <select
+                                class="form-control"
+                                id="search_job_title"
+                                name="JobTitle"
+                        >
+                            <option selected="selected">All</option>
+                            <? for (var i = 0; i < job_title_list.length; ++i) { ?>
+                            <option><?= job_title_list[i] ?></option>
+                            <? } ?>
+                        </select>
+                    </div>
+                    <!-- Delete by Eric: This submit button is no longer needed
+                  <button type="submit" class="serbutton mx-auto" herf="chart.html">search</button>
+                 -->
+                </div>
+            </form>
+        </div>
+
+        <div class="row justify-content-center">
+            <button id="chartBtn">Chart</button>
+        </div>
+    </div>
+
+    <!-- The org chart of search result is presented in div#chartDetail -->
+    <div id="chartDetail">
+        <div id="titleChart" class="chart-title">
+            <span id="departmentTitle">Organization Chart</span>
+            <button id="chartClose">X</button>
+        </div>
+        <div class="row justify-content-center" id="btns">
+            <button id="zoom_in" class="zoomBtn btn-success ">Zoom in</button>
+            <button id="zoom_out" class="zoomBtn btn-success ">Zoom out</button>
+        </div>
+        <div id="chartContainer">
+            <div id="chart" class="justify-content-center"></div>
+            <div id="mainContent2">
+                <div id="title" class="login-title">
+                    <button id="infoClose1">X</button>
+                    <span id="staffNameTitle"></span>
+                    <!--   <button id="infoClose1" class="close-login"></button> -->
+                </div>
+                <div id="chart2"></div>
+                <div id="information2">
+                    <div id="moreInfor"></div>
+                </div>
+            </div>
+            <div id="mask" class="login-mask"></div>
+        </div>
+    </div>
+
+    <div id="maskChart" class="login-mask"></div>
+
+    <div class="row justify-content-center" id = "results_table">
+        <div class="results_panel">
+            <table id="search_results" class="table table-bordered"></table>
+        </div>
+    </div>
+</div>
+
+<!-- JS, Popper.js, jQuery, and Google Chart -->
+<script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"
+></script>
+<script
+        type="text/javascript"
+        src="https://www.gstatic.com/charts/loader.js"
+></script>
+<?!= include("chartGeneration-js"); ?>
+<?!= include("search-js"); ?>
+</body>
+<footer
+        id="copyright"
+        class="demo_class"
+        style="color: #5d5d5d; text-align: center; float: bottom; font-size: 70%"
+>
+    ©2020 Group SMU
+</footer>
+</html>
+

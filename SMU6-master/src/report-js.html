@@ -1,0 +1,319 @@
+<script>
+  /**Target:
+  1. The number of staff per building.
+  2. The teams and/or division in each building.
+  3. The number of staff in each team.
+  4. Male and female ratio.
+  5. Names of employees in each building.
+  6. Years (or months) in the company for all (or some) employees.**/
+
+  // get the data from back-end
+  $(function () {
+    var Department = 0;
+    var Name = 1;
+    var JobTitle = 2;
+    var Supervisor = 3;
+    var Location = 4;
+    var Gender = 12;
+    var Years = 15;
+
+    var person_building = 0;
+
+    var teams_building = 1;
+
+    var team_staff = 0;
+
+    var num_of_male = 0;
+    var num_of_female = 0;
+
+    var male_of_building = 0;
+    var female_of_building = 0;
+
+    var all_data = null;
+
+    var report_location = [];
+    var report_department = [];
+
+    var name_and_years = '';
+    var building_info = '';
+    var department_info_arr = [];
+    var department_info = '';
+
+    // initialize
+    google.script.run
+      .withSuccessHandler((data) => {
+        header = data[0];
+        data.shift();
+        all_data = data;
+        $('.checkD3:checked').each((index, element) => {
+          report_department.push($(element).val());
+        });
+        $('.checkLocation:checked').each((index, element) => {
+          report_location.push($(element).val());
+        });
+        generate_report(data);
+        //$('#report-content').hide();
+      })
+      .chartsData();
+
+    function hideReport() {
+      $('#report-content').hide();
+    }
+
+    $('#google_doc_btn').on('click', () => {
+      $('#google_doc_btn').hide();
+      $('#exporting').attr("style","display:inline");
+      var html_text = $("#report-content").html();
+      html_text = `<hr /><h2>Selected Department(s)</h2> <p>${report_department.join(", ")}</p>
+                   <h2>Selected Location(s)</h2> <p>${report_location.join(", ")}</p><hr />` + html_text;
+       google.script.run.withSuccessHandler(() => {
+          $('#google_doc_btn').show();
+          $('#exporting').attr("style","display:none");
+          toastr.info('The report is exported as Google Doc named "maptek_smu_report" into your Google Drive.')
+       }).exportAsPDF(html_text);
+    });
+
+    $('#reportBtn').on('click', () => {
+      $('#report-content').show();
+    });
+
+    $('.checkD3').on('change', function () {
+      report_department = [];
+      $('.checkD3:checked').each((index, element) => {
+        report_department.push($(element).val());
+      });
+      report_update();
+    });
+    $('.checkLocation').on('change', function () {
+      report_location = [];
+      $('.checkLocation:checked').each((index, element) => {
+        report_location.push($(element).val());
+      });
+      report_update();
+    });
+
+    function report_update() {
+      reset_variables();
+      num_of_male = 0;
+      num_of_female = 0;
+      if (report_department.length == 0 || report_location.length == 0) {
+        report_data = []; //None of the department/location is checked
+        generate_report(report_data);
+      } else {
+        var temp_data = [];
+        for (var i = 0; i < report_department.length; ++i) {
+          for (var j = 0; j < report_location.length; ++j) {
+            var filtered = all_data.filter((x) => {
+              return (
+                x[Department] == report_department[i] &&
+                x[Location] == report_location[j]
+              );
+            });
+
+            temp_data = temp_data.concat(filtered);
+          }
+        }
+        report_data = temp_data;
+        generate_report(report_data);
+      }
+    }
+    // created bye Jin Yinshow the result of the report
+
+    function reset_variables() {
+      building_info = '';
+      department_info_arr = [];
+      department_info = '';
+      name_and_years = '';
+      // reset
+      teams_building = 1;
+      person_building = 0;
+      male_of_building = 0;
+      female_of_building = 0;
+
+      team_staff = 0;
+    }
+
+    // create by Jin Yin, to calculate the all the digits by traverse once.
+    function generate_report(data) {
+      $('#summary').empty();
+      $('#writing_report').empty();
+
+      reset_variables();
+
+      // If no departmnet/location is selected, ask uses to select at least one
+      if (report_department.length == 0) {
+        $('#summary').append(
+          `<h6 style="color:red">Error: Please select at least one department.</h6>`
+        );
+      }
+      if (report_location.length == 0) {
+        $('#summary').append(
+          `<h6 style="color:red">Error: Please select at least one location.</h6>`
+        );
+      }
+      if (report_department.length == 0 || report_location.length == 0) {
+        return;
+      }
+
+      if (data.length == 0) {
+        $('#summary').append(
+          `<h6>No staff is found for the selected department(s) and location(s)</h6>`
+        );
+      }
+      if (data.length != 0) {
+        data.sort(function (a, b) {
+          return a[Department].localeCompare(b[Department]);
+        });
+        data.sort(function (a, b) {
+          return a[Location].localeCompare(b[Location]);
+        });
+        $('#summary').append(`<h5>Summary</h5>`);
+
+        $('#summary').append(`There are ${data.length} person(s),`);
+
+        for (var i = 0; i < data.length; i++) {
+          if (i == 0) {
+            building_info += '<h5>' + data[i][Location] + '</h5><br>';
+            department_info += '<h6>' + data[i][Department] + '</h6>';
+          } else if (data[i][Location] != data[i - 1][Location]) {
+            // different building refresh all the data after stastic.
+            department_info += name_and_years;
+
+            department_info +=
+              '<br><div class="department_summary">There is/are ' +
+              team_staff +
+              ' person(s) in ' +
+              data[i - 1][Department] +
+              '.<br></div>';
+            department_info_arr.push(department_info);
+
+            building_info += '<div class="row">';
+            for (var j = 0; j < department_info_arr.length; ++j) {
+              building_info +=
+                '<div class="col-md-4">' + department_info_arr[j] + '</div>';
+            }
+            building_info += '</div>';
+
+            building_info +=
+              'There are ' +
+              person_building +
+              ' person(s) and ' +
+              teams_building +
+              ' team(s) in this building.';
+            var male_percent = (
+              (male_of_building / person_building) *
+              100
+            ).toFixed(2);
+            var female_percent = (
+              (female_of_building / person_building) *
+              100
+            ).toFixed(2);
+            building_info +=
+              ' The percentage of male is ' +
+              male_percent +
+              '% and of female is ' +
+              female_percent +
+              '%.<br> ';
+            building_info += '<hr />';
+
+            $('#writing_report').append(`
+            ${building_info}
+          `);
+
+            reset_variables();
+
+            building_info += '<h5>' + data[i][Location] + '</h5><br>';
+            department_info += '<h6>' + data[i][Department] + '</h6>';
+          } else if (data[i][Department] != data[i - 1][Department]) {
+            department_info += name_and_years;
+
+            name_and_years = '';
+            // same building, different team;
+            teams_building++;
+
+            department_info +=
+              '<br><div class="department_summary">There is/are ' +
+              team_staff +
+              ' person(s) in ' +
+              data[i - 1][Department] +
+              '.<br></div>';
+            department_info_arr.push(department_info);
+
+            department_info = '';
+
+            department_info += '<h6>' + data[i][Department] + '</h6>';
+
+            team_staff = 0;
+          }
+
+          name_and_years +=
+            data[i][Name] +
+            ' working ' +
+            (data[i][Years] / 12).toFixed(1) +
+            ' years<br>';
+
+          if (data[i][Gender].includes('F')) {
+            female_of_building++;
+            num_of_female++;
+          } else {
+            male_of_building++;
+            num_of_male++;
+          }
+
+          person_building++;
+          team_staff++;
+        }
+        $('#summary').append(` ${((num_of_male / data.length) * 100).toFixed(
+          2
+        )}% male, ${((num_of_female / data.length) * 100).toFixed(
+          2
+        )}% female.<br><hr />
+        `);
+
+        // after the last emplee, static the data.
+        // different building refresh all the data after stastic.
+        department_info += name_and_years;
+
+        department_info +=
+          '<br><div class="department_summary">There is/are ' +
+          team_staff +
+          ' person(s) in ' +
+          data[data.length - 1][Department] +
+          '.<br></div>';
+        department_info_arr.push(department_info);
+
+        building_info += '<div class="row">';
+        for (var j = 0; j < department_info_arr.length; ++j) {
+          building_info +=
+            '<div class="col-md-4">' + department_info_arr[j] + '</div>';
+        }
+        building_info += '</div>';
+
+        building_info +=
+          'There are ' +
+          person_building +
+          ' person(s) and ' +
+          teams_building +
+          ' team(s) in this building.';
+        var male_percent = ((male_of_building / person_building) * 100).toFixed(
+          2
+        );
+        var female_percent = (
+          (female_of_building / person_building) *
+          100
+        ).toFixed(2);
+        building_info +=
+          ' The percentage of male is ' +
+          male_percent +
+          '% and of female is ' +
+          female_percent +
+          '%.<br> ';
+        building_info += '<hr />';
+
+        $('#writing_report').append(`
+        ${building_info}
+      `);
+      }
+    }
+  });
+</script>

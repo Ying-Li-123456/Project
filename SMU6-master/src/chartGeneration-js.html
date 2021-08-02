@@ -1,0 +1,371 @@
+<script>
+    /**global variables**/
+    const buttonExpand = "<button type = 'button' class = 'expand'> + </button>"; //button for expanding nodes (is no longer used)
+    const buttonInfor = "<button type = 'button' class = 'info'> ... </button>"; //button for showing additional information
+    const nodeContentBegin = "<div class = 'nodeContent'>";
+    const nodeContentEnd = '</div>';
+    const searchContentBegin = "<div class = 'nodeContent' id = 'searchContent'>";
+    var header;
+    var downloadedChartData; //chart data
+    var mousex = 0; //current mouse positionx
+    var mousey = 0; //current mouse positiony
+    var staffDetailsShown = false; //flag for indicating whether staff detail information is shown Eric
+    var scale = 1; //for controlling size of chart (Added by Eric)
+    var optional_info = document.getElementById('moreInfor');  // to read flexible number of columns of information added by xinquan jiang
+    const idCol = 8;
+    const supIdCol = 9;
+    const colorCol = 7;
+    const timeCol = [13, 14];
+    //const searchOptions = ['Name: ', 'Department: ', 'Location: ', 'Repo  rts To: '];
+    const searchOptions = ['', '', '', 'Reports To: '];
+    const searchDescription = '#';
+
+    /**Function use to draw the chart**/
+    /**Note that it containing several sub function for chart modification**/
+    /**Author: Zihe Peter Wang
+     * Editor: Xinquan Jiang
+     * Edited on 13/10/2020 by Peter: Deleting expand button
+     * */
+    function drawChart(dataReturn, search) {
+        //Save it to global variable
+        header = dataReturn[0];
+        dataReturn.shift();
+        downloadedChartData = dataReturn;
+
+        /**Initialize the chart data**/
+        //Define the chart to be drawn.
+        var datatable = new google.visualization.DataTable();
+
+        var chartContainer = 'chart';
+        //console.log(dataReturn);
+        datatable.addColumn('string', 'Name');
+        datatable.addColumn('string', 'Manager');
+        datatable.addColumn('string', 'ToolTip');
+        for (var i = 0; i < dataReturn.length; i++) {
+            var tip = '';
+            var info = [
+                [
+                    {
+                        v: dataReturn[i][idCol], // staff ID
+                        f:
+                            nodeContentBegin +
+                            "<div class = 'contents'>" +
+                            dataReturn[i][1] +
+                            ' <br> ' +
+                            dataReturn[i][2] +
+                            '</div>' +
+                            buttonInfor +
+                            nodeContentEnd,
+                    },
+                    dataReturn[i][supIdCol], // manager's ID
+                    tip,
+                ],
+            ];
+
+            datatable.addRows(info);
+            datatable.setRowProperty(
+                i,
+                'style',
+                'background-color: ' + dataReturn[i][colorCol]
+            );
+        }
+
+        //chart option, optimize the chart
+        var option = {
+            allowHtml: true,
+            allowCollapse: false,
+            nodeClass: 'chartNode',
+        };
+
+        //Initiallize and draw the chart.
+        var chart = new google.visualization.OrgChart(
+            document.getElementById(chartContainer)
+        );
+        chart.draw(datatable, option);
+
+        /**************************************************************************************/
+        /**Delete the expand button in node with no child**/
+        /**Author: Zihe Peter Wang**/
+        /**
+         Edited by Xinquan Jiang
+         Nodes w/o children is presented with information of name and department, instead of value(0, which is the ID) and department
+         Edited by Peter:
+         Also check each node, if the supervisor is not in the datatable, empty the corresponding supervisor cell
+         **/
+            //console.log('testing noChildAndGetCollapse');
+        let length = datatable.getNumberOfRows();
+        let supervisor = null;
+        let exist = false;
+
+        if (search){
+            let infoContent = searchContentBegin +
+                "<div class = 'contents'>";
+            let tempContent = 'Company Structure';
+            for (let i = 0; i < search.length; i++){
+                if (search[i].toUpperCase() != 'ALL' && search[i]){
+                    infoContent += searchOptions[i] + search[i] + '<br>';
+                    tempContent = '';
+                }
+            }
+            infoContent += tempContent;
+            infoContent += '</div>' + nodeContentEnd;
+            var tip = '';
+            var info = [
+                [
+                    {
+                        v: searchDescription, // a specific id for node describing search results
+                        f: infoContent
+                    },
+                    null, // manager's ID which should be null
+                    tip,
+                ],
+            ];
+            datatable.addRows(info);
+            let lastRow = datatable.getNumberOfRows() - 1;
+            console.log(datatable.getValue(lastRow,0));
+        }
+
+        for (let i = 0; i < length; i++) {
+            if (chart.getChildrenIndexes(i).length == 0) {
+                /**Changed as below by Xinquan Jiang**/
+                let newContent =
+                    nodeContentBegin +
+                    "<div class = 'contents'>" +
+                    downloadedChartData[i][1] +
+                    ' <br> ' +
+                    downloadedChartData[i][2] +
+                    '</div>' +
+                    buttonInfor +
+                    nodeContentEnd;
+                /** End **/
+                datatable.setFormattedValue(i, 0, newContent);
+            }
+            /**check supervisor is in the table or not**/
+            if (search){
+                if (supervisor != datatable.getValue(i, 1)){
+                    supervisor = datatable.getValue(i, 1);
+                    exist = false;
+                    for (let j = 0; j < length; j++){
+                        if (datatable.getValue(j, 0) == supervisor){
+                            exist = true;
+                            break;
+                        }
+                    }
+                }
+                if (!exist){
+                    datatable.setValue(i, 1, searchDescription);
+                }
+            }
+        }
+        //draw the chart
+        chart.draw(datatable, option);
+
+        //reset the height of search node
+        if (search){
+            $('#searchContent').css('height', $('#searchContent .contents').height() + 5);
+        }
+
+        /**************************************************************************************/
+
+        /**************************************************************************************/
+        /**Customized hovering staff details
+         * Author: Eric Ma
+         * Latest Editor: None
+         * **/
+        google.visualization.events.addListener(chart, 'onmouseover', (e) => {
+            // show button only when curser position has been updated after loading
+            if (staffDetailsShown == false && mousex != 0 && mousey != 0 && e.row < downloadedChartData.length) {
+                $('#staffDetails').css('left', mousex);
+                $('#staffDetails').css('top', mousey);
+                $('#staffDepartment').html('Department: ' + downloadedChartData[e.row][0]);
+                $('#staffName').html('Name: ' + downloadedChartData[e.row][1]);
+                $('#staffTitle').html('Title: ' + downloadedChartData[e.row][2]);
+                $('#staffSupervisor').html(
+                    'Supervisor: ' + downloadedChartData[e.row][3]
+                );
+                $('#staffOffice').html('Office: ' + downloadedChartData[e.row][4]);
+                $('#staffEmail').html('Email: ' + downloadedChartData[e.row][5]);
+                $('#staffPhone').html('Phone: ' + downloadedChartData[e.row][6]);
+                $('#staffDetails').show();
+                staffDetailsShown = true;
+            }
+        });
+        4;
+        google.visualization.events.addListener(chart, 'onmouseout', (e) => {
+            $('#staffDetails').hide();
+            staffDetailsShown = false;
+        });
+        /**************************************************************************************/
+
+        /**************************************************************************************/
+        /** Author: Qi Long
+         * edited by Xinquan Jiang on 15th Sep
+         * edited by Peter on 17th Sep
+         **/
+        function popUpWindow(button, row) {
+            var mask = document.getElementById('mask');
+            var mainContent2 = document.getElementById('mainContent2');
+            $(button).unbind('click');
+            $(button).bind('click', function () {
+                mask.style.display = 'block';
+                mainContent2.style.display = 'block';
+                // Title of the pop-up window
+                $('#staffNameTitle').html(downloadedChartData[row][1]);
+                // To include information freely added
+                var colNum;
+                for(colNum = 0; colNum < header.length; colNum++){
+                    if(header[colNum] !== ""  && downloadedChartData[row][colNum] !== ""){
+                        var tempInfo;
+                        if(colNum == 10){
+                            tempInfo = document.createElement("IMG");
+                            let imgSrc = "https://drive.google.com/uc?export=download&id=" + downloadedChartData[row][10];
+                            tempInfo.setAttribute("src", imgSrc);
+                            tempInfo.setAttribute("width", "200");
+                            tempInfo.setAttribute("height", "200");
+                        }else if (colNum != colorCol && !timeCol.includes(colNum) ){
+                            tempInfo = document.createElement('span');
+                            tempInfo.innerHTML = `${header[colNum]}: ` + downloadedChartData[row][colNum];
+                        }
+
+                        if (tempInfo){
+                            optional_info.appendChild(tempInfo);
+                            //console.log (tempInfo);
+                        }
+                    }
+                }
+                staffDetailsShown = true;
+            });
+
+            var infoClose1 = document.getElementById('infoClose1');
+
+            infoClose1.addEventListener('click', () => {
+                mainContent2.style.display = 'none';
+                mask.style.display = 'none';
+                staffDetailsShown = false;
+                optional_info.innerHTML = ""; // Clear the infor in the pop-up to avoid repetition
+            });
+
+            var loginTitle = document.getElementById('title');
+
+            loginTitle.addEventListener('mousedown', (e) => {
+                var x = e.pageX - mainContent2.offsetLeft;
+                var y = e.pageY - mainContent2.offsetTop;
+
+                document.addEventListener('mousemove', move);
+
+                function move(e) {
+                    mainContent2.style.left = e.pageX - x + 'px';
+                    mainContent2.style.top = e.pageY - y + 'px';
+                }
+
+                document.addEventListener('mouseup', () => {
+                    document.removeEventListener('mousemove', move);
+                });
+            });
+        }
+        //********************************************************************************
+
+        /**************************************************************************************/
+        /***This fucntion add a listener to expand button, allow it collapse child nodes***/
+        /**Due to the disable of expand button, this function is no longer being used**/
+        /**Author: Zihe Peter Wang
+         * Editor: Zihe Peter Wang
+         * **/
+        google.visualization.events.addListener(chart, 'select', function () {
+            /***disable the emphasis***/
+            var selection = chart.getSelection();
+            var row = selection[0].row;
+            //console.log(row); //use to see node's row number
+            chart.setSelection([]);
+            var button = 'button.expand';
+            $(button).unbind('click');
+            $(button).bind('click', function () {
+                /***get a list of index of collapsed nodes***/
+                var expanded = chart.getCollapsedNodes();
+                /***************************************************/
+                //disable the button switch
+                /***Change + to - or opposite***/
+                /*                var temp;
+                if (this.innerHTML == '+'){
+                temp = buttonCollapse;
+                }
+                else{
+                temp = buttonExpand;
+                }
+
+                let newContent = nodeContentBegin + '<div class = \'contents\'>' + datatable.getValue(row, 0) + ' <br> ' + downloadedChartData[row][2] + '</div>' + temp + buttonInfor + nodeContentEnd;
+                datatable.setFormattedValue(row, 0, newContent);
+
+                chart.draw(datatable, option);*/
+                /***************************************************/
+
+                /**if collapsed then change to not collapsed, otherwise change to collapsed**/
+                var expand = expanded.indexOf(row) == -1;
+                chart.collapse(row, expand);
+                chart.setSelection();
+            });
+            /********************************************************/
+            /**click to show detailed info**/
+            var button = 'button.info';
+            popUpWindow(button, row);
+            /******************************************************/
+        });
+        /**************************************************************************************/
+
+        /**************************************************************************************/
+        /**Collapse the second layer, now disabled**/
+        /**Author: Zihe Peter Wang**/
+        /*      //console.log('testing noChildAndGetCollapse');
+        let secondLayerNodes = chart.getChildrenIndexes(rootNode);
+
+        /!*buttonSwitch disabled*!/
+        /!*        for (let i = 0; i < secondLayerNodes.length; i++){
+        let newContent = nodeContentBegin + '<div class = \'contents\'>' + datatable.getValue(secondLayerNodes[i], 0) + ' <br> ' + downloadedChartData[secondLayerNodes[i]][2] + '</div>' + buttonExpand + buttonInfor + nodeContentEnd;
+        datatable.setFormattedValue(secondLayerNodes[i], 0, newContent);
+        }
+        chart.draw(datatable, option);*!/
+
+        for (let i = 0; i < secondLayerNodes.length; i++) {
+        chart.collapse(secondLayerNodes[i], true);
+        }*/
+        /**************************************************************************************/
+        /**call the function to resize the chart**/
+        if (search) resizeChart(1);
+        else resizeChart();
+    }
+
+    /**************************************************************************************/
+    /**Resize the chart**/
+    /**Author: Zihe Peter Wang
+     * Modified by Qi Long
+     * **/
+    function resizeChart(search) {
+        let domChart = document.getElementById('chart');
+        let offsetWidth = domChart.offsetWidth;
+        let scrollWidth = domChart.scrollWidth;
+        let offsetHeight = domChart.offsetHeight;
+        let scrollHeight = domChart.scrollHeight;
+        let proportionW = offsetWidth / scrollWidth;
+        let proportionH = offsetHeight / scrollHeight;
+        //console.log( 'offsetWidth'+ offsetWidth);
+        //console.log( 'proportionH'+ proportionH);
+        //console.log('proportionW'+proportionW);
+        
+        let theChart = document.querySelector('#chart');
+        //console.log(chart);
+        scale = proportionW * 1;
+        domChart.style.transform = 'scale(' + scale + ')';
+        offsetHeight = domChart.offsetHeight;
+        let containerHeight;
+        if (search) containerHeight = document.getElementById('chartContainer').offsetHeight;
+        else containerHeight = document.getElementById('mainContent').offsetHeight;
+        let top = (containerHeight - offsetHeight * scale) / 2;
+        if (top < 0) top = 0;
+        let viewPortHeight = document.documentElement.clientHeight;
+        top = top / viewPortHeight * 100;
+        domChart.style.top = top + 'vh';
+        //console.log(scale);
+    }
+
+    /**************************************************************************************/
+</script>

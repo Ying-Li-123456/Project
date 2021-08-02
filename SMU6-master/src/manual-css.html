@@ -1,0 +1,465 @@
+<style>
+    /**************** initialization ***************/
+    /**************** initialization ***************/
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #333333;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .clearfix::before,
+    .clearfix::after {
+        content: '';
+        display: table;
+    }
+
+    .clearfix::after {
+        clear: both;
+    }
+
+    /* for IE 5.5 - IE 7 */
+
+    .clearfix {
+        *zoom: 1;
+    }
+
+    .w {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    body {
+        background-color: #eeeeee;
+    }
+
+    /************************************************* set up page *********************************************/
+
+    /**************** page-wrapper *************/
+
+    .page-wrapper-set-up {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /**************** navigation ***********************/
+    div.nav{
+        display: flex;
+        flex-direction: row;
+    }
+    div.nav ul{
+        min-width: 1150px;
+        list-style-type:none;
+        margin-top:10px;
+        padding:0;
+        overflow:hidden;
+    }
+    div.nav ul div.dropDown{
+        float:left;
+        width:25%;
+        overflow: hidden;
+    }
+
+    div.nav ul div.dropDown div.dropDownBtn{
+        width:100%;
+        font-weight:bold;
+        cursor: context-menu;
+        border: none;
+        outline: none;
+        color:#FFFFFF;
+        background-color:#4f9d37;
+        text-align:center;
+        padding:4px;
+        text-decoration:none;
+        opacity:0.95;
+    }
+    div.dropDownBtn i{
+        color: white;
+    }
+    div.dropDownMenu {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 287.5px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    div.dropDownMenu a{
+        color: #FFFFFF;
+        font-weight:bold;
+        padding:4px;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+    }
+    div.dropDown:hover div.dropDownBtn
+    {
+        background-color:#4f9d37;
+        opacity:0.75;
+    }
+    div.dropDown:hover div.dropDownMenu {
+        display: block;
+    }
+
+    div.dropDownMenu a:hover{
+        background-color:#4f9d37;
+        opacity:0.75;
+    }
+
+    div.nav ul li{
+        float:left;
+        width:25%;
+    }
+
+    div.nav ul a:link,a:visited
+    {
+        display:block;
+        width:100%;
+        font-weight:bold;
+        color:#FFFFFF;
+        background-color:#4f9d37;
+        text-align:center;
+        padding:4px;
+        text-decoration:none;
+        opacity:0.95;
+    }
+
+    div.nav ul a:hover,a:active
+    {
+        background-color:#4f9d37;
+        opacity:0.75;
+    }
+
+    /*************** main-header *************/
+
+    .topSet{
+        position:fixed;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: #eeeeee;
+    }
+
+    .mainHeader {
+        min-width: 1200px;
+    }
+
+    .mainHeader > img {
+        width: 170px;
+        height: 100px;
+        float: left;
+    }
+    .mainHeader > #header {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        margin-left: 110px;
+        margin-top: 20px;
+        color: #4f9d37;
+        font-size: 43px;
+        float: left;
+    }
+
+    /************** navigation *************/
+
+
+    .site-nav ul {
+        min-width: 1200px;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .site-nav ul li {
+        float: left;
+    }
+
+    .site-nav ul a {
+        float: left;
+        width: 300px;
+        height: 35px;
+        opacity: 0.95;
+        line-height: 35px;
+        background-color: #4f9d37;
+        text-align: center;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 530;
+    }
+
+    .site-nav ul a:hover {
+        background-color: #4f9d37;
+        opacity: 0.75;
+    }
+
+    /**************** main  ***********************/
+    .main strong {
+        display: inline-block;
+        padding: 5px;
+        background-color: #f0f0f0;
+    }
+
+    .main i {
+        font-weight: bold;
+    }
+
+    /***************** sub-nav ********************/
+
+
+    .sub-nav {
+        position: fixed;
+        margin-top: 10px;
+        width: 200px;
+        height: 2000px;
+    }
+
+    .sub-nav ul li:first-child {
+        margin-top: 10px;
+    }
+
+    .sub-nav ul li a:hover {
+        background-color: #4f9d37;
+        color: #fff;
+    }
+
+    .sub-nav ul li a {
+        height: 40px;
+        width: 100%;
+        display: block;
+        padding-left: 8px;
+        line-height: 40px;
+        font-size: 20px;
+        color: #4f9d37;
+    }
+
+    /************** content ******************/
+
+    .content {
+        margin-top: 10px;
+        /* text-align: center; */
+        width: 960px;
+        height: 2000px;
+    }
+
+    .content a {
+        color: #4f9d37;
+    }
+
+    .content img {
+        height: 400px;
+        display: inline-block;
+        margin-left: 60px;
+        margin-bottom: 10px;
+    }
+
+    .content h3 {
+        font-size: 25px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: 530;
+    }
+
+    .content p {
+        margin-bottom: 20px;
+    }
+
+    /************ requirements *************/
+
+    /************** import ***************/
+
+    .import #create-script {
+        width: 600px;
+        height: 260px;
+    }
+
+    /**************** deploy ***************/
+
+    .deploy #deploy1 {
+        width: 900px;
+        height: 400px;
+    }
+
+    .deploy #deploy4,
+    .deploy #deploy3 {
+        display: block;
+        margin-left: 180px;
+    }
+
+    /****************** update-config *********/
+
+    .update-config .config-deploy {
+        display: block;
+        margin-left: 180px;
+    }
+
+    .update-config .config-sheet {
+        width: 800px;
+        height: 300px;
+    }
+
+    .update-config .config-sheet-extra {
+        width: 780px;
+        height: 350px;
+    }
+
+    /*************   Format of spreadsheet  ****************/
+
+    .spreadsheet-format h4 {
+        margin-bottom: 20px;
+    }
+
+    .spreadsheet-format table {
+        /* min-width: 800px;
+        min-height: 300px; */
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    .spreadsheet-format table td,
+    th {
+        border: 1px solid #000;
+    }
+
+    .spreadsheet-format table tr,
+    ht {
+        border: 1px solid #000;
+    }
+
+    .spreadsheet-format table thead tr td:first-child {
+        padding: 5px;
+        width: 60px;
+        font-weight: 700;
+    }
+
+    .spreadsheet-format table thead tr td:nth-child(2) {
+        width: 100px;
+        padding: 5px;
+        font-weight: 700;
+    }
+
+    .spreadsheet-format table thead tr td:nth-child(3) {
+        width: 300px;
+        padding: 5px;
+        font-weight: 700;
+    }
+
+    .spreadsheet-format table tbody tr td {
+        padding: 5px;
+    }
+
+    .spreadsheet-format table tbody tr td:first-child {
+        width: 60px;
+    }
+
+    .spreadsheet-format table tbody tr td:nth-child(2) {
+        width: 100px;
+    }
+
+    .spreadsheet-format table tbody tr td:nth-child(3) {
+        width: 300px;
+    }
+
+    .spreadsheet-format img {
+        width: 1000px;
+        height: 195px;
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+
+    /************************************************* chart page *********************************************/
+    .page-wrapper-chart {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img#chart1 {
+        width: 900px;
+        height: 169px;
+        margin-left: 0px;
+    }
+
+    .page-wrapper-chart .content #application-guide img {
+        width: 900px;
+        height: 500px;
+        margin-left: 0px;
+    }
+    .update-config #img-adj {
+        width: 600px;
+        height: 250px;
+    }
+    /************************************************* report page *********************************************/
+
+    .page-wrapper-report {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page-wrapper-report .content #navigation img {
+        width: 900px;
+        height: 169px;
+        margin-left: 0px;
+    }
+
+    img#report2 {
+        width: 950px;
+        height: 400px;
+        margin-left: 0px;
+    }
+
+    .page-wrapper-report .content #generateReport ul {
+        margin-bottom: 10px;
+    }
+
+    .page-wrapper-report .content #generateReport ul li {
+        margin: 3px 0px;
+    }
+
+    img#report3 {
+        width: 950px;
+        height: 700px;
+        margin-left: 0px;
+    }
+
+    img#printBtnImg {
+        width: 950px;
+        height: 260px;
+        margin-left: 0px;
+    }
+    img#exportBtnImg {
+        width: 950px;
+        height: 260px;
+        margin-left: 0px;
+    }
+    .page-wrapper-report .content #generateReport #printOrDownloadReport #printImg {
+        width: 950px;
+        height: 650px;
+        margin-left: 0px;
+    }
+    img.exportImg{
+        width: 800px;
+        height: auto;
+        margin-left: 0px;
+    }
+    img#search5 {
+        margin-left: 0px;
+        width: 800px;
+        height: 250px;
+    }
+</style>

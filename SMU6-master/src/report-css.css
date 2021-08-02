@@ -1,0 +1,38 @@
+body {
+  background-color: #eeeeee;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 40px;
+}
+
+h1 {
+  color: #4f9d37;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+h4 {
+  color: #4caf50;
+  margin-left: 50px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left: 100px;
+}
+
+.button1 {
+  background-color: #4caf50;
+} /* Green */
+.button2 {
+  background-color: #008cba;
+} /* Blue */

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMU6-Documentation</title>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+          rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <base target="_top" />
+  <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous"
+  />
+  <?!= include("manual-css"); ?>
+</head>
+<body>
+
+
+<div class="page-wrapper-set-up w">
+  <div class = "topSet">
+    <div class="mainHeader">
+      <!-- Display the image of the company logo -->
+      <img
+              src="https://www.maptek.com/images/core/Maptek_Logo_OpenGraph_360x200.png"
+              alt="Maptek"
+              usemap="#mymap"
+      />
+
+      <!-- Link the company logo to company website -->
+
+      <map name="mymap">
+        <area
+                href="https://www.maptek.com/"
+                target="_blank"
+                shape="default"
+                alt="Maptek"
+        />
+      </map>
+
+      <h1 id="header" class="demo_class">User Manual - Organization Chart</h1>
+    </div>
+    <!-- navigation -->
+    <div class = "nav">
+      <ul>
+        <li><a href="<?=url?>"> Organizational Chart</a></li>
+        <li><a href="<?=url?>?v=search"> Search Staff Information </a></li>
+        <li><a href="<?=url?>?v=report">Generate Report</a></li>
+        <div class = "dropDown">
+          <div class = "dropDownBtn">User Manual
+            <i class="fa fa-caret-down"></i>
+          </div>
+          <div class="dropDownMenu">
+            <a href="<?=url?>?v=manualChart">Organization Chart</a>
+            <a href="<?=url?>?v=manualSearch">Search Staff Information</a>
+            <a href="<?=url?>?v=manualReport">Generate Report</a>
+            <a href="<?=url?>?v=manual">Set Up</a>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <!-- main -->
+
+  <div class="main w">
+    <!-- sub nav -->
+    <div class="sub-nav fl">
+      <ul>
+        <li><a href="#overview" target = "_self">Overview</a></li>
+        <li>
+          <a href="#navigation" target = "_self">Navigation </a>
+        </li>
+        <li><a href="#application-guide" target = "_self">Application Guide </a></li>
+      </ul>
+    </div>
+
+    <!-- content -->
+
+    <div class="content fr">
+
+      <div class = "marks" id="overview">
+        <h3>Overview</h3>
+
+        <p>
+          This page will provide an organization chart showing the employee
+          information.
+        </p>
+      </div>
+
+      <div id="navigation" class = "marks">
+        <h3>Navigation</h3>
+
+        <p>
+          Click <strong>Organization Chart</strong> button on the top
+          navigation bar to go to this section.
+        </p>
+
+        <img src="https://drive.google.com/uc?export=download&id=1-1QlwHv7lyT7lhNWv83tbkDtIMANs6xV" alt="" id = "chart1" /> <!--chart1.png-->
+      </div>
+
+      <div id="application-guide" class = "marks">
+        <h3>Application Guide</h3>
+
+        <p>
+          Regarding the bottom of the <strong>zoom in</strong> and
+          <strong>zoom out</strong>
+          Click the button of the <strong>zoom in</strong> is to zoom in the
+          organization chart. The function of the
+          <strong>zoom out</strong> button is that when clicking the button,
+          the size of organization chart will be reduced.
+        </p>
+
+        <img src="https://drive.google.com/uc?export=download&id=1e-Tc7JcDNF9HtAuZpsnE9ph5-SrepZCR" alt="" /> <!--chart2.png-->
+
+        <p>
+          This is normal size website above, when clicking
+          <strong>zoom in</strong>, the organization chart will be larger:
+        </p>
+        <img src="https://drive.google.com/uc?export=download&id=1xWuQhBoKoYo7cpdN3ISs4WKouUgpZTNV" alt="" /><!--chart3.png-->
+
+        <p>
+          when clicking the button <strong>zoom out</strong>, the size of
+          organization chart will be reduced:
+        </p>
+        <img src="https://drive.google.com/uc?export=download&id=1Ai0IW7deawPzy6pYkRcpMoXbDUoQ_paR" alt="" /><!--chart4.png-->
+
+        <p>
+          In organization Chart, the membership information of the company
+          is displayed as Node of the chart. When the mouse moves over each
+          node, the member information represented by each node is
+          displayed.
+        </p>
+
+        <img src="https://drive.google.com/uc?export=download&id=1h1b8Bj8r0c2b4qgFrxflvvSHzs1K3i-8" alt="" /><!--chart5.png-->
+
+        <p>
+          by pressing the <strong>...</strong> button, a window displayed
+          the detailed information of the employee will be popped out.
+          further detailed of the info please refer to spreadsheets.
+        </p>
+        <img src="https://drive.google.com/uc?export=download&id=1xDsZvn4aTYWfXCdfCAMCBCFshmckqx9u" alt="" /><!--chart6.png-->
+        <p>
+          Each department uses a different colour to display on the chart.
+          People in the same department use the same colour to represent.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+></script>
+<script type = "text/javascript">
+  /**this script is to set the fixed margin top of the div elements
+   * author: Peter
+   * **/
+          //set offset to the document
+  let h = document.getElementsByClassName('topSet')[0].clientHeight;
+  console.log (h);
+  document.getElementsByClassName('main')[0].style.marginTop = h + "px";
+
+  //set offset to each hash jump div
+  let offsetHash = document.head.appendChild(document.createElement("style"));
+  offsetHash.innerHTML = "div.marks::before{ display: block;content: \" \";visibility: hidden;pointer-events:" +
+          " none;height: " + h + "px;margin-top:-" + h + "px;}";
+
+
+</script>
+</html>

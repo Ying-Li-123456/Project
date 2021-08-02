@@ -1,0 +1,278 @@
+<script>
+  /**global variable**/
+  var search_result;
+  var search_department = 'All';
+  var search_name = '';
+  var search_location = 'All';
+  var search_job_title = 'All';
+
+  $(function () {
+    var department = 0;
+    var name = 1;
+    var job_title = 2;
+    var supervisor = 3;
+    var location = 4;
+    var email = 5;
+    var phone = 6;
+    var colour = 7;
+    var staff_id = 8;
+    var spv_id = 9;
+
+    var all_data = null;
+
+    //Keep track of mouse position
+    $(document).mousemove(function (event) {
+      mousex = event.pageX + 20;
+      mousey = event.pageY + 20;
+    });
+
+    /**Added by Eric: This function will replace all the content in results section with the content of data variable
+     * Modified by Peter & Qi Long: Generate org chart according to search results
+     * **/
+    function render_results(data) {
+      //each update the search result to variable search_result
+      search_result = data;
+
+      //Clear all the content first
+      $('#search_results').empty();
+
+      $('#search_results').append(`
+            <thead>
+            <tr>
+                <th>Department</th>
+                <th>Name</th>
+                <th>Job Title</th>
+                <th>Supervisor</th>
+                <th>Office Location</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Staff ID</th>
+            </tr>
+            </thead>
+            <tbody>
+        `);
+
+      for (var i = 0; i < data.length; ++i) {
+        $('#search_results').append(`
+                <tr>
+                    <td id="${'department_' + data[i][staff_id]}">${
+          data[i][department]
+        }</td>
+                    <td id="${'name_' + data[i][staff_id]}">${
+          data[i][name]
+        }</td>
+                    <td>${data[i][job_title]}</td>
+                    <td>${data[i][supervisor]}</td>
+                    <td id="${'location_' + data[i][staff_id]}">${
+          data[i][location]
+        }</td>
+                    <td>${data[i][email]}</td>
+                    <td>${data[i][phone]}</td>
+                    <td>${data[i][staff_id]}</td>
+                </tr>
+            `);
+      }
+
+      $('#search_results').append(`</tbody>`);
+    }
+
+    //Added by Eric: Get all the data at the beginning
+    google.script.run
+      .withSuccessHandler((data) => {
+        header = data[0];
+        data.shift();
+        all_data = data;
+        render_results(data);
+        //show the search section after the result shows up
+        $('.search-section').show();
+      })
+      .chartsData();
+
+    //Added by Eric: Handle search events
+    $('#search_name').on('input', function () {
+      search_name = $(this).val().toLowerCase();
+      search_update();
+    });
+    $('#search_department').on('change', function () {
+      search_department = $(this).find(':selected').val();
+      search_update();
+    });
+    $('#search_location').on('change', function () {
+      search_location = $(this).find(':selected').val();
+      search_update();
+    });
+    $('#search_job_title').on('change', function () {
+      search_job_title = $(this).find(':selected').val();
+      search_update();
+    });
+
+    //Added by Eric: Perform search update
+    function search_update() {
+      var data = all_data;
+      //By Eric: It must go first otherwise it can only find supervisor in the same building
+      if (search_job_title != 'All') {
+        data = data.filter((x, ind, arr) => {
+          var supervisor_name = x[supervisor];
+          var supervisor_obj = arr.find((y) => {
+            return y[name] == supervisor_name;
+          });
+          if (supervisor_obj == undefined) {
+            return false;
+          }
+          return supervisor_obj[job_title] == search_job_title;
+        });
+      }
+
+      if (search_name.length > 0) {
+        data = data.filter((x) => {
+          return x[name].toLowerCase().includes(search_name);
+        });
+      }
+      if (search_department != 'All') {
+        data = data.filter((x) => {
+          console.log(x[department]);
+          return x[department] == search_department;
+        });
+      }
+      if (search_location != 'All') {
+        data = data.filter((x) => {
+          return x[location] == search_location;
+        });
+      }
+      render_results(data);
+    }
+    chartPopUpWin();
+  });
+
+  /*********** added by Qi Long pop up window for department chart
+   * Edited by Peter
+   * *********/
+  function chartPopUpWin() {
+    let chartBtn = document.getElementById('chartBtn');
+    let mask = document.getElementById('maskChart');
+    let chartDetail = document.getElementById('chartDetail');
+    let chartClose = document.getElementById('chartClose');
+
+    chartBtn.addEventListener('click', () => {
+      mask.style.display = 'block';
+      chartDetail.style.display = 'block';
+      chartGeneration();
+    });
+
+    chartClose.addEventListener('click', () => {
+      chartDetail.style.display = 'none';
+      mask.style.display = 'none';
+      flag = false;
+      $('.zoomBtn').hide(); //hide the zoom btn
+    });
+
+    let chartTitle = document.getElementById('titleChart');
+
+    chartTitle.addEventListener('mousedown', (e) => {
+      let x = e.pageX - chartDetail.offsetLeft;
+      let y = e.pageY - chartDetail.offsetTop;
+
+      document.addEventListener('mousemove', move);
+
+      function move(e) {
+        chartDetail.style.left = e.pageX - x + 'px';
+        chartDetail.style.top = e.pageY - y + 'px';
+      }
+
+      document.addEventListener('mouseup', () => {
+        document.removeEventListener('mousemove', move);
+      });
+    });
+  }
+
+  function chartGeneration() {
+    //Load google chart
+    google.charts.load('current', { packages: ['orgchart'] });
+    google.charts.setOnLoadCallback(drawFunc);
+  }
+
+  function drawFunc() {
+    search_result.unshift(header);
+    drawChart(search_result, [
+      search_name,
+      search_department,
+      search_location,
+      search_job_title,
+    ]);
+    $('.zoomBtn').show(); //show the zoom btns
+  }
+
+  /**************************************************************************************/
+  /**click function to control the zoom in and zoom out of organization chart**/
+  /**Author: Eric Ma**/
+  /** Edited by Qi Long **/
+  let tmpScale;
+  let flag = false;
+
+  function scrollXZoomAdjust(current_scrollX_left, ratio) {
+    var current_scrollX_middle =
+      current_scrollX_left + $('#chartContainer').width() / 2;
+    var current_scrollX_right =
+      current_scrollX_left + $('#chartContainer').width();
+    var updated_scrollX_middle = current_scrollX_middle * ratio;
+    var updated_scrollX_left =
+      updated_scrollX_middle - $('#chartContainer').width() / 2;
+    var max_scrollX =
+      $('#chartContainer').get(0).scrollWidth -
+      $('#chartContainer').get(0).clientWidth;
+    if (updated_scrollX_left < 0) updated_scrollX_left = 0;
+    // In some circumstances, max_scrollX may be 1px off
+    if (updated_scrollX_left > max_scrollX - 1) {
+      updated_scrollX_left = max_scrollX - 1;
+    }
+    $('#chartContainer').scrollLeft(updated_scrollX_left);
+  }
+
+  $('button#zoom_in').click(function () {
+    if (!flag) {
+      tmpScale = scale;
+      flag = true;
+    }
+    var current_scrollX_left = $('#chartContainer').scrollLeft();
+    var ratio = (scale + 0.1) / scale;
+    scale += 0.1;
+    console.log(scale);
+    $('#chartContainer').scrollLeft(0);
+    $('#chart').css('transform', 'scale(' + scale + ')');
+      setTop();
+    scrollXZoomAdjust(current_scrollX_left, ratio);
+  });
+
+  $('button#zoom_out').click(function () {
+    if (!flag) {
+      tmpScale = scale;
+      flag = true;
+    }
+    var current_scrollX_left = $('#chartContainer').scrollLeft();
+    var ratio = (scale - 0.1) / scale;
+    if (scale - 0.1 > tmpScale && scale - 0.1 > 0) {
+      scale -= 0.1;
+    }
+    $('#chartContainer').scrollLeft(0);
+
+    console.log(scale);
+
+    $('#chart').css('transform', 'scale(' + scale + ')');
+      setTop();
+    scrollXZoomAdjust(current_scrollX_left, ratio);
+  });
+
+  /**This function is use to calculate the distance between the chart and the top of the container, when zoom in/out
+   * created by Peter
+   * **/
+  function setTop(){
+      let domChart = document.getElementById('chart');
+      let offsetHeight = domChart.offsetHeight;
+      let containerHeight = document.getElementById('chartContainer').offsetHeight;
+      let top = (containerHeight - offsetHeight * scale) / 2;
+      if (top < 0) top = 0;
+      let viewPortHeight = document.documentElement.clientHeight;
+      top = top / viewPortHeight * 100;
+      domChart.style.top = top + 'vh';
+  }
+</script>
